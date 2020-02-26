@@ -21,5 +21,5 @@
   (require 'init-generic)
   (require 'init-utils)
   (require 'init-git)
-
+  (require 'init-theme)
   (setq gc-cons-threshold normal-gc-cons-threshold))

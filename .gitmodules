@@ -40,3 +40,6 @@
 [submodule "site-lisp/fullframe"]
 	path = site-lisp/fullframe
 	url = https://github.com/tomterl/fullframe.git
+[submodule "site-lisp/emacs-doom-themes"]
+	path = site-lisp/emacs-doom-themes
+	url = https://github.com/hlissner/emacs-doom-themes.git
