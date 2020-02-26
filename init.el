@@ -22,4 +22,11 @@
   (require 'init-utils)
   (require 'init-git)
   (require 'init-theme)
+  (add-hook 'after-init-hook
+          (lambda ()
+            (progn
+              (electric-pair-mode t)
+              (show-paren-mode t)
+              (toggle-frame-fullscreen))))
+
   (setq gc-cons-threshold normal-gc-cons-threshold))
