@@ -18,12 +18,21 @@
        (normal-gc-cons-threshold (* 64 1024 1024)))
   (setq gc-cons-threshold most-positive-fixnum)
 
+  ;;----------------------------------------------------------------------------
+  ;; Basic Config
+  ;;----------------------------------------------------------------------------
   (require 'init-generic)
   (require 'init-utils)
   (require 'init-git)
   (require 'init-theme)
   (require 'init-evil)
-  
+  (require 'init-org)
+
+
+  ;;----------------------------------------------------------------------------
+  ;; Advanced Config
+  ;;----------------------------------------------------------------------------
+
   (add-hook 'after-init-hook
           (lambda ()
             (progn
