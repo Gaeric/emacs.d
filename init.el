@@ -22,6 +22,8 @@
   (require 'init-utils)
   (require 'init-git)
   (require 'init-theme)
+  (require 'init-evil)
+  
   (add-hook 'after-init-hook
           (lambda ()
             (progn
