@@ -16,8 +16,6 @@
 (local-require 'git-timemachine)
 
 ;; magit require with-edtior, libgit, transient and dash
-;; (load "~/.emacs.d/site-lisp/with-editor/with-editor-autoloads.el")
-;; (load "~/.emacs.d/site-lisp/libgit2/libgit-autoloads.el")
 (load "~/.emacs.d/site-lisp/magit/lisp/magit-autoloads.el")
 
 (setq-default magit-diff-refine-hunk t) ;show fine diff for current diff hunk only.
