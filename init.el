@@ -19,5 +19,6 @@
   (setq gc-cons-threshold most-positive-fixnum)
 
   (require 'init-generic)
+  (require 'init-utils)
 
   (setq gc-cons-threshold normal-gc-cons-threshold))
