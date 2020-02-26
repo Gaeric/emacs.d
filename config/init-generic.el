@@ -43,7 +43,7 @@
 (eval-when-compile (require 'cl))
 (if (fboundp 'normal-top-level-add-to-load-path)
     (let* ((site-lisp-dir "~/.emacs.d/site-lisp/")
-	   (default-directory site-lisp-dir))
+	  (default-directory site-lisp-dir))
       (progn
 	(setq load-path
 	      (append

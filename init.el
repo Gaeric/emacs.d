@@ -20,5 +20,6 @@
 
   (require 'init-generic)
   (require 'init-utils)
+  (require 'init-git)
 
   (setq gc-cons-threshold normal-gc-cons-threshold))

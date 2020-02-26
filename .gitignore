@@ -10,5 +10,6 @@ smex-items
 snippets
 elpy
 eshell
-transient
 bookmarks
+/transient
+tramp
