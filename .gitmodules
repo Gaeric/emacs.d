@@ -46,3 +46,9 @@
 [submodule "site-lisp/evil"]
 	path = site-lisp/evil
 	url = https://github.com/emacs-evil/evil.git
+[submodule "site-lisp/general"]
+	path = site-lisp/general
+	url = https://github.com/noctuid/general.el.git
+[submodule "site-lisp/lim"]
+	path = site-lisp/lim
+	url = git@118.24.23.137:lim.git
