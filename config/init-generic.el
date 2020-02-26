@@ -38,6 +38,23 @@
 (fset 'yes-or-no-p 'y-or-n-p)          ;以 y/n代表 yes/no
 (set-face-attribute 'default nil :height 110) ;设置字体大小
 
+
+;; Set up `load-path'
+(eval-when-compile (require 'cl))
+(if (fboundp 'normal-top-level-add-to-load-path)
+    (let* ((site-lisp-dir "~/.emacs.d/site-lisp/")
+	   (default-directory site-lisp-dir))
+      (progn
+	(setq load-path
+	      (append
+	       (loop for dir in (directory-files site-lisp-dir)
+		     unless (string-match "^\\." dir)
+		     collecting (expand-file-name dir))
+	       load-path)))))
+
+
+(provide 'init-site-lisp)
+
 (provide 'init-generic)
 
 ;;; init-generic.el ends here
