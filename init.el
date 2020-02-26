@@ -27,7 +27,7 @@
   (require 'init-theme)
   (require 'init-evil)
   (require 'init-org)
-
+  (require 'init-lim)
 
   ;;----------------------------------------------------------------------------
   ;; Advanced Config
