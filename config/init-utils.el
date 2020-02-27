@@ -83,4 +83,34 @@
         (error "Cannot open tramp file")
       (browse-url (concat "file:// " file-name)))))
 
+;; -------------------------------------------------------------------
+;; Jump with pair
+;; -------------------------------------------------------------------
+(defun gaeric/up-list (&optional arg escape-strings no-syntax-crossing)
+  (interactive)
+  (ignore-errors (up-list arg escape-strings no-syntax-crossing)))
+
+(defun gaeric/backward-up-list (&optional arg escape-strings no-syntax-crossing)
+  (interactive)
+  (ignore-errors (backward-up-list arg escape-strings no-syntax-crossing)))
+
+
+;; -------------------------------------------------------------------
+;; swith to some special buffer
+;; -------------------------------------------------------------------
+(defun switch-to-scratch-buffer ()
+  "Switch to the `*scratch*' buffer."
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*")))
+
+(defun switch-to-message-buffer ()
+  "Switch to the `*Message*' buffer."
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*Messages*")))
+
+(defun open-init-file ()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+
 (provide 'init-utils)
