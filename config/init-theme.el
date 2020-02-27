@@ -1,4 +1,11 @@
 ;;; init-themes.el --- Defaults for themes -*- lexical-binding: t -*-
+;; Author:  Gaeric
+;; URL: https://github.com/Gaeric/emacs.d
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
+
 ;;; Code:
 
 (require 'doom-themes)

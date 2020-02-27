@@ -1,6 +1,6 @@
 ;; init-org.el --- org init -*- coding: utf-8; lexical-binding: t; -*-
-;; Author:  <lantian@ZERO>
-;; URL: https://github.com/syl20bnr/spacemacs
+;; Author:  Gaeric
+;; URL: https://github.com/Gaeric/emacs.d
 ;;
 ;; This file is not part of GNU Emacs.
 ;;

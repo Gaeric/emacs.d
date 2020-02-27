@@ -1,6 +1,6 @@
 ;; init-git.el --- Git SCM config -*- coding: utf-8; lexical-binding: t; -*-
 ;; Author:  <Gaeric>
-;; URL: https://github.com/Gaeric
+;; URL: https://github.com/Gaeric/.emacs.d
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
