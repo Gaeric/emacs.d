@@ -7,8 +7,10 @@
 ;; License: GPLv3
 
 
+;; -------------------------------------------------------------------
 ;; 加载位于site-lisp下的本地的软件包，pkg以子目录的形式存放于site-lisp目录下
 ;; 目录名与文件名相同
+;; -------------------------------------------------------------------
 (defmacro local-require (pkg)
   `(unless (featurep ,pkg)
      (load (expand-file-name
@@ -81,7 +83,7 @@
     (if (and (fboundp 'tramp-tramp-file-p)
              (tramp-tramp-file-p file-name))
         (error "Cannot open tramp file")
-      (browse-url (concat "file:// " file-name)))))
+      (browse-url (concat "file://" file-name)))))
 
 ;; -------------------------------------------------------------------
 ;; Jump with pair
