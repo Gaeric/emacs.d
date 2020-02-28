@@ -38,7 +38,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)          ;以 y/n代表 yes/no
 (set-face-attribute 'default nil :height 110) ;设置字体大小
 
-
 ;; Set up `load-path'
 (eval-when-compile (require 'cl))
 (if (fboundp 'normal-top-level-add-to-load-path)
@@ -52,8 +51,15 @@
 		     collecting (expand-file-name dir))
 	       load-path)))))
 
-
-(provide 'init-site-lisp)
+;;----------------------------------------------------------------------------
+;; make dired use the same buffer for viewing directory
+;; http://ergoemacs.org/emacs/emacs_dired_tips.html
+;;----------------------------------------------------------------------------
+(with-eval-after-load 'dired
+  ;; was dired-advertised-find-file
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+  ;; was dired-up-directory
+  (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file ".."))))
 
 (provide 'init-generic)
 
