@@ -13,9 +13,10 @@
 
 ;; git-timemachine need transient
 (load "~/.emacs.d/site-lisp/transient/lisp/transient-autoloads.el")
-(local-require 'git-timemachine)
+(require 'git-timemachine)
 
 ;; magit require with-edtior, libgit, transient and dash
+;; TODO: magit startup slowly
 (load "~/.emacs.d/site-lisp/magit/lisp/magit-autoloads.el")
 
 (setq-default magit-diff-refine-hunk t) ;show fine diff for current diff hunk only.
@@ -23,17 +24,18 @@
 (global-set-key (kbd "C-x M-g") 'magit-dispatch)
 
 
-(defun sanityinc/magit-or-vc-log-file (&optional prompt)
-  (inteactive "P")
-  (if (and (buffer-file-name)
-           (eq 'Git (vc-backend (buffer-file-name))))
-      (if prompt
-          (magit-log-buffer-file-popup)
-        (magit-log-buffer-file t))
-    (vc-print-log)))
+;; TODO: magit work with vc
+;; (defun sanityinc/magit-or-vc-log-file (&optional prompt)
+;;   (inteactive "P")
+;;   (if (and (buffer-file-name)
+;;            (eq 'Git (vc-backend (buffer-file-name))))
+;;       (if prompt
+;;           (magit-log-buffer-file-popup)
+;;         (magit-log-buffer-file t))
+;;     (vc-print-log)))
 
-(with-eval-after-load 'vc
-  (define-key vc-prefix-map (kbd "l") 'sanityinc/magit-or-vc-log-file))
+;; (with-eval-after-load 'vc
+;;   (define-key vc-prefix-map (kbd "l") 'sanityinc/magit-or-vc-log-file))
 
 (with-eval-after-load 'magit
   (define-key magit-status-mode-map (kbd "C-M-<up>") 'magit-section-up))
@@ -45,12 +47,14 @@
             (global-hl-todo-mode)
             (magit-todos-mode 1)))
 
+;; TODO:magit-todos ignore special dir
+
 ;; fullframe 
 (local-require 'fullframe)
 (with-eval-after-load 'magit
   (fullframe magit-status magit-mode-quit-window))
 
-(with-eval-after-load 'vc
-  (define-key vc-prefix-map (kbd "f") 'vc-git-grep))
+;; (with-eval-after-load 'vc
+;;   (define-key vc-prefix-map (kbd "f") 'vc-git-grep))
 
 (provide 'init-git)
