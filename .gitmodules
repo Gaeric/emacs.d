@@ -55,3 +55,21 @@
 [submodule "site-lisp/emacs-winum"]
 	path = site-lisp/emacs-winum
 	url = https://github.com/deb0ch/emacs-winum.git
+[submodule "site-lisp/evil-surround"]
+	path = site-lisp/evil-surround
+	url = https://github.com/emacs-evil/evil-surround.git
+[submodule "site-lisp/evil-visualstar"]
+	path = site-lisp/evil-visualstar
+	url = https://github.com/bling/evil-visualstar.git
+[submodule "site-lisp/evil-escape"]
+	path = site-lisp/evil-escape
+	url = https://github.com/syl20bnr/evil-escape.git
+[submodule "site-lisp/evil-exchange"]
+	path = site-lisp/evil-exchange
+	url = https://github.com/Dewdrops/evil-exchange.git
+[submodule "site-lisp/diminish"]
+	path = site-lisp/diminish
+	url = https://github.com/emacsmirror/diminish.git
+[submodule "site-lisp/emacs-htmlize"]
+	path = site-lisp/emacs-htmlize
+	url = https://github.com/hniksic/emacs-htmlize.git

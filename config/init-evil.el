@@ -6,11 +6,59 @@
 ;;
 ;;; License: GPLv3
 
-
+;;----------------------------------------------------------------------------
+;; evil-escape config
+;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
+;;----------------------------------------------------------------------------
 (local-require 'evil)
 (evil-mode 1)
+(setq evil-move-cursor-back t)
 (evil-declare-key 'normal org-mode-map
   (kbd "TAB") 'org-cycle)
+
+
+;;----------------------------------------------------------------------------
+;; evil-surround config
+;;----------------------------------------------------------------------------
+(local-require 'evil-surround)
+(global-evil-surround-mode 1)
+
+(defun evil-surround-emacs-lisp-mode-hook-setup ()
+  (push '(?\( . ("( " . ")")) evil-surround-pairs-alist)
+  (push '(?` . ("`" . "'")) evil-surround-pairs-alist))
+(add-hook 'emacs-lisp-mode-hook 'evil-surround-emacs-lisp-mode-hook-setup)
+
+(defun evil-surround-org-mode-hook-setup ()
+  (push '(93 . ("[[" . "]]")) evil-surround-pairs-alist) ; ]
+  (push '(?= . ("=" . "=")) evil-surround-pairs-alist)
+  (push '(?~ . ("~" . "~")) evil-surround-pairs-alist))
+(add-hook 'org-mode-hook 'evil-surround-org-mode-hook-setup)
+
+
+;;----------------------------------------------------------------------------
+;; evil-virualstar config
+;;----------------------------------------------------------------------------
+(local-require 'evil-visualstar)
+(global-evil-visualstar-mode 1)
+
+
+;; TODO: ffip
+
+
+;;----------------------------------------------------------------------------
+;; evil-escape config
+;; discard evil-escape
+;;----------------------------------------------------------------------------
+
+
+;;----------------------------------------------------------------------------
+;; evil-exchange config
+;;----------------------------------------------------------------------------
+(local-require 'evil-exchange)
+(evil-exchange-install)
+
+;; TODO: evil-nerd-comment
+
 
 (local-require 'general)
 (general-create-definer gaeric-space-leader-def
@@ -19,7 +67,7 @@
 
 (general-create-definer gaeric-comma-leader-def
   :prefix ","
-  :states '(nor visual))
+  :states '(normal visual))
 
 ;; Spaces keybinds for vanilla Emacs
 (gaeric-space-leader-def
