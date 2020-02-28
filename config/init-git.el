@@ -40,6 +40,10 @@
 
 ;; magit-todos
 (local-require 'magit-todos)
+(add-hook 'after-init-hook
+          (lambda ()
+            (global-hl-todo-mode)
+            (magit-todos-mode 1)))
 
 ;; fullframe 
 (local-require 'fullframe)
