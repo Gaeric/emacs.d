@@ -57,6 +57,7 @@
 ;;----------------------------------------------------------------------------
 (with-eval-after-load 'dired
   ;; was dired-advertised-find-file
+  (put 'dired-find-alternate-file 'disabled nil)
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
   ;; was dired-up-directory
   (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file ".."))))
