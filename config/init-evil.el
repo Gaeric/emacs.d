@@ -7,14 +7,78 @@
 ;;; License: GPLv3
 
 ;;----------------------------------------------------------------------------
-;; evil-escape config
+;; evil config
 ;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
 ;;----------------------------------------------------------------------------
 (local-require 'evil)
 (evil-mode 1)
 (setq evil-move-cursor-back t)
+
+
+(local-require 'general)
+(general-create-definer gaeric-space-leader-def
+  :prefix "SPC"
+  :states '(normal visual))
+
+(general-create-definer gaeric-comma-leader-def
+  :prefix ","
+  :states '(normal visual))
+
+
+;; As a general RULE, mode specific evil leader keys started
+;; with uppercased character or 'g' or special character except "=" and "-"
 (evil-declare-key 'normal org-mode-map
+  "$" 'org-end-of-line ; smarter behaviour on headlines etc.
+  "^" 'org-beginning-of-line ; ditto
   (kbd "TAB") 'org-cycle)
+
+
+;; {{ specify major mode uses Evil (vim) NORMAL state or EMACS original state.
+;; You may delete this setup to use Evil NORMAL state always.
+(dolist (p '((minibuffer-inactive-mode . emacs)
+             (calendar-mode . emacs)
+             (special-mode . emacs)
+             (grep-mode . emacs)
+             (Info-mode . emacs)
+             (term-mode . emacs)
+             (sdcv-mode . emacs)
+             (anaconda-nav-mode . emacs)
+             (log-edit-mode . emacs)
+             (vc-log-edit-mode . emacs)
+             (magit-log-edit-mode . emacs)
+             (erc-mode . emacs)
+             (neotree-mode . emacs)
+             (w3m-mode . emacs)
+             (gud-mode . emacs)
+             (help-mode . emacs)
+             (eshell-mode . emacs)
+             (shell-mode . emacs)
+             (xref--xref-buffer-mode . emacs)
+             ;;(message-mode . emacs)
+             (epa-key-list-mode . emacs)
+             (fundamental-mode . emacs)
+             (weibo-timeline-mode . emacs)
+             (weibo-post-mode . emacs)
+             (woman-mode . emacs)
+             (sr-mode . emacs)
+             (profiler-report-mode . emacs)
+             (dired-mode . emacs)
+             (compilation-mode . emacs)
+             (speedbar-mode . emacs)
+             (ivy-occur-mode . emacs)
+             (ffip-file-mode . emacs)
+             (ivy-occur-grep-mode . normal)
+             (messages-buffer-mode . normal)
+             (js2-error-buffer-mode . emacs)))
+  (evil-set-initial-state (car p) (cdr p)))
+;; }}
+
+
+;; Prefer Emacs way after pressing ":" in evil-mode
+(define-key evil-ex-completion-map (kbd "C-a") 'move-beginning-of-line)
+(define-key evil-ex-completion-map (kbd "C-b") 'backward-char)
+(define-key evil-ex-completion-map (kbd "M-p") 'previous-complete-history-element)
+(define-key evil-ex-completion-map (kbd "M-n") 'next-complete-history-element)
 
 
 ;;----------------------------------------------------------------------------
@@ -36,19 +100,14 @@
 
 
 ;;----------------------------------------------------------------------------
-;; evil-virualstar config
+;; evil-visualstar config
 ;;----------------------------------------------------------------------------
 (local-require 'evil-visualstar)
 (global-evil-visualstar-mode 1)
 
 
 ;; TODO: ffip
-
-
-;;----------------------------------------------------------------------------
-;; evil-escape config
-;; discard evil-escape
-;;----------------------------------------------------------------------------
+;; TODO: evil-matchit
 
 
 ;;----------------------------------------------------------------------------
@@ -62,7 +121,7 @@
 ;; evil-nerd-commenter config
 ;; @see https://github.com/redguardtoo/evil-nerd-commenter
 ;;----------------------------------------------------------------------------
-(local-require 'evil-nerd-commenter)
+(require 'evil-nerd-commenter)
 ;; Emacs key bindings
 (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-line)
 (gaeric-comma-leader-def
@@ -76,15 +135,6 @@
   "\\" 'evilnc-comment-operator ; if you prefer backslash key
   )
 
-
-(local-require 'general)
-(general-create-definer gaeric-space-leader-def
-  :prefix "SPC"
-  :states '(normal visual))
-
-(general-create-definer gaeric-comma-leader-def
-  :prefix ","
-  :states '(normal visual))
 
 ;; Spaces keybinds for vanilla Emacs
 (gaeric-space-leader-def
