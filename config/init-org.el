@@ -10,7 +10,6 @@
 ;;   (setq org-pomodoro-format "%s"))
 
 (with-eval-after-load 'org
-  (message "load org after org file")
   ;; ----------------------------------------------------------------------
   ;; 配置org-emphasis，优化org-mode中文体验
   ;; ----------------------------------------------------------------------
