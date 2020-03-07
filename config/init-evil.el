@@ -123,7 +123,8 @@
 ;;----------------------------------------------------------------------------
 (require 'evil-nerd-commenter)
 ;; Emacs key bindings
-(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-line)
+;; comment lines useful for normal mode
+;; (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
 (gaeric-comma-leader-def
   "ci" 'evilnc-comment-or-uncomment-lines
   "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
