@@ -63,33 +63,35 @@
   ;; org-src-edit时打开新窗口，完成后恢复布局
   (setq org-src-window-setup 'other-window)
 
+  ;; TODO: 待处理的事务
+  ;; STARTED: 事务进行中
+  ;; SUSPEND: 事务挂起
+  ;; CANCELLED: 已弃置处理的事务
+  ;; DONE: 已处理完成的事务
   (setq org-todo-keywords
         '((sequence
-           ;; TODO: 待处理的事务
-           ;; STARTED: 事务进行中
-           ;; SUSPEND: 事务挂起
-           ;; CANCELLED: 已弃置处理的事务
-           ;; DONE: 已处理完成的事务
            "TODO(t)" "STARTED(s!)" "SUSPEND(p@)" "|" "DONE(d@!)" "CANCELLED(c!@/!)")))
 
-  ;; Change task state to STARTED when clocking in
   (setq org-clock-in-switch-to-state "STARTED")
   (setq org-clock-out-switch-to-state "SUSPEND")
   
   (setq org-capture-templates
         '(("t" "Todo" entry
-           (file+headline "~/org/inbox.org" "Workspace")
+           (file+headline "~/org/gtd.org" "Workspace")
            "* TODO [#B] %?\n  %i\n")
           ("n" "notes" entry
            (file+headline "~/org/inbox.org" "notes")
            "* %?\n  %i\n %U")
           ("a" "Amusement" entry
-           (file+headline "~/org/gtd.org" "Amusement")
+           (file+headline "~/org/inbox.org" "Amusement")
            "* TODO [#C] %?\n  %i\n %U")
           ("e" "Excerpt" entry
            (file+headline "~/org/inbox.org" "Excerpt")
            "* %?"))))
 
+;; -------------------------------------------------------------------
+;; for blog static file
+;; -------------------------------------------------------------------
 (defvar gaeric-static-file-dir "")
 (defun gaeric-static-blog-change-link (path desc backend)
   "change link for static file"
@@ -104,6 +106,9 @@
                   (message "Skipping unmodified file %s" file-abs)
                 (copy-file file-abs file-new))
               (format "<img src=\"%s\" alt=\"%s\"/>" file-new file-new))))))
+
+;; /usr/share/emacs/28.0.50/lisp/org/ox-html.el
+;; 3117:      ((org-export-custom-protocol-maybe link desc 'html))
 
 
 (with-eval-after-load 'org-agenda
