@@ -51,6 +51,8 @@
 		     collecting (expand-file-name dir))
 	       load-path)))))
 
+;; narrow config
+(put 'narrow-to-region 'disabled nil)
 ;;----------------------------------------------------------------------------
 ;; make dired use the same buffer for viewing directory
 ;; http://ergoemacs.org/emacs/emacs_dired_tips.html
