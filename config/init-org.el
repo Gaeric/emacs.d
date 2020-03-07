@@ -60,12 +60,21 @@
            ;; :auto-sitemap t
            )))
 
+  ;; org-src-edit时打开新窗口，完成后恢复布局
+  (setq org-src-window-setup 'other-window)
+
   (setq org-todo-keywords
-        (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!/!)")
-                (sequence "WAITING(w@/!)" "SOMEDAY(S@/!)" "|" "CANCELLED(c@/!)" ))))
+        '((sequence
+           ;; TODO: 待处理的事务
+           ;; STARTED: 事务进行中
+           ;; SUSPEND: 事务挂起
+           ;; CANCELLED: 已弃置处理的事务
+           ;; DONE: 已处理完成的事务
+           "TODO(t)" "STARTED(s!)" "SUSPEND(p@)" "|" "DONE(d@!)" "CANCELLED(c!@/!)")))
 
   ;; Change task state to STARTED when clocking in
   (setq org-clock-in-switch-to-state "STARTED")
+  (setq org-clock-out-switch-to-state "SUSPEND")
   
   (setq org-capture-templates
         '(("t" "Todo" entry
@@ -74,9 +83,6 @@
           ("n" "notes" entry
            (file+headline "~/org/inbox.org" "notes")
            "* %?\n  %i\n %U")
-          ("l" "links" entry
-           (file+headline "~/org/inbox.org" "Links")
-           "* TODO [#C] %?\n  %i\n %a \n %U")
           ("a" "Amusement" entry
            (file+headline "~/org/gtd.org" "Amusement")
            "* TODO [#C] %?\n  %i\n %U")
@@ -84,13 +90,12 @@
            (file+headline "~/org/inbox.org" "Excerpt")
            "* %?"))))
 
-
 (defvar gaeric-static-file-dir "")
 (defun gaeric-static-blog-change-link (path desc backend)
   "change link for static file"
   (if (eq backend 'html)
       (unless desc
-        (message "baspath is %s" (expand-file-name path))
+        (message "abspath is %s" (expand-file-name path))
         (if (file-exists-p path)
             (let* ((file-abs (expand-file-name path))
                    (file-md5 (substring-no-properties (md5 file-abs) 0 8))
