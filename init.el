@@ -33,6 +33,7 @@
   ;; Advanced Config
   ;;----------------------------------------------------------------------------
   (require 'init-winum)
+  (require 'init-ivy)
 
   (add-hook 'after-init-hook
           (lambda ()

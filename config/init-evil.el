@@ -146,6 +146,7 @@
   "bd"    'kill-this-buffer
   "bs"    'switch-to-scratch-buffer
   "bm"    'switch-to-message-buffer
+  "bb"    'switch-to-buffer
   "fed"   'open-init-file
   "w/"    'split-window-right
   "w-"    'split-window-below

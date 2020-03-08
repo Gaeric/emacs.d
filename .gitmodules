@@ -73,3 +73,15 @@
 [submodule "site-lisp/evil-nerd-commenter"]
 	path = site-lisp/evil-nerd-commenter
 	url = https://github.com/redguardtoo/evil-nerd-commenter.git
+[submodule "site-lisp/swiper"]
+	path = site-lisp/swiper
+	url = https://github.com/abo-abo/swiper.git
+[submodule "site-lisp/flx"]
+	path = site-lisp/flx
+	url = https://github.com/lewang/flx.git
+[submodule "site-lisp/smex"]
+	path = site-lisp/smex
+	url = https://github.com/nonsequitur/smex.git
+[submodule "site-lisp/Emacs-wgrep"]
+	path = site-lisp/Emacs-wgrep
+	url = https://github.com/mhayashi1120/Emacs-wgrep.git
