@@ -87,6 +87,7 @@
 
 ;; -------------------------------------------------------------------
 ;; Jump with pair
+;; TODO gaeric/up-list can't jump for ""
 ;; -------------------------------------------------------------------
 (defun gaeric/up-list (&optional arg escape-strings no-syntax-crossing)
   (interactive)
@@ -96,6 +97,8 @@
   (interactive)
   (ignore-errors (backward-up-list arg escape-strings no-syntax-crossing)))
 
+
+(global-set-key (kbd "M-n") 'up-list)
 
 ;; -------------------------------------------------------------------
 ;; swith to some special buffer
