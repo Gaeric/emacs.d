@@ -33,6 +33,9 @@
    smex-save-file (expand-file-name ".smex-items" user-emacs-directory)
    counsel-mode-override-describe-bindings t)
 
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-s") 'swiper)
+
   (gaeric-space-leader-def
     ;; Ivy-based interface to standard commands
     "<SPC>" 'counsel-M-x
