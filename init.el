@@ -34,6 +34,8 @@
   ;;----------------------------------------------------------------------------
   (require 'init-winum)
   (require 'init-ivy)
+  (require 'init-company)
+  (require 'init-yasnippet)
 
   (add-hook 'after-init-hook
           (lambda ()
