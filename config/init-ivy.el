@@ -12,13 +12,15 @@
 (require 'swiper)
 (require 'counsel)
 
-(ivy-mode 1)
+;; smex默认按历史排列使用的命令
+(require 'smex)
+;; turn on ivy
+(add-hook 'after-init-hook 'ivy-mode)
 
 ;; for paste
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 
 (with-eval-after-load 'ivy
-  (define-key ivy-mode-map (kbd "M-s /") 'swiper-thing-at-point)
   (setq-default
    ;; ivy-wrap t
    ivy-use-virtual-buffers t
