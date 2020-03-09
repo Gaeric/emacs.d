@@ -25,16 +25,14 @@
    ivy-virtual-abbreviate 'fullpath
    ivy-count-format "(%d/%d) "
    ivy-magic-tilde nil
-   ivy-dynamic-exhibit-delay-ms 150
+   ;; ivy-dynamic-exhibit-delay-ms 150
    ivy-use-selectable-prompt t
    ;; ivy-initial-inputs-alist '((Man-completion-table . "^") (woman . "^"))
    smex-save-file (expand-file-name ".smex-items" user-emacs-directory)
-   counsel-mode-override-describe-bindings t
-   )
+   counsel-mode-override-describe-bindings t)
 
   (gaeric-space-leader-def
     ;; Ivy-based interface to standard commands
-    ;; "bb"    'switch-to-buffer         ; replace by ivy-switch-buffer
     "<SPC>" 'counsel-M-x
     "ss"    'swiper
     "si"    'swiper-isearch
@@ -63,8 +61,7 @@
     "cd" 'counsel-descbinds
     "co" 'counsel-outline
     "ct" 'counsel-load-theme
-    "cF" 'counsel-org-file
-    )
+    "cF" 'counsel-org-file)
 
   ;; M-j default ivy-yank-word
   ;; C-M-j ivy-immediate-done
