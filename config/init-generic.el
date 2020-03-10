@@ -35,6 +35,7 @@
 (setq-default cursor-type 'bar)        ;设置默认的光标样式
 (setq make-backup-files nil)           ;默认不进行备份
 (global-auto-revert-mode t)            ;文件修改后自动载入
+(column-number-mode 1)                 ;在modeline上展示行列位置（行默认开启）
 
 (fset 'yes-or-no-p 'y-or-n-p)          ;以 y/n代表 yes/no
 (set-face-attribute 'default nil :height 110) ;设置字体大小
