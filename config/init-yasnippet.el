@@ -7,7 +7,7 @@
 ;; License: GPLv3
 
 (require 'yasnippet)
-
+(diminish 'yas-minor-mode)
 
 (dolist (hook
          (list
@@ -19,10 +19,8 @@
           'web-mode))
   (add-hook hook #'yas-minor-mode))
 
-
 (with-eval-after-load 'yasnippet
   (yas-reload-all))
-
 
 (provide 'init-yasnippet)
 
