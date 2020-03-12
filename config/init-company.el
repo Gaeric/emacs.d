@@ -1,4 +1,5 @@
-;; init-company.el --- Modular in-buffer completion framework for Emacs  -*- coding: utf-8; lexical-binding: t; -*-
+;; init-company.el  -*- coding: utf-8; lexical-binding: t; -*-
+;; Modular in-buffer completion framework for Emacs
 ;; Author:  <Gaeric>
 ;; URL: https://github.com/Gaeric
 ;;
