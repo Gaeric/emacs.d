@@ -8,8 +8,10 @@
 
 ;; Find file/directory and review Diff/Patch/Commit quickly everywhere.
 ;; @see https://github.com/technomancy/find-file-in-project
+(require 'find-file-in-project)
 
 ;; ffip diff for evil-mode
+
 (defun ffip-diff-mode-hook-setup ()
     (evil-local-set-key 'normal "p" 'diff-hunk-prev)
     (evil-local-set-key 'normal "n" 'diff-hunk-next)
@@ -30,4 +32,5 @@
   )
 ;; C-h i g (ivy) Enter for more key-binding tips.
 
-(require 'find-file-in-project)
+
+(provide 'init-ffip)
