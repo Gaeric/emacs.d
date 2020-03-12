@@ -11,5 +11,11 @@
 ;; eglot
 ;; https://github.com/joaotavora/eglot/issues/369
 
-(add-to-list 'load-path "~/.emacs.d/site-lisp/lsp-mode/")
-(require 'lsp-mode)
+;; disable some feature such as highlight symbol
+;; @see https://github.com/joaotavora/eglot/issues/334
+(local-require 'eglot)
+
+(with-eval-after-load 'eglot
+  (setq eglot-ignored-server-capabilites '(:documentHighlightProvider)))
+
+(provide 'init-lsp)
