@@ -37,6 +37,7 @@
   (require 'init-ffip)
   (require 'init-company)
   (require 'init-yasnippet)
+  (require 'init-lsp)
 
   (add-hook 'after-init-hook
           (lambda ()
@@ -46,3 +47,4 @@
               (toggle-frame-fullscreen))))
 
   (setq gc-cons-threshold normal-gc-cons-threshold))
+
