@@ -34,6 +34,7 @@
   ;;----------------------------------------------------------------------------
   (require 'init-winum)
   (require 'init-ivy)
+  (require 'init-ffip)
   (require 'init-company)
   (require 'init-yasnippet)
 
