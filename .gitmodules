@@ -103,3 +103,6 @@
 [submodule "site-lisp/eglot"]
 	path = site-lisp/eglot
 	url = https://github.com/joaotavora/eglot.git
+[submodule "site-lisp/pyvenv"]
+	path = site-lisp/pyvenv
+	url = https://github.com/jorgenschaefer/pyvenv.git
