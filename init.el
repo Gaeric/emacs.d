@@ -39,6 +39,12 @@
   (require 'init-yasnippet)
   (require 'init-lsp)
 
+  ;;----------------------------------------------------------------------------
+  ;; Prog Lang
+  ;;----------------------------------------------------------------------------
+  (require 'init-python)
+
+
   (add-hook 'after-init-hook
           (lambda ()
             (progn
@@ -47,4 +53,5 @@
               (toggle-frame-fullscreen))))
 
   (setq gc-cons-threshold normal-gc-cons-threshold))
+
 
