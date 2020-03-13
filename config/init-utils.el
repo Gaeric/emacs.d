@@ -97,7 +97,7 @@
   (interactive)
   (ignore-errors (backward-up-list arg escape-strings no-syntax-crossing)))
 
-;; (global-set-key (kbd "M-n") 'up-list)
+(global-set-key (kbd "M-n") 'up-list)
 
 ;; -------------------------------------------------------------------
 ;; swith to some special buffer
