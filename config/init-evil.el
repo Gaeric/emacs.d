@@ -12,6 +12,7 @@
 ;;----------------------------------------------------------------------------
 (local-require 'evil)
 (evil-mode 1)
+(diminish 'undo-tree-mode)
 (setq evil-move-cursor-back t)
 
 
