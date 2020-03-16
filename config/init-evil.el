@@ -159,11 +159,15 @@
   "nw"    'widen)
 
 (gaeric-comma-leader-def
-    "cx"  'copy-to-x-clipboard
-    "px"  'paste-from-x-clipboard
-    "kc"  'kill-ring-to-clipboard
-    ","   'evil-repeat-find-char-reverse
-    "cn"  'flymake-goto-next-error
-    "cp"  'flymake-goto-prev-error)
+  "cx"  'copy-to-x-clipboard
+  "px"  'paste-from-x-clipboard
+  "kc"  'kill-ring-to-clipboard
+  ","   'evil-repeat-find-char-reverse
+  )
+
+(gaeric-comma-leader-def
+  :keymaps 'flymake-mode-map
+  "cn"  'flymake-goto-next-error
+  "cp"  'flymake-goto-prev-error)
 
 (provide 'init-evil)

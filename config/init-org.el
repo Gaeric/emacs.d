@@ -129,7 +129,7 @@
   "aoo" 'org-agenda)
 
 (gaeric-comma-leader-def
-  :keymap 'org-mode-map
+  :keymaps 'org-mode-map
   "op" 'org-pomodoro
   "cp" 'org-previous-visible-heading
   "cn" 'org-next-visible-heading
@@ -141,7 +141,7 @@
   "'"  'org-edit-special)
 
 (gaeric-comma-leader-def
-  :keymap 'org-src-mode-map
+  :keymaps 'org-src-mode-map
   "c'" 'org-edit-src-exit
   "ck" 'org-edit-src-abort)
 
