@@ -11,8 +11,6 @@
 
 (local-require 'pyvenv)
 
-;; 正常情况下不显示modeline
-(setq pyvenv-mode-line-indicator "")
 
 (defun gaeric-virtualenv-setup ()
   "用于激活虚拟环境，pyvnenv-workon由.dir-locals控制"
