@@ -70,7 +70,8 @@
              (ffip-file-mode . emacs)
              (ivy-occur-grep-mode . normal)
              (messages-buffer-mode . normal)
-             (js2-error-buffer-mode . emacs)))
+             (js2-error-buffer-mode . emacs)
+             (image-mode . emacs)))
   (evil-set-initial-state (car p) (cdr p)))
 ;; }}
 
