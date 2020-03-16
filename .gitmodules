@@ -106,3 +106,6 @@
 [submodule "site-lisp/pyvenv"]
 	path = site-lisp/pyvenv
 	url = https://github.com/jorgenschaefer/pyvenv.git
+[submodule "site-lisp/rust-mode"]
+	path = site-lisp/rust-mode
+	url = https://github.com/rust-lang/rust-mode.git

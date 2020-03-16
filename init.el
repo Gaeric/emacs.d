@@ -43,7 +43,7 @@
   ;; Prog Lang
   ;;----------------------------------------------------------------------------
   (require 'init-python)
-
+  (require 'init-rust)
 
   (add-hook 'after-init-hook
           (lambda ()
