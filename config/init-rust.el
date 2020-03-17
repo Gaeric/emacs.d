@@ -17,4 +17,9 @@ Major mode for Rust code.
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
+;; use eglot for auto-complete and browser
+(with-eval-after-load 'rust-mode
+  (eglot-ensure))
+
+
 (provide 'init-rust)
