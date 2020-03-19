@@ -79,6 +79,9 @@
         '(("t" "Todo" entry
            (file+headline "~/org/gtd.org" "Workspace")
            "* TODO [#B] %?\n  %i\n")
+          ("s" "Shopping" entry
+           (file+headline "~/org/gtd.org" "购物清单")
+           "* TODO %?\n  %i\n")
           ("n" "notes" entry
            (file+headline "~/org/inbox.org" "notes")
            "* %?\n  %i\n %U")
@@ -126,7 +129,9 @@
 ;; `org-capture' is global
 (gaeric-space-leader-def
   "aoc" 'org-capture
-  "aoo" 'org-agenda)
+  "aoo" 'org-agenda
+  "aoa" 'org-agenda-list
+  )
 
 (gaeric-comma-leader-def
   :keymaps 'org-mode-map
