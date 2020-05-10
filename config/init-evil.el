@@ -154,7 +154,7 @@
   "w-"    'split-window-below
   "ad"    'dired
   "tl"    'toggle-truncate-lines
-  "tn"    'linum-mode
+  "tn"    'display-line-numbers-mode
   "wc"    'count-words
   "!"     'shell-command
   "nw"    'widen)
