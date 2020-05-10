@@ -38,6 +38,7 @@
   (require 'init-company)
   (require 'init-yasnippet)
   (require 'init-lsp)
+  (require 'init-cc)
 
   ;;----------------------------------------------------------------------------
   ;; Prog Lang
