@@ -147,6 +147,7 @@
   "fs"    'save-buffer
   "bd"    'kill-this-buffer
   "bs"    'switch-to-scratch-buffer
+  "bi"    'ibuffer
   "bm"    'switch-to-message-buffer
   "bb"    'switch-to-buffer
   "fed"   'open-init-file
