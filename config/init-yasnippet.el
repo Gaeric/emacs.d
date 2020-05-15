@@ -11,6 +11,7 @@
 
 (dolist (hook
          (list
+          'c-mode-common-hook
           'python-mode-hook
           'rust-mode-hook
           'text-mode-hook
