@@ -109,3 +109,6 @@
 [submodule "site-lisp/rust-mode"]
 	path = site-lisp/rust-mode
 	url = https://github.com/rust-lang/rust-mode.git
+[submodule "site-lisp/ivy-xref"]
+	path = site-lisp/ivy-xref
+	url = git@github.com:Gaeric/ivy-xref.git
