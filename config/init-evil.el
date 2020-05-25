@@ -164,6 +164,7 @@
   "cx"  'copy-to-x-clipboard
   "px"  'paste-from-x-clipboard
   "kc"  'kill-ring-to-clipboard
+  "ee"  'eval-last-sexp
   ","   'evil-repeat-find-char-reverse
   )
 
