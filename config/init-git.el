@@ -42,7 +42,7 @@
 
 ;; magit-todos
 (local-require 'magit-todos)
-(add-hook 'after-init-hook
+(add-hook 'magit-mode-hook
           (lambda ()
             (global-hl-todo-mode)
             (magit-todos-mode 1)))
