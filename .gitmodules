@@ -112,3 +112,6 @@
 [submodule "site-lisp/ivy-xref"]
 	path = site-lisp/ivy-xref
 	url = git@github.com:Gaeric/ivy-xref.git
+[submodule "site-lisp/circadian"]
+	path = site-lisp/circadian
+	url = https://github.com/guidoschmidt/circadian.el.git

@@ -12,6 +12,7 @@
 (require 'doom-themes-ext-org)
 (require 'doom-themes-ext-neotree)
 (require 'doom-themes-ext-treemacs)
+(local-require 'circadian)
 
 ;; Global settings (defaults)
 (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -19,7 +20,10 @@
 
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-(load-theme 'doom-vibrant t)
+(setq circadian-themes '(("8:00" . doom-one-light)
+                         ("19:30" . doom-vibrant)))
+(circadian-setup)
+;; (load-theme 'doom-vibrant t)
 ;; (load-theme 'doom-one-light t)          ;theme for light
 
 ;; Enable flashing mode-line on errors
