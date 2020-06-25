@@ -54,10 +54,10 @@
 	       load-path)))))
 
 ;; Only Setting Fonts for GUI
-(if (display-graphic-p)
-    ;; Setting English Font
-    (set-face-attribute
-     'default nil :family "Monospace")
+(when (display-graphic-p)
+  ;; Setting English Font
+  (set-face-attribute
+   'default nil :family "Monospace")
   ;; Setting Chinese Font
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
