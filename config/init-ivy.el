@@ -20,9 +20,6 @@
 ;; for paste
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 
-(require 'ivy-xref)
-(setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
-(setq xref-show-definitions-function #'ivy-xref-show-defs)
 
 (with-eval-after-load 'ivy
   (setq-default

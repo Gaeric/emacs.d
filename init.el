@@ -34,7 +34,8 @@
   ;;----------------------------------------------------------------------------
   (require 'init-winum)
   (require 'init-ivy)
-  (require 'init-ffip)
+  (require 'init-project)
+  (require 'init-xref)
   (require 'init-company)
   (require 'init-yasnippet)
   (require 'init-lsp)
