@@ -1,10 +1,12 @@
-;; init-ffip.el --- find file in project -*- coding: utf-8; lexical-binding: t; -*-
+;; init-project.el -*- coding: utf-8; lexical-binding: t; -*-
+;; 
 ;; Author:  <Gaeric>
 ;; URL: https://github.com/Gaeric
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;; License: GPLv3
+
 
 ;; Find file/directory and review Diff/Patch/Commit quickly everywhere.
 ;; @see https://github.com/technomancy/find-file-in-project
@@ -26,11 +28,12 @@
 
 ;; Only for project
 (gaeric-comma-leader-def
-  "ff" 'find-file-in-project
-  "fp" 'find-file-in-project-at-point
-  "fs" 'find-file-in-project-by-selected ;类比于swiper-thing-at-point
-  )
+  ;; "ff" 'find-file-in-project
+  ;; "fp" 'find-file-in-project-at-point
+  ;; "fs" 'find-file-in-project-by-selected ;类比于swiper-thing-at-point
+  "gf" 'project-find-file
+  "gs" 'project-find-regexp)
 ;; C-h i g (ivy) Enter for more key-binding tips.
 
 
-(provide 'init-ffip)
+(provide 'init-project)
