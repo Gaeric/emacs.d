@@ -8,9 +8,7 @@
 ;; License: GPLv3
 
 ;; use pyvenv for virtual python env
-
 (local-require 'pyvenv)
-
 
 (defun gaeric-virtualenv-setup ()
   "用于激活虚拟环境，pyvnenv-workon由.dir-locals控制"
@@ -18,6 +16,5 @@
   (eglot-ensure))
 
 (add-hook 'python-mode-hook 'gaeric-virtualenv-setup)
-
 
 (provide 'init-python)
