@@ -18,4 +18,8 @@
 (with-eval-after-load 'eglot
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider)))
 
+(gaeric-comma-leader-def
+  "cn"  'flymake-goto-next-error
+  "cp"  'flymake-goto-prev-error)
+
 (provide 'init-lsp)

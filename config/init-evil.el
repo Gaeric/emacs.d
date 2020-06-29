@@ -168,9 +168,4 @@
   ","   'evil-repeat-find-char-reverse
   )
 
-(gaeric-comma-leader-def
-  :keymaps 'flymake-mode-map
-  "cn"  'flymake-goto-next-error
-  "cp"  'flymake-goto-prev-error)
-
 (provide 'init-evil)
