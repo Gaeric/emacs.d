@@ -37,7 +37,7 @@
   (require 'init-project)
   (require 'init-xref)
   (require 'init-company)
-  (require 'init-yasnippet)
+  (require 'init-yas)
   (require 'init-lsp)
 
   ;;----------------------------------------------------------------------------

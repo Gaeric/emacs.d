@@ -1,4 +1,4 @@
-;; init-yasnippet.el --- YASnippet is a template system for Emacs -*- coding: utf-8; lexical-binding: t; -*-
+;; init-yas.el --- YASnippet is a template system for Emacs -*- coding: utf-8; lexical-binding: t; -*-
 ;; Author:  <Gaeric>
 ;; URL: https://github.com/Gaeric
 ;;
@@ -23,6 +23,6 @@
 (with-eval-after-load 'yasnippet
   (yas-reload-all))
 
-(provide 'init-yasnippet)
+(provide 'init-yas)
 
 
