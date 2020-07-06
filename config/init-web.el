@@ -17,30 +17,28 @@
             (call-interactively 'emmet-expand-line))
     (indent-for-tab-command)))
 
-(when (maybe-require-package 'web-mode)
-  (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-  (setq web-mode-engines-alist
-        '(("django"    . "\\.html\\'")))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(setq web-mode-engines-alist
+      '(("django"    . "\\.html\\'")))
 
-  ;; Make Electric-Pair mode and web-mode both work well
-  ;; See: https://github.com/fxbois/web-mode/issues/275
-  (add-hook
-   'web-mode-hook
-   '(lambda ()
-      (setq-local electric-pair-inhibit-predicate
-                  (lambda (c)
-                    (if (char-equal c ?{) t (electric-pair-default-inhibit c))))))
+;; Make Electric-Pair mode and web-mode both work well
+;; See: https://github.com/fxbois/web-mode/issues/275
+(add-hook
+ 'web-mode-hook
+ '(lambda ()
+    (setq-local electric-pair-inhibit-predicate
+                (lambda (c)
+                  (if (char-equal c ?{) t (electric-pair-default-inhibit c)))))
 
 
-  (when (maybe-require-package 'emmet-mode)
-    (dolist (hook
-             '(css-mode-hook
-               html-mode-hook
-               web-mode-hook))
-      (add-hook hook 'emmet-mode))
+ (dolist (hook
+          '(css-mode-hook
+            html-mode-hook
+            web-mode-hook))
+   (add-hook hook 'emmet-mode))
 
-    (with-eval-after-load 'emmet-mode
-      (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'spacemacs/emmet-expand)
-      (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'spacemacs/emmet-expand))))
+ (with-eval-after-load 'emmet-mode
+   (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'spacemacs/emmet-expand)
+   (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'spacemacs/emmet-expand)))
 
 (provide 'init-web)
