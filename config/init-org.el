@@ -57,7 +57,7 @@
           ("pre_pub"
            :base-directory "~/org/blog" ;; org文件的目录
            :base-extension "png\\|org"
-           :publishing-directory "~/py_projects/org_blog/static/static_html" ;导出目录
+           :publishing-directory "~/project_py/org_blog/static/static_html" ;导出目录
            :publishing-function org-html-publish-to-html
            ;; :auto-sitemap t
            )))
