@@ -48,6 +48,8 @@
   ;; 不生成默认的css及javascript内容
   (setq org-html-head-include-default-style nil)
   (setq org-html-head-include-scripts nil)
+  (setq org-publish-timestamp-directory
+        (convert-standard-filename "~/.emacs.d/.org-timestamps/"))
 
   (setq org-publish-project-alist
         '(
