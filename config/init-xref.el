@@ -14,6 +14,7 @@
 
 (gaeric-comma-leader-def
   "gd" 'xref-find-definitions
-  "gr" 'xref-find-references)
+  "gr" 'xref-find-references
+  "go" 'xref-find-definitions-other-window)
 
 (provide 'init-xref)
