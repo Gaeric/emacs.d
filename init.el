@@ -56,5 +56,3 @@
               (toggle-frame-fullscreen))))
 
   (setq gc-cons-threshold normal-gc-cons-threshold))
-
-
