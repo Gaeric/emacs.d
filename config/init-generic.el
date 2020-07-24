@@ -39,7 +39,7 @@
 (setq ad-redefinition-action 'accept)  ;清除ad-handle-definition的告警
 
 (fset 'yes-or-no-p 'y-or-n-p)          ;以 y/n代表 yes/no
-(set-face-attribute 'default nil :height 110) ;设置字体大小
+(set-face-attribute 'default nil :height 105) ;设置字体大小
 
 ;; Set up `load-path'
 (eval-when-compile (require 'cl))
