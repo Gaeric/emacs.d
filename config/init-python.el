@@ -12,6 +12,8 @@
 
 (defun gaeric-virtualenv-setup ()
   "用于激活虚拟环境，pyvnenv-workon由.dir-locals控制"
+  (setq-default fill-column 80)
+  (auto-fill-mode)
   (pyvenv-mode)
   (eglot-ensure))
 
