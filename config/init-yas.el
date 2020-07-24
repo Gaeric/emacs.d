@@ -6,7 +6,9 @@
 ;;
 ;; License: GPLv3
 
-(require 'yasnippet)
+(local-require 'yasnippet)
+(local-require 'yasnippet-snippets)
+
 (diminish 'yas-minor-mode)
 
 (dolist (hook
