@@ -23,6 +23,7 @@
   ;;----------------------------------------------------------------------------
   (require 'init-generic)
   (require 'init-utils)
+  (require 'init-editing-utils)
   (require 'init-evil)
   (require 'init-git)
   (require 'init-theme)
@@ -51,7 +52,6 @@
   (add-hook 'after-init-hook
             (lambda ()
               (progn
-                (electric-pair-mode t)
                 (show-paren-mode t)
                 ;; (toggle-frame-fullscreen)
                 )))
