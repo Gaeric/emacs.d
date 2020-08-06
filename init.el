@@ -7,7 +7,7 @@
 ;; License: GPLv3
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
-
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 ;;----------------------------------------------------------------------------
 ;; 1. Adjust garbage collection thresholds during startup, and thereafter
 ;;    Max for setup, 64M for emacs28.
@@ -49,12 +49,12 @@
   (require 'init-web)
 
   (add-hook 'after-init-hook
-          (lambda ()
-            (progn
-              (electric-pair-mode t)
-              (show-paren-mode t)
-              ;; (toggle-frame-fullscreen)
-              )))
+            (lambda ()
+              (progn
+                (electric-pair-mode t)
+                (show-paren-mode t)
+                ;; (toggle-frame-fullscreen)
+                )))
 
   (setq gc-cons-threshold normal-gc-cons-threshold))
 (custom-set-variables
