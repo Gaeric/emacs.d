@@ -8,24 +8,6 @@
 
 ;;; Code:
 
-(when (maybe-require-package 'doom-themes)
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-
-  ;; Enable flashing mode-line on errors
-  ;; (doom-themes-visual-bell-config)
-
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
-  (doom-themes-treemacs-config)
-
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
-
-
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
 
@@ -49,11 +31,8 @@
 ;; -------------------------------------------------------------------
 ;; circadian load the theme record time
 ;; -------------------------------------------------------------------
-(local-require 'circadian)
+;; (local-require 'circadian)
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
-(setq circadian-themes '(("8:00" . doom-one-light)
-                         ("19:30" . doom-vibrant)))
-(circadian-setup)
 
 (provide 'init-theme)
