@@ -89,6 +89,15 @@
          (compilation-buffer-name-function (lambda (major-mode-name) "*git-svn*")))
     (compile (concat "git svn " command))))
 
+(when (maybe-require-package 'diff-hl)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (add-hook 'after-init-hook 'global-diff-hl-mode)
+  (with-eval-after-load 'dired
+    (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
+  (with-eval-after-load 'diff-hl
+    (define-key diff-hl-mode-map
+      (kbd "<left-fringe> <mouse-1>")
+      'diff-hl-diff-goto-hunk)))
 
 (provide 'init-git)
 ;;; init-git.el ends here

@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(sanityinc-tomorrow-bright))
  '(package-selected-packages
-   '(fullframe magit-todos magit git-timemachine gitconfig-mode gitignore-mode git-blamed color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized gnu-elpa-keyring-update seq))
+   '(color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized diff-hl git-commit fullframe magit-todos magit git-timemachine gitconfig-mode gitignore-mode git-blamed gnu-elpa-keyring-update seq))
  '(safe-local-variable-values '((pyvenv-workon . gsg))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
