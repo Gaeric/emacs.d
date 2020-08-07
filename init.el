@@ -24,6 +24,7 @@
   (require 'init-generic)
   (require 'init-utils)
   (require 'init-editing-utils)
+  (require 'init-elpa)
   (require 'init-evil)
   (require 'init-git)
   (require 'init-theme)
