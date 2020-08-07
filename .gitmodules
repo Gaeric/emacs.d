@@ -127,3 +127,6 @@
 [submodule "site-lisp/color-theme-sanityinc-tomorrow"]
 	path = site-lisp/color-theme-sanityinc-tomorrow
 	url = https://github.com/purcell/color-theme-sanityinc-tomorrow
+[submodule "site-lisp/color-theme-sanityinc-solarized"]
+	path = site-lisp/color-theme-sanityinc-solarized
+	url = https://github.com/purcell/color-theme-sanityinc-solarized.git
