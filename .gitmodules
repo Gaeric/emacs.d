@@ -1,27 +1,12 @@
-[submodule "site-lisp/git-modes"]
-	path = site-lisp/git-modes
-	url = git@github.com:magit/git-modes.git
-[submodule "site-lisp/git-timemachine"]
-	path = site-lisp/git-timemachine
-	url = git@github.com:emacsmirror/git-timemachine.git
-[submodule "site-lisp/transient"]
-	path = site-lisp/transient
-	url = git@github.com:magit/transient.git
 [submodule "site-lisp/dash"]
 	path = site-lisp/dash
 	url = git@github.com:magnars/dash.el.git
 [submodule "site-lisp/with-editor"]
 	path = site-lisp/with-editor
 	url = git@github.com:magit/with-editor.git
-[submodule "site-lisp/magit"]
-	path = site-lisp/magit
-	url = git@github.com:magit/magit.git
 [submodule "libgit2"]
 	path = site-lisp/libgit2
 	url = https://github.com/magit/libegit2.git
-[submodule "site-lisp/magit-todos"]
-	path = site-lisp/magit-todos
-	url = git@github.com:alphapapa/magit-todos.git
 [submodule "site-lisp/emacs-async"]
 	path = site-lisp/emacs-async
 	url = https://github.com/jwiegley/emacs-async.git
@@ -37,9 +22,6 @@
 [submodule "site-lisp/pcre2el"]
 	path = site-lisp/pcre2el
 	url = https://github.com/joddie/pcre2el.git
-[submodule "site-lisp/fullframe"]
-	path = site-lisp/fullframe
-	url = https://github.com/tomterl/fullframe.git
 [submodule "site-lisp/evil"]
 	path = site-lisp/evil
 	url = https://github.com/emacs-evil/evil.git
