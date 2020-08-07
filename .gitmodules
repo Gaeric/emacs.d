@@ -4,9 +4,6 @@
 [submodule "site-lisp/with-editor"]
 	path = site-lisp/with-editor
 	url = git@github.com:magit/with-editor.git
-[submodule "libgit2"]
-	path = site-lisp/libgit2
-	url = https://github.com/magit/libegit2.git
 [submodule "site-lisp/emacs-async"]
 	path = site-lisp/emacs-async
 	url = https://github.com/jwiegley/emacs-async.git
