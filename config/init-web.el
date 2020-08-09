@@ -18,8 +18,10 @@
     (indent-for-tab-command)))
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 (setq web-mode-engines-alist
-      '(("django"    . "\\.html\\'")))
+      '(("django"    . "\\.html\\'")
+        ("vue"    . "\\.vue\\'")))
 
 ;; Make Electric-Pair mode and web-mode both work well
 ;; See: https://github.com/fxbois/web-mode/issues/275
