@@ -17,3 +17,4 @@ tramp
 projects
 /.org-timestamps
 /eaf
+.bookmarks.el

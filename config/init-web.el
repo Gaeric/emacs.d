@@ -25,12 +25,26 @@
 
 ;; Make Electric-Pair mode and web-mode both work well
 ;; See: https://github.com/fxbois/web-mode/issues/275
-(add-hook
- 'web-mode-hook
- '(lambda ()
-    (setq-local electric-pair-inhibit-predicate
-                (lambda (c)
-                  (if (char-equal c ?{) t (electric-pair-default-inhibit c)))))
+;; (add-hook
+;;  'web-mode-hook
+;;  '(lambda ()
+;;     (setq-local electric-pair-inhibit-predicate
+;;                 (lambda (c)
+;;                   (if (char-equal c ?{) t (electric-pair-default-inhibit c)))))
+
+(with-eval-after-load 'web-mode
+  ;; make org-mode export fail, I use evil and evil-matchit
+  ;; to select text, so expand-region.el is not used
+  (remove-hook 'web-mode-hook 'er/add-web-mode-expansions)
+  (setq web-mode-enable-auto-closing t) ; enable auto close tag in text-mode
+  (setq web-mode-enable-auto-pairing nil)
+  (setq web-mode-enable-css-colorization t)
+  (setq web-mode-imenu-regexp-list
+        '(("<\\(h[1-9]\\)\\([^>]*\\)>\\([^<]*\\)" 1 3 ">" nil)
+          ("^[ \t]*<\\([@a-z]+\\)[^>]*>? *$" 1 " id=\"\\([a-zA-Z0-9_]+\\)\"" "#" ">")
+          ("^[ \t]*<\\(@[a-z.]+\\)[^>]*>? *$" 1 " contentId=\"\\([a-zA-Z0-9_]+\\)\"" "=" ">")
+          ;; angular imenu
+          (" \\(ng-[a-z]*\\)=\"\\([^\"]+\\)" 1 2 "="))))
 
 
  (dolist (hook
