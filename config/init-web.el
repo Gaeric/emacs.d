@@ -25,12 +25,20 @@
 
 ;; Make Electric-Pair mode and web-mode both work well
 ;; See: https://github.com/fxbois/web-mode/issues/275
-;; (add-hook
-;;  'web-mode-hook
-;;  '(lambda ()
-;;     (setq-local electric-pair-inhibit-predicate
-;;                 (lambda (c)
-;;                   (if (char-equal c ?{) t (electric-pair-default-inhibit c)))))
+;; ;; (add-hook
+;; ;;  'web-mode-hook
+;; ;;  '(lambda ()
+;; ;;     (setq-local electric-pair-inhibit-predicate
+;; ;;                 (lambda (c)
+;; ;;                   (if (char-equal c ?{) t (electric-pair-default-inhibit c)))))
+
+(add-hook
+ 'web-mode-hook
+ '(lambda ()
+    (setq-local electric-pair-pairs
+                (append '((?' . ?')) electric-pair-pairs))
+    (setq-local electric-pair-text-pairs
+                (append '((?' . ?')) electric-pair-text-pairs))))
 
 (with-eval-after-load 'web-mode
   ;; make org-mode export fail, I use evil and evil-matchit
@@ -47,14 +55,14 @@
           (" \\(ng-[a-z]*\\)=\"\\([^\"]+\\)" 1 2 "="))))
 
 
- (dolist (hook
-          '(css-mode-hook
-            html-mode-hook
-            web-mode-hook))
-   (add-hook hook 'emmet-mode))
+(dolist (hook
+         '(css-mode-hook
+           html-mode-hook
+           web-mode-hook))
+  (add-hook hook 'emmet-mode))
 
- (with-eval-after-load 'emmet-mode
-   (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'spacemacs/emmet-expand)
-   (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'spacemacs/emmet-expand)))
+(with-eval-after-load 'emmet-mode
+  (evil-define-key 'insert emmet-mode-keymap (kbd "TAB") 'spacemacs/emmet-expand)
+  (evil-define-key 'insert emmet-mode-keymap (kbd "<tab>") 'spacemacs/emmet-expand))
 
 (provide 'init-web)
