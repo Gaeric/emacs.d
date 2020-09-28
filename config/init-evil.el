@@ -118,12 +118,20 @@
 (local-require 'evil-exchange)
 (evil-exchange-install)
 
-
 ;;----------------------------------------------------------------------------
 ;; evil-nerd-commenter config
 ;; @see https://github.com/redguardtoo/evil-nerd-commenter
 ;;----------------------------------------------------------------------------
-(require 'evil-nerd-commenter)
+(local-require 'evil-nerd-commenter)
+
+;;----------------------------------------------------------------------------
+;; evil-matchit config
+;;----------------------------------------------------------------------------
+(when (maybe-require-package 'evil-matchit)
+  (global-evil-matchit-mode 1))
+
+
+
 ;; Emacs key bindings
 ;; comment lines useful for normal mode
 ;; (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
