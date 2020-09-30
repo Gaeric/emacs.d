@@ -48,4 +48,18 @@
   (setq-default display-line-numbers-width 3)
   (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
+(defun prog-next-error ()
+  (interactive)
+  (if (bound-and-true-p flymake-mode)
+      (flymake-goto-next-error)
+    (if (bound-and-true-p flycheck-mode)
+        (flycheck-next-error))))
+
+(defun prog-prev-error ()
+  (interactive)
+  (if (bound-and-true-p flymake-mode)
+      (flymake-goto-prev-error)
+    (if (bound-and-true-p flycheck-mode)
+        (flycheck-previous-error))))
+
 (provide 'init-editing-utils)

@@ -19,7 +19,7 @@
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider)))
 
 (gaeric-comma-leader-def
-  "cn"  'flymake-goto-next-error
-  "cp"  'flymake-goto-prev-error)
+  "cn"  'prog-next-error
+  "cp"  'prog-prev-error)
 
 (provide 'init-lsp)
