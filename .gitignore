@@ -18,3 +18,4 @@ projects
 /.org-timestamps
 /eaf
 .bookmarks.el
+/custom.el
