@@ -6,8 +6,16 @@
 ;;
 ;;; License: GPLv3
 
-;; (when (maybe-require-package 'org-pomodoro)
-;;   (setq org-pomodoro-format "%s"))
+(when (maybe-require-package  'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(when (maybe-require-package 'org-pomodoro)
+  (setq org-pomodoro-keep-killed-pomodoro-time t)
+  (setq org-pomodoro-long-break-frequency 3)
+  (setq org-pomodoro-format "Pomodoro %s")
+  (setq org-pomodoro-time-format "%.2m")
+  (with-eval-after-load 'org-agenda
+    (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)))
 
 (with-eval-after-load 'org
   ;; ----------------------------------------------------------------------
@@ -57,7 +65,7 @@
   ;; DONE: 已处理完成的事务
   (setq org-todo-keywords
         '((sequence
-           "TODO(t)" "STARTED(s!)" "SUSPEND(S@)" "|" "DONE(d@!)" "CANCELLED(c!@/!)")))
+           "TODO(t)" "STARTED(s!)" "SUSPEND(S@)" "|" "DONE(d@)" "CANCELLED(c@/@)")))
 
   (setq org-clock-in-switch-to-state "STARTED")
   (setq org-clock-out-switch-to-state "SUSPEND")
@@ -66,15 +74,11 @@
         '(("t" "Todo" entry
            (file+headline "~/org/gtd.org" "Workspace")
            "* TODO [#B] %?\n  %i\n")
-          ("s" "Shopping" entry
-           (file+headline "~/org/gtd.org" "购物清单")
-           "* TODO %?\n  %i\n")
           ("n" "notes" entry
            (file+headline "~/org/inbox.org" "notes")
            "* %?\n  %i\n %U")
-          ("a" "Amusement" entry
-           (file+headline "~/org/inbox.org" "Amusement")
-           "* TODO [#C] %?\n  %i\n %U")
+          ("b" "Breakpoint" entry (clock)
+           "* TODO %? :BreakPoint:\n  %U\n  %i")
           ("e" "Excerpt" entry
            (file+headline "~/org/inbox.org" "Excerpt")
            "* %?"))))
@@ -102,6 +106,8 @@
 
 
 (with-eval-after-load 'org-agenda
+  (setq org-agenda-start-with-clockreport-mode t)
+  (setq org-agenda-start-with-log-mode t)
   (setq org-agenda-custom-commands
         '(("w" . "任务安排")
           ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
