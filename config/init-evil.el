@@ -33,6 +33,9 @@
   "^" 'org-beginning-of-line ; ditto
   (kbd "TAB") 'org-cycle)
 
+(evil-declare-key 'motion help-mode-map
+  (kbd "TAB") 'forward-button)
+
 
 ;; {{ specify major mode uses Evil (vim) NORMAL state or EMACS original state.
 ;; You may delete this setup to use Evil NORMAL state always.
@@ -51,7 +54,7 @@
              (neotree-mode . emacs)
              (w3m-mode . emacs)
              (gud-mode . emacs)
-             (help-mode . emacs)
+             (help-mode . motion)
              (eshell-mode . emacs)
              (shell-mode . emacs)
              (xref--xref-buffer-mode . emacs)
