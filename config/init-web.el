@@ -7,8 +7,8 @@
 ;; @see http://web-mode.org
 ;; License: GPLv3
 
-(local-require 'web-mode)
-(local-require 'emmet-mode)
+(require-package 'web-mode)
+(require-package 'emmet-mode)
 
 (defun spacemacs/emmet-expand ()
   (interactive)

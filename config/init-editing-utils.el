@@ -62,4 +62,8 @@
     (if (bound-and-true-p flycheck-mode)
         (flycheck-previous-error))))
 
+(defun decode-file-from-gbk ()
+  (interactive)
+  (decode-coding-region (point-min) (point-max) 'gbk))
+
 (provide 'init-editing-utils)

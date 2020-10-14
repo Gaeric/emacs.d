@@ -6,14 +6,13 @@
 ;;
 ;; License: GPLv3
 
-;; (require 'flx)
-
-(require 'ivy)
-(require 'swiper)
-(require 'counsel)
+(require-package 'ivy)
+(require-package 'swiper)
+(require-package 'counsel)
 
 ;; smex默认按历史排列使用的命令
-(require 'smex)
+(require-package 'amx)
+(require-package 'flx)
 ;; turn on ivy
 (add-hook 'after-init-hook 'ivy-mode)
 
@@ -32,6 +31,7 @@
    ivy-use-selectable-prompt t
    ;; ivy-initial-inputs-alist '((Man-completion-table . "^") (woman . "^"))
    smex-save-file (expand-file-name ".smex-items" user-emacs-directory)
+   amx-save-file (expand-file-name ".amx-items" user-emacs-directory)
    counsel-mode-override-describe-bindings t)
 
   (global-set-key (kbd "M-x") 'counsel-M-x)

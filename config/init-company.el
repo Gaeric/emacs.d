@@ -7,10 +7,10 @@
 ;;
 ;; License: GPLv3
 
-(require 'company)
+(require-package 'company)
 ;; need pos-tip
 ;; for document info
-(require 'company-quickhelp)
+(require-package 'company-quickhelp)
 
 ;; <TAB> just use for indent
 ;; (setq tab-always-indent 'complete)

@@ -6,6 +6,7 @@
 (maybe-require-package 'js2-mode)
 (maybe-require-package 'typescript-mode)
 (maybe-require-package 'prettier-js)
+(require 'derived)
 
 
 ;;; Basic js-mode setup

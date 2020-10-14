@@ -7,6 +7,7 @@
 ;;
 ;; License: GPLv3
 
+(require-package 'rust-mode)
 
 (autoload 'rust-mode "rust-mode" "\
 Major mode for Rust code.

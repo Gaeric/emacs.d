@@ -10,7 +10,7 @@
 
 ;; Find file/directory and review Diff/Patch/Commit quickly everywhere.
 ;; @see https://github.com/technomancy/find-file-in-project
-(require 'find-file-in-project)
+(require-package 'find-file-in-project)
 
 ;; ffip diff for evil-mode
 

@@ -6,8 +6,8 @@
 ;;
 ;; License: GPLv3
 
-(local-require 'yasnippet)
-(local-require 'yasnippet-snippets)
+(require-package 'yasnippet)
+(require-package 'yasnippet-snippets)
 
 (diminish 'yas-minor-mode)
 

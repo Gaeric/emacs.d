@@ -13,7 +13,7 @@
 
 ;; disable some feature such as highlight symbol
 ;; @see https://github.com/joaotavora/eglot/issues/334
-(local-require 'eglot)
+(require-package 'eglot)
 
 (with-eval-after-load 'eglot
   ;; @see https://github.com/joaotavora/eglot/issues/514

@@ -31,7 +31,7 @@
 ;; -------------------------------------------------------------------
 ;; circadian load the theme record time
 ;; -------------------------------------------------------------------
-;; (local-require 'circadian)
+;; (require-package 'circadian)
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
 

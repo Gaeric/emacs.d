@@ -10,13 +10,13 @@
 ;; evil config
 ;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
 ;;----------------------------------------------------------------------------
-(local-require 'evil)
+(require-package 'evil)
 (evil-mode 1)
 (diminish 'undo-tree-mode)
 (setq evil-move-cursor-back t)
 
 
-(local-require 'general)
+(require-package 'general)
 (general-create-definer gaeric-space-leader-def
   :prefix "SPC"
   :states '(normal visual))
@@ -89,7 +89,7 @@
 ;;----------------------------------------------------------------------------
 ;; evil-surround config
 ;;----------------------------------------------------------------------------
-(local-require 'evil-surround)
+(require-package 'evil-surround)
 (global-evil-surround-mode 1)
 
 (defun evil-surround-emacs-lisp-mode-hook-setup ()
@@ -107,7 +107,7 @@
 ;;----------------------------------------------------------------------------
 ;; evil-visualstar config
 ;;----------------------------------------------------------------------------
-(local-require 'evil-visualstar)
+(require-package 'evil-visualstar)
 (global-evil-visualstar-mode 1)
 
 
@@ -118,14 +118,14 @@
 ;;----------------------------------------------------------------------------
 ;; evil-exchange config
 ;;----------------------------------------------------------------------------
-(local-require 'evil-exchange)
+(require-package 'evil-exchange)
 (evil-exchange-install)
 
 ;;----------------------------------------------------------------------------
 ;; evil-nerd-commenter config
 ;; @see https://github.com/redguardtoo/evil-nerd-commenter
 ;;----------------------------------------------------------------------------
-(local-require 'evil-nerd-commenter)
+(require-package 'evil-nerd-commenter)
 
 ;;----------------------------------------------------------------------------
 ;; evil-matchit config

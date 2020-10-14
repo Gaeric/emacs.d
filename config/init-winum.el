@@ -6,7 +6,7 @@
 ;;
 ;;; License: GPLv3
 
-(require 'winum)
+(require-package 'winum)
 
 (eval-after-load 'winum
   (progn
