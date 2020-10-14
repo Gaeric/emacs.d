@@ -13,9 +13,10 @@
   (setq org-pomodoro-keep-killed-pomodoro-time t)
   (setq org-pomodoro-long-break-frequency 3)
   (setq org-pomodoro-format "Pomodoro %s")
-  (setq org-pomodoro-time-format "%.2m")
   (with-eval-after-load 'org-agenda
-    (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)))
+    (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
+    (define-key org-agenda-mode-map (kbd "Z") 'org-agenda)))
+
 
 (with-eval-after-load 'org
   ;; ----------------------------------------------------------------------
@@ -106,8 +107,7 @@
 
 
 (with-eval-after-load 'org-agenda
-  (setq org-agenda-start-with-clockreport-mode t)
-  (setq org-agenda-start-with-log-mode t)
+  (setq org-agenda-span 'day)
   (setq org-agenda-custom-commands
         '(("w" . "任务安排")
           ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
