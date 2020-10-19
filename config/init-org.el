@@ -17,6 +17,23 @@
     (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
     (define-key org-agenda-mode-map (kbd "Z") 'org-agenda)))
 
+(defun gaeric/org-pomodoro-todo-today ()
+  "加入时间戳"
+  (interactive)
+  (org-back-to-heading t)
+  (move-end-of-line nil)
+  (newline-and-indent)
+  ;; (org-remove-timestamp-with-keyword "XXX")
+  (org-insert-time-stamp (org-current-time)))
+
+
+(defun gaeric/org-state-change-timestamp-hook ()
+  "依据pomodoro流程添加和删除时间戳"
+  (cond ((equal org-state "READY")
+         (gaeric/org-pomodoro-todo-today))))
+
+
+(add-hook 'org-after-todo-state-change-hook 'gaeric/org-state-change-timestamp-hook)
 
 (with-eval-after-load 'org
   ;; ----------------------------------------------------------------------
@@ -58,6 +75,8 @@
 
   ;; org-src-edit时打开新窗口，完成后恢复布局
   (setq org-src-window-setup 'other-window)
+  ;; 将org-clock日志写在LOGBOOK中
+  (setq org-log-into-drawer t)
 
   ;; TODO: 待处理的事务
   ;; STARTED: 事务进行中
