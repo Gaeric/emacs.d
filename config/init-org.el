@@ -85,7 +85,7 @@
   ;; DONE: 已处理完成的事务
   (setq org-todo-keywords
         '((sequence
-           "TODO(t)" "STARTED(s!)" "SUSPEND(S@)" "|" "DONE(d@)" "CANCELLED(c@/@)")))
+           "TODO(t)" "READY(r)" "STARTED(s!)" "SUSPEND(S@)" "|" "DONE(d@)" "CANCELLED(c@/@)")))
 
   (setq org-clock-in-switch-to-state "STARTED")
   (setq org-clock-out-switch-to-state "SUSPEND")
