@@ -26,7 +26,6 @@
 (setq use-dialog-box nil)              ;never pop dialog
 (setq ring-bell-function 'ignore)      ;关闭出错时的提示声
 (setq default-major-mode 'text-mode)   ;设置默认地主模式为TEXT模式
-(setq select-enable-clipboard t)       ;支持emacs和外部程序的粘贴
 (setq ad-redefinition-action 'warn)    ;redefine warning 时进行警告
 (setq resize-mini-windows nil)         ;保持minibuffer window固定高度
 (setq recentf-max-saved-items 2048)    ;设置recentf的默认大小
