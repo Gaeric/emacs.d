@@ -124,5 +124,12 @@
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 
+(add-hook
+ 'typescript-mode-hook
+ '(lambda ()
+    (setq-local electric-pair-pairs
+                (append '((?< . ?>)) electric-pair-pairs))))
+
+
 (provide 'init-javascript)
 ;;; init-javascript.el ends here
