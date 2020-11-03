@@ -10,10 +10,11 @@
 ;; evil config
 ;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
 ;;----------------------------------------------------------------------------
-(require-package 'evil)
-(evil-mode 1)
-(diminish 'undo-tree-mode)
-(setq evil-move-cursor-back t)
+(when (maybe-require-package 'evil)
+  (maybe-require-package 'undo-fu)
+  (setq evil-undo-system 'undo-fu)
+  (evil-mode 1)
+  (setq evil-move-cursor-back t))
 
 
 (require-package 'general)
