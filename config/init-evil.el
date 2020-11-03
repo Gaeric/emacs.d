@@ -170,7 +170,7 @@
   "tn"    'display-line-numbers-mode
   "wc"    'count-words
   "!"     'shell-command
-  "nw"    'widen)
+  )
 
 (gaeric-comma-leader-def
   "cx"  'copy-to-x-clipboard
@@ -178,6 +178,12 @@
   "kc"  'kill-ring-to-clipboard
   "ee"  'eval-last-sexp
   ","   'evil-repeat-find-char-reverse
+  "nn"  'narrow-to-region
+  "nd"   'narrow-to-defun
+  "np"   'narrow-to-page
+  "ma"   'beginning-of-defun
+  "me"   'end-of-defun
+  "nw"    'widen
   )
 
 (provide 'init-evil)
