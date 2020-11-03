@@ -55,7 +55,8 @@
   ;;----------------------------------------------------------------------------
   ;;
   ;;----------------------------------------------------------------------------
-  (load custom-file)
+  (when (file-exists-p custom-file)
+    (load custom-file))
 
   (add-hook 'after-init-hook
             (lambda ()
@@ -66,3 +67,5 @@
                 )))
 
   (setq gc-cons-threshold normal-gc-cons-threshold))
+
+(provide 'init)
