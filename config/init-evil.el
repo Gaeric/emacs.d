@@ -132,6 +132,7 @@
 ;; evil-matchit config
 ;;----------------------------------------------------------------------------
 (when (maybe-require-package 'evil-matchit)
+  (setq evilmi-shortcut "m")
   (global-evil-matchit-mode 1))
 
 
