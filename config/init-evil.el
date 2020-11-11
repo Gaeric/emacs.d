@@ -37,6 +37,8 @@
 (evil-declare-key 'motion help-mode-map
   (kbd "TAB") 'forward-button)
 
+(when (maybe-require-package 'expand-region)
+  (define-key evil-visual-state-map (kbd "v") 'er/expand-region))
 
 ;; {{ specify major mode uses Evil (vim) NORMAL state or EMACS original state.
 ;; You may delete this setup to use Evil NORMAL state always.
