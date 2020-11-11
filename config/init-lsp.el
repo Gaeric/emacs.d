@@ -24,7 +24,7 @@
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider)))
 
 (gaeric-comma-leader-def
-  "cn"  'prog-next-error
-  "cp"  'prog-prev-error)
+  "en"  'prog-next-error
+  "ep"  'prog-prev-error)
 
 (provide 'init-lsp)
