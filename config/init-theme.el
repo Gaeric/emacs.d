@@ -29,10 +29,31 @@
 (add-hook 'after-init-hook 'reapply-themes)
 
 ;; -------------------------------------------------------------------
+;; modeline
+;; -------------------------------------------------------------------
+(when (maybe-require-package 'doom-modeline)
+  (setq doom-modeline-icon nil)
+  (setq all-the-icons-color-icons nil)
+  (setq doom-modeline-buffer-file-name-style 'buffer-name)
+  (add-hook 'after-init-hook #'doom-modeline-mode))
+
+
+;; -------------------------------------------------------------------
 ;; circadian load the theme record time
 ;; -------------------------------------------------------------------
 ;; (require-package 'circadian)
 ;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
 ;; may have their own settings.
+
+;; ;; Only Setting Fonts for GUI
+;; (when (display-graphic-p)
+;;   ;; Setting English Font
+;;   (set-face-attribute
+;;    'default nil :family "Monospace")
+;;   ;; Setting Chinese Font
+;;   (dolist (charset '(kana han symbol cjk-misc bopomofo))
+;;     (set-fontset-font (frame-parameter nil 'font)
+;;                       charset
+;;                       (font-spec :family "WenQuanYi Micro Hei Mono" :size 14))))
 
 (provide 'init-theme)
