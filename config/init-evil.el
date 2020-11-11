@@ -89,6 +89,11 @@
 (define-key evil-ex-completion-map (kbd "M-n") 'next-complete-history-element)
 
 
+(when (maybe-require-package 'avy)
+  (setq avy-all-windows nil)
+  (setq avy-style 'pre)
+  (global-set-key (kbd "M-g") 'avy-goto-char-timer))
+
 ;;----------------------------------------------------------------------------
 ;; evil-surround config
 ;;----------------------------------------------------------------------------
