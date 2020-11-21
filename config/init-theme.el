@@ -28,14 +28,30 @@
 
 (add-hook 'after-init-hook 'reapply-themes)
 
+;;------------------------------------------------------------------------------
+;; Toggle between light and dark
+;;------------------------------------------------------------------------------
+(defun light ()
+  "Activate a light color theme."
+  (interactive)
+  (setq custom-enabled-themes '(sanityinc-tomorrow-day))
+  (reapply-themes))
+
+(defun dark ()
+  "Activate a dark color theme."
+  (interactive)
+  (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
+  (reapply-themes))
+
+
 ;; -------------------------------------------------------------------
 ;; modeline
 ;; -------------------------------------------------------------------
-(when (maybe-require-package 'doom-modeline)
-  (setq doom-modeline-icon nil)
-  (setq all-the-icons-color-icons nil)
-  (setq doom-modeline-buffer-file-name-style 'buffer-name)
-  (add-hook 'after-init-hook #'doom-modeline-mode))
+;; (when (maybe-require-package 'doom-modeline)
+;;   (setq doom-modeline-icon nil)
+;;   (setq all-the-icons-color-icons nil)
+;;   (setq doom-modeline-buffer-file-name-style 'buffer-name)
+;;   (add-hook 'after-init-hook #'doom-modeline-mode))
 
 
 ;; -------------------------------------------------------------------
