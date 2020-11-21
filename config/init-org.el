@@ -17,6 +17,8 @@
     (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
     (define-key org-agenda-mode-map (kbd "Z") 'org-agenda)))
 
+(setq org-fontify-done-headline t)
+
 (defun gaeric/org-pomodoro-todo-today ()
   "加入时间戳"
   (interactive)
