@@ -142,9 +142,9 @@
 
 ;; `org-capture' is global
 (gaeric-space-leader-def
-  "aoc" 'org-capture
-  "aoo" 'org-agenda
-  "aoa" 'org-agenda-list
+  "oc" 'org-capture
+  "oo" 'org-agenda
+  "oa" 'org-agenda-list
   )
 
 (gaeric-comma-leader-def
