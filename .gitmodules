@@ -7,3 +7,6 @@
 [submodule "site-lisp/eaf"]
 	path = site-lisp/eaf
 	url = https://github.com/manateelazycat/emacs-application-framework.git
+[submodule "site-lisp/awesome-pair"]
+	path = site-lisp/awesome-pair
+	url = https://github.com/manateelazycat/awesome-pair.git

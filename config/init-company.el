@@ -29,8 +29,12 @@
   (diminish 'company-mode)
   (define-key company-mode-map (kbd "M-/") 'company-complete)
   (define-key company-active-map (kbd "M-/") 'company-other-backend)
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "M-j") 'company-select-next)
   (define-key company-active-map (kbd "M-k") 'company-select-previous)
+  (define-key company-search-map (kbd "M-n") nil)
+  (define-key company-search-map (kbd "M-p") nil)
   (setq company-dabbrev-other-buffers 'all
         company-tooltip-align-annotations t
         company-minimum-prefix-length 2
