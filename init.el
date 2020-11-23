@@ -34,7 +34,7 @@
   ;;----------------------------------------------------------------------------
   ;; Advanced Config
   ;;----------------------------------------------------------------------------
-  (require 'init-winum)
+  (require 'init-window)
   (require 'init-ivy)
   (require 'init-project)
   (require 'init-xref)

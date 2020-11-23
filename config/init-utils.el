@@ -86,20 +86,6 @@
       (browse-url (concat "file://" file-name)))))
 
 ;; -------------------------------------------------------------------
-;; Jump with pair
-;; TODO gaeric/up-list can't jump for ""
-;; -------------------------------------------------------------------
-(defun gaeric/up-list (&optional arg escape-strings no-syntax-crossing)
-  (interactive)
-  (ignore-errors (up-list arg escape-strings no-syntax-crossing)))
-
-(defun gaeric/backward-up-list (&optional arg escape-strings no-syntax-crossing)
-  (interactive)
-  (ignore-errors (backward-up-list arg escape-strings no-syntax-crossing)))
-
-(global-set-key (kbd "M-o") 'up-list)
-
-;; -------------------------------------------------------------------
 ;; swith to some special buffer
 ;; -------------------------------------------------------------------
 (defun switch-to-scratch-buffer ()

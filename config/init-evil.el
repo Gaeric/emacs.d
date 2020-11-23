@@ -171,8 +171,6 @@
   "bm"    'switch-to-message-buffer
   "bb"    'switch-to-buffer
   "fed"   'open-init-file
-  "w/"    'split-window-right
-  "w-"    'split-window-below
   "ad"    'dired
   "tl"    'toggle-truncate-lines
   "tn"    'display-line-numbers-mode
