@@ -121,6 +121,9 @@
 
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
+
 (add-to-list 'auto-mode-alist (cons "\\.tsx" 'typescript-mode))
 
 (provide 'init-javascript)
