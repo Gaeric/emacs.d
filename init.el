@@ -64,6 +64,7 @@
               (progn
                 (show-paren-mode t)
                 (global-hl-line-mode)
+                (winner-mode)
                 ;; (toggle-frame-fullscreen)
                 )))
 
