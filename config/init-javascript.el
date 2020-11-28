@@ -103,6 +103,7 @@
   (dolist (mode '(typescript-mode js-mode js2-mode coffee-mode))
     (add-hook (derived-mode-hook-name mode) 'add-node-modules-path)))
 
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -120,16 +121,7 @@
 
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
-
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-
-(add-hook
- 'typescript-mode-hook
- '(lambda ()
-    (setq-local electric-pair-pairs
-                (append '((?< . ?>)) electric-pair-pairs))))
-
+(add-to-list 'auto-mode-alist (cons "\\.tsx" 'typescript-mode))
 
 (provide 'init-javascript)
 ;;; init-javascript.el ends here
