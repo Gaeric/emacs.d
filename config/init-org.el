@@ -83,15 +83,15 @@
 
   ;; TODO: 待处理的事务
   ;; STARTED: 事务进行中
-  ;; SUSPEND: 事务挂起
+  ;; PEND: 事务挂起
   ;; CANCELLED: 已弃置处理的事务
   ;; DONE: 已处理完成的事务
   (setq org-todo-keywords
         '((sequence
-           "TODO(t)" "READY(r)" "STARTED(s!)" "SUSPEND(S@)" "|" "DONE(d@)" "CANCELLED(c@/@)")))
+           "TODO(t)" "READY(r)" "STARTED(s!)" "PEND(w@)" "|" "DONE(d@)" "CANCELLED(c@/@)")))
 
   (setq org-clock-in-switch-to-state "STARTED")
-  (setq org-clock-out-switch-to-state "SUSPEND")
+  (setq org-clock-out-switch-to-state "PEND")
   
   (setq org-capture-templates
         '(("t" "Todo" entry
