@@ -25,6 +25,8 @@
   (add-hook 'beacon-before-blink-hook 'gaeric/change-beacon-color)
   (add-hook 'after-init-hook 'beacon-mode))
 
+(require-package 'sudo-edit)
+
 (when (fboundp 'electric-pair-mode)
   (add-hook 'after-init-hook 'electric-pair-mode))
 (add-hook 'after-init-hook 'electric-indent-mode)
