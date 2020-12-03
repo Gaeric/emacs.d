@@ -27,6 +27,16 @@
 
 (require-package 'sudo-edit)
 
+(when (maybe-require-package 'anzu)
+  (add-hook 'after-init-hook 'global-anzu-mode)
+  (setq anzu-mode-lighter "")
+  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
+  (global-set-key [remap query-replace] 'anzu-query-replace)
+  (when (maybe-require-package 'evil-anzu)
+    (with-eval-after-load 'evil
+      (require 'evil-anzu))))
+
+
 (when (fboundp 'electric-pair-mode)
   (add-hook 'after-init-hook 'electric-pair-mode))
 (add-hook 'after-init-hook 'electric-indent-mode)
