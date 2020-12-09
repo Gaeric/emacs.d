@@ -124,7 +124,12 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
-(add-to-list 'auto-mode-alist (cons "\\.tsx" 'typescript-mode))
+;; @https://github.com/ananthakumaran/tide/
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
 
 (provide 'init-javascript)
 ;;; init-javascript.el ends here
