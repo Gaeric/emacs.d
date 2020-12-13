@@ -99,5 +99,8 @@
       (kbd "<left-fringe> <mouse-1>")
       'diff-hl-diff-goto-hunk)))
 
+;; use vc-msg for git-blame
+(require-package 'vc-msg)
+
 (provide 'init-git)
 ;;; init-git.el ends here
