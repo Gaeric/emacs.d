@@ -17,6 +17,10 @@
     (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
     (define-key org-agenda-mode-map (kbd "Z") 'org-agenda)))
 
+(when (maybe-require-package 'org-roam)
+  (setq org-roam-directory "~/org/roam/")
+  (add-hook 'after-init-hook 'org-roam-mode))
+
 (setq org-fontify-done-headline t)
 
 (defun gaeric/org-pomodoro-todo-today ()
