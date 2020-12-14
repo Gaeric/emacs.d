@@ -29,10 +29,14 @@
    ivy-magic-tilde nil
    ;; ivy-dynamic-exhibit-delay-ms 150
    ivy-use-selectable-prompt t
-   ;; ivy-initial-inputs-alist '((Man-completion-table . "^") (woman . "^"))
+   ivy-initial-inputs-alist '((Man-completion-table . "^") (woman . "^"))
    smex-save-file (expand-file-name ".smex-items" user-emacs-directory)
    amx-save-file (expand-file-name ".amx-items" user-emacs-directory)
-   counsel-mode-override-describe-bindings t)
+   counsel-mode-override-describe-bindings t
+   ivy-re-builders-alist
+   '((t . ivy--regex-plus)
+     (ivy-switch-buffer . ivy--regex-fuzzy)
+     (counsel-M-x . ivy--regex-fuzzy)))
 
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-s") 'swiper)
