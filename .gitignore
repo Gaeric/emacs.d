@@ -21,3 +21,4 @@ projects
 .bookmarks.el
 /custom.el
 /eln-cache/
+/org-roam.db
