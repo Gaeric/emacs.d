@@ -7,10 +7,23 @@
 ;;
 ;; License: GPLv3
 
-(local-require 'awesome-pair)
 
-(add-hook 'prog-mode-hook '(lambda () (awesome-pair-mode 1)))
-(define-key awesome-pair-mode-map (kbd "M-n") 'awesome-pair-jump-right)
-(define-key awesome-pair-mode-map (kbd "M-p") 'awesome-pair-jump-left)
+(defun gaeric-pair-jump-left ()
+  "To left of previous match parentheses."
+  (interactive)
+  (backward-char 1)
+  (while (not (looking-at "\\(['\"<({]\\|[[]\\)")) (backward-char 1)))
+
+
+;; kind of (up-list)
+(defun gaeric-pair-jump-right ()
+  "To right of next match parentheses."
+  (interactive)
+  ;; Jump out of string if cursor in string area.
+  (while (not (looking-at "\\(['\">)}]\\|]\\)")) (forward-char 1))
+  (forward-char 1))
+
+(define-key global-map (kbd "M-n") 'gaeric-pair-jump-right)
+(define-key global-map (kbd "M-p") 'gaeric-pair-jump-left)
 
 (provide 'init-pair)
