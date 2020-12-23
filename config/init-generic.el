@@ -48,7 +48,7 @@
       (progn
 	(setq load-path
 	      (append
-	       (loop for dir in (directory-files site-lisp-dir)
+	       (cl-loop for dir in (directory-files site-lisp-dir)
 		     unless (string-match "^\\." dir)
 		     collecting (expand-file-name dir))
 	       load-path)))))
