@@ -21,6 +21,7 @@
   ;;----------------------------------------------------------------------------
   ;; Basic Config
   ;;----------------------------------------------------------------------------
+  (require 'init-benchmarking)
   (require 'init-generic)
   (require 'init-elpa)
   (require 'init-utils)
