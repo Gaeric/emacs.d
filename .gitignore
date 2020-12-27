@@ -22,3 +22,5 @@ projects
 /custom.el
 /eln-cache/
 /org-roam.db
+/package-quickstart.el
+/package-quickstart.elc
