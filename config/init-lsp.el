@@ -23,8 +23,4 @@
   (setq eglot-autoshutdown t)
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider)))
 
-(gaeric-comma-leader-def
-  "en"  'prog-next-error
-  "ep"  'prog-prev-error)
-
 (provide 'init-lsp)

@@ -7,14 +7,10 @@
 ;;
 ;; License: GPLv3
 
-(local-require 'ivy-xref)
+(with-eval-after-load 'xref
+  (local-require 'ivy-xref))
 
 (setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
 (setq xref-show-definitions-function #'ivy-xref-show-defs)
-
-(gaeric-comma-leader-def
-  "gd" 'xref-find-definitions
-  "gr" 'xref-find-references
-  "go" 'xref-find-definitions-other-window)
 
 (provide 'init-xref)

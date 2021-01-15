@@ -41,40 +41,6 @@
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-s") 'swiper)
 
-  (gaeric-space-leader-def
-    ;; Ivy-based interface to standard commands
-    "<SPC>" 'counsel-M-x
-    "ss"    'swiper
-    "si"    'swiper-isearch
-    "sp"    'swiper-thing-at-point
-
-    "hf"    'counsel-describe-function
-    "hv"    'counsel-describe-variable
-    "hd"    'counsel-descbinds             ;显示按键绑定
-    "hl"    'counsel-find-library
-    "hi"    'counsel-info-lookup-symbol
-    "hu"    'counsel-unicode-char
-    "hj"    'counsel-set-variable
-    "cv"    'ivy-push-view
-    "cV"    'ivy-pop-view
-
-    ;; Ivy-based interface to shell and system tools
-    "cc"    'counsel-compile ;counsel增强的编译选项
-    "cg"    'counsel-git ;在受git控制的项目下使用git查找文件
-    "cj"    'counsel-git-grep ;在受git控制的项目下使用git grep查找内容
-    "cL"    'counsel-git-log ;搜索git log
-    "cs"    'counsel-rg ;使用rg搜索当前目录
-    "cm"    'counsel-linux-app ;启动linux下的应用
-
-    ;; Ivy-resume and other commands
-    ;; ivy-resume resumes the last Ivy-based completion.
-    "cr" 'ivy-resume                    ;重复上一次的命令
-    "cb" 'counsel-bookmark              ;查找bookmark中的内容
-    "co" 'counsel-outline               ;用于在outline模式的大纲间快速移动
-    "ct" 'counsel-load-theme            ;加载theme
-    "cF" 'counsel-org-file              ;浏览org-mode中的所有附件
-    )
-
   ;; M-j default ivy-yank-word
   ;; C-M-j ivy-immediate-done
   ;; M-o ivy-dispatching

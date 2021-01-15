@@ -192,4 +192,81 @@
   "nw"    'widen
   )
 
+;; `org-capture' is global
+(gaeric-space-leader-def
+  "oc" 'org-capture
+  "oo" 'org-agenda
+  "oa" 'org-agenda-list
+  )
+
+(gaeric-comma-leader-def
+  :keymaps 'org-mode-map
+  "op" 'org-pomodoro
+  "cp" 'org-previous-visible-heading
+  "cn" 'org-next-visible-heading
+  "cf" 'org-forward-heading-same-level
+  "cb" 'org-backward-heading-same-level
+  "ns" 'org-narrow-to-subtree
+  "nb" 'org-narrow-to-block
+  "ne" 'org-narrow-to-element
+  "'"  'org-edit-special)
+
+(gaeric-comma-leader-def
+  :keymaps 'org-src-mode-map
+  "c'" 'org-edit-src-exit
+  "ck" 'org-edit-src-abort)
+
+(gaeric-comma-leader-def
+  "wc" 'lim-count-words)
+
+(gaeric-comma-leader-def
+  ;; "ff" 'find-file-in-project
+  ;; "fp" 'find-file-in-project-at-point
+  ;; "fs" 'find-file-in-project-by-selected ;类比于swiper-thing-at-point
+  "gf" 'project-find-file
+  "gs" 'project-find-regexp)
+
+(gaeric-space-leader-def
+  ;; Ivy-based interface to standard commands
+  "<SPC>" 'counsel-M-x
+  "ss"    'swiper
+  "si"    'swiper-isearch
+  "sp"    'swiper-thing-at-point
+
+  "hf"    'counsel-describe-function
+  "hv"    'counsel-describe-variable
+  "hd"    'counsel-descbinds             ;显示按键绑定
+  "hl"    'counsel-find-library
+  "hi"    'counsel-info-lookup-symbol
+  "hu"    'counsel-unicode-char
+  "hj"    'counsel-set-variable
+  "cv"    'ivy-push-view
+  "cV"    'ivy-pop-view
+
+  ;; Ivy-based interface to shell and system tools
+  "cc"    'counsel-compile ;counsel增强的编译选项
+  "cg"    'counsel-git ;在受git控制的项目下使用git查找文件
+  "cj"    'counsel-git-grep ;在受git控制的项目下使用git grep查找内容
+  "cL"    'counsel-git-log ;搜索git log
+  "cs"    'counsel-rg ;使用rg搜索当前目录
+  "cm"    'counsel-linux-app ;启动linux下的应用
+
+  ;; Ivy-resume and other commands
+  ;; ivy-resume resumes the last Ivy-based completion.
+  "cr" 'ivy-resume                    ;重复上一次的命令
+  "cb" 'counsel-bookmark              ;查找bookmark中的内容
+  "co" 'counsel-outline               ;用于在outline模式的大纲间快速移动
+  "ct" 'counsel-load-theme            ;加载theme
+  "cF" 'counsel-org-file              ;浏览org-mode中的所有附件
+  )
+
+(gaeric-comma-leader-def
+  "gd" 'xref-find-definitions
+  "gr" 'xref-find-references
+  "go" 'xref-find-definitions-other-window)
+
+(gaeric-comma-leader-def
+  "en"  'prog-next-error
+  "ep"  'prog-prev-error)
+
 (provide 'init-evil)
