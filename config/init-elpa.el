@@ -51,7 +51,10 @@ locate PACKAGE."
 
 ;;; Fire up package.el
 
-(setq package-enable-at-startup nil)
+(unless (file-exists-p package-quickstart-file)
+  (package-quickstart-refresh))
+(setq package-quickstart t)
+
 (package-initialize)
 
 
