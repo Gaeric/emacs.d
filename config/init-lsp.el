@@ -23,4 +23,9 @@
   (setq eglot-autoshutdown t)
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider)))
 
+(when (macrop 'gaeric-comma-leader-def)
+  (gaeric-comma-leader-def
+    "en"  'prog-next-error
+    "ep"  'prog-prev-error))
+
 (provide 'init-lsp)

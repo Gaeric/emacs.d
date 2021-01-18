@@ -24,4 +24,8 @@
 ;; 载入输入法时即加载标点相关控制函数，保证不受影响
 (setq lim-load-hook 'lim-active-xixi)
 
+(when (macrop 'gaeric-comma-leader-def)
+  (gaeric-comma-leader-def
+    "wc" 'lim-count-words))
+
 (provide 'init-lim)

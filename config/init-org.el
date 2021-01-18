@@ -146,4 +146,30 @@
   (setq org-agenda-files
         (quote ("~/org/inbox.org" "~/org/gtd.org"))))
 
+;; `org-capture' is global
+(when (macrop 'gaeric-space-leader-def)
+  (gaeric-space-leader-def
+    "oc" 'org-capture
+    "oo" 'org-agenda
+    "oa" 'org-agenda-list
+    ))
+
+(when (macrop 'gaeric-comma-leader-def)
+  (gaeric-comma-leader-def
+    :keymaps 'org-mode-map
+    "op" 'org-pomodoro
+    "cp" 'org-previous-visible-heading
+    "cn" 'org-next-visible-heading
+    "cf" 'org-forward-heading-same-level
+    "cb" 'org-backward-heading-same-level
+    "ns" 'org-narrow-to-subtree
+    "nb" 'org-narrow-to-block
+    "ne" 'org-narrow-to-element
+    "'"  'org-edit-special)
+
+  (gaeric-comma-leader-def
+    :keymaps 'org-src-mode-map
+    "c'" 'org-edit-src-exit
+    "ck" 'org-edit-src-abort))
+
 (provide 'init-org)
