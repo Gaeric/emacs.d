@@ -7,11 +7,6 @@
 ;;
 ;; License: GPLv3
 
-(local-require 'ivy-xref)
-
-(setq xref-show-xrefs-function #'ivy-xref-show-xrefs)
-(setq xref-show-definitions-function #'ivy-xref-show-defs)
-
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
     "gd" 'xref-find-definitions
