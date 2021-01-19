@@ -7,6 +7,11 @@
 ;;
 ;; License: GPLv3
 
+(with-eval-after-load 'xref
+  (local-require 'completing-read-xref)
+  (setq xref-show-definitions-function 'completing-read-xref-show-defs)
+  (setq xref-show-xrefs-function 'completing-read-xref-show-xrefs))
+
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
     "gd" 'xref-find-definitions
