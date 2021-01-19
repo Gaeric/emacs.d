@@ -143,53 +143,55 @@
   (global-evil-matchit-mode 1))
 
 
+;; Spaces keybinds for vanilla Emacs
+(when (macrop 'gaeric-space-leader-def)
+  (gaeric-space-leader-def
+    "<SPC>" 'execute-extended-command
+    "ff"    'find-file
+    "fo"    'find-file-other-window
+    "bo"    'switch-to-buffer-other-window
+    "fs"    'save-buffer
+    "bd"    'kill-this-buffer
+    "bs"    'switch-to-scratch-buffer
+    "bi"    'ibuffer
+    "bm"    'switch-to-message-buffer
+    "bb"    'switch-to-buffer
+    "fed"   'open-init-file
+    "ad"    'dired
+    "tl"    'toggle-truncate-lines
+    "tn"    'display-line-numbers-mode
+    "wc"    'count-words
+    "!"     'shell-command
+    ))
+
 
 ;; Emacs key bindings
 ;; comment lines useful for normal mode
 ;; (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
-(gaeric-comma-leader-def
-  "ci" 'evilnc-comment-or-uncomment-lines
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-  "cc" 'evilnc-copy-and-comment-lines
-  "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "cr" 'comment-or-uncomment-region
-  "cv" 'evilnc-toggle-invert-comment-line-by-line
-  "."  'evilnc-copy-and-comment-operator
-  "\\" 'evilnc-comment-operator ; if you prefer backslash key
-  )
+(when (macrop 'gaeric-comma-leader-def)
+  (gaeric-comma-leader-def
+    "ci" 'evilnc-comment-or-uncomment-lines
+    "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+    "cc" 'evilnc-copy-and-comment-lines
+    "cp" 'evilnc-comment-or-uncomment-paragraphs
+    "cr" 'comment-or-uncomment-region
+    "cv" 'evilnc-toggle-invert-comment-line-by-line
+    "."  'evilnc-copy-and-comment-operator
+    "\\" 'evilnc-comment-operator ; if you prefer backslash key
+    )
 
-
-;; Spaces keybinds for vanilla Emacs
-(gaeric-space-leader-def
-  "ff"    'find-file
-  "fo"    'find-file-other-window
-  "bo"    'switch-to-buffer-other-window
-  "fs"    'save-buffer
-  "bd"    'kill-this-buffer
-  "bs"    'switch-to-scratch-buffer
-  "bi"    'ibuffer
-  "bm"    'switch-to-message-buffer
-  "bb"    'switch-to-buffer
-  "fed"   'open-init-file
-  "ad"    'dired
-  "tl"    'toggle-truncate-lines
-  "tn"    'display-line-numbers-mode
-  "wc"    'count-words
-  "!"     'shell-command
-  )
-
-(gaeric-comma-leader-def
-  "cx"  'copy-to-x-clipboard
-  "px"  'paste-from-x-clipboard
-  "kc"  'kill-ring-to-clipboard
-  "ee"  'eval-last-sexp
-  ","   'evil-repeat-find-char-reverse
-  "nn"  'narrow-to-region
-  "nd"   'narrow-to-defun
-  "np"   'narrow-to-page
-  "ma"   'beginning-of-defun
-  "me"   'end-of-defun
-  "nw"    'widen
-  )
+  (gaeric-comma-leader-def
+    "cx"  'copy-to-x-clipboard
+    "px"  'paste-from-x-clipboard
+    "kc"  'kill-ring-to-clipboard
+    "ee"  'eval-last-sexp
+    ","   'evil-repeat-find-char-reverse
+    "nn"  'narrow-to-region
+    "nd"   'narrow-to-defun
+    "np"   'narrow-to-page
+    "ma"   'beginning-of-defun
+    "me"   'end-of-defun
+    "nw"    'widen
+    ))
 
 (provide 'init-evil)
