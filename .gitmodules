@@ -4,9 +4,6 @@
 [submodule "site-lisp/ivy-xref"]
 	path = site-lisp/ivy-xref
 	url = git@github.com:Gaeric/ivy-xref.git
-[submodule "site-lisp/eaf"]
-	path = site-lisp/eaf
-	url = https://github.com/manateelazycat/emacs-application-framework.git
 [submodule "site-lisp/completing-read-xref"]
 	path = site-lisp/completing-read-xref
 	url = https://github.com/travitch/completing-read-xref.el.git
