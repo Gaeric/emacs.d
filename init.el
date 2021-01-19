@@ -38,7 +38,7 @@
   (require 'init-ibuffer)
   (require 'init-window)
   (require 'init-pair)
-  (require 'init-selectrum)
+  (require 'init-complete)
   (require 'init-project)
   (require 'init-xref)
   (require 'init-company)
