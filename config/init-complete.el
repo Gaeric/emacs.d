@@ -8,7 +8,7 @@
 ;; License: GPLv3
 
 (when (maybe-require-package 'selectrum)
-  (with-eval-after-load 'selectrum-mode
+  (with-eval-after-load 'selectrum
     (define-key selectrum-minibuffer-map (kbd "M-j") 'selectrum-next-candidate)
     (define-key selectrum-minibuffer-map (kbd "M-k") 'selectrum-previous-candidate))
   (add-hook 'after-init-hook 'selectrum-mode))
