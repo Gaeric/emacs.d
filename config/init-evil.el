@@ -6,6 +6,17 @@
 ;;
 ;;; License: GPLv3
 
+(require-package 'evil-collection)
+;; (setq evil-want-integration t)  ; This is optional since it's already default
+(setq evil-want-keybinding nil)
+(with-eval-after-load
+    (evil-collection-init))
+
+(when (maybe-require-package 'evil-org)
+  (with-eval-after-load 'org-agenda
+    (require 'evil-org-agenda)
+    (evil-org-agenda-set-keys)))
+
 ;;----------------------------------------------------------------------------
 ;; evil config
 ;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
@@ -34,51 +45,17 @@
   "^" 'org-beginning-of-line ; ditto
   (kbd "TAB") 'org-cycle)
 
-(evil-declare-key 'motion help-mode-map
-  (kbd "TAB") 'forward-button)
-
 (when (maybe-require-package 'expand-region)
   (define-key evil-visual-state-map (kbd "v") 'er/expand-region))
 
 ;; {{ specify major mode uses Evil (vim) NORMAL state or EMACS original state.
 ;; You may delete this setup to use Evil NORMAL state always.
-(dolist (p '((minibuffer-inactive-mode . emacs)
-             (calendar-mode . emacs)
-             (special-mode . emacs)
-             (grep-mode . emacs)
-             (Info-mode . emacs)
-             (term-mode . emacs)
-             (sdcv-mode . emacs)
-             (anaconda-nav-mode . emacs)
-             (log-edit-mode . emacs)
-             (vc-log-edit-mode . emacs)
-             (magit-log-edit-mode . emacs)
-             (erc-mode . emacs)
-             (neotree-mode . emacs)
-             (w3m-mode . emacs)
-             (gud-mode . emacs)
-             (help-mode . motion)
-             (eshell-mode . emacs)
-             (shell-mode . emacs)
-             (xref--xref-buffer-mode . emacs)
-             ;;(message-mode . emacs)
-             (epa-key-list-mode . emacs)
-             (fundamental-mode . normal)
-             (weibo-timeline-mode . emacs)
-             (weibo-post-mode . emacs)
-             (woman-mode . emacs)
-             (sr-mode . emacs)
-             (profiler-report-mode . emacs)
-             (dired-mode . emacs)
-             (compilation-mode . emacs)
-             (speedbar-mode . emacs)
-             (ivy-occur-mode . emacs)
-             (ffip-file-mode . emacs)
-             (ivy-occur-grep-mode . normal)
-             (messages-buffer-mode . normal)
-             (js2-error-buffer-mode . emacs)
-             (image-mode . emacs)))
-  (evil-set-initial-state (car p) (cdr p)))
+;; Such as
+;; (dolist (p '((minibuffer-inactive-mode . emacs)
+;;              (ivy-occur-grep-mode . normal)
+;;              (js2-error-buffer-mode . emacs)
+;;              (image-mode . emacs)))
+;;   (evil-set-initial-state (car p) (cdr p)))
 ;; }}
 
 
