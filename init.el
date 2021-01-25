@@ -30,6 +30,7 @@
   (require 'init-git)
   (require 'init-theme)
   (require 'init-org)
+  (require 'init-keyfreq)
   (require 'init-lim)
 
   ;;----------------------------------------------------------------------------
