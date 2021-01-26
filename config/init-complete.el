@@ -43,4 +43,8 @@
   (gaeric-space-leader-def
     "ss" 'consult-line))
 
+(when (maybe-require-package 'which-key)
+  (with-eval-after-load 'which-key
+    (diminish 'which-key-mode)))
+
 (provide 'init-complete)
