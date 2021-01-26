@@ -7,24 +7,6 @@
 ;;
 ;; License: GPLv3
 
-;; (setq beacon-before-blink-hook nil)
-;; beacon-color 0.5
-
-;; (when (maybe-require-package 'beacon)
-;;   (defun gaeric/change-beacon-color ()
-;;     "To remind the current mode"
-;;     (let ((color
-;;            (cond
-;;             ((evil-emacs-state-p) "#8d00a0")
-;;             ((evil-normal-state-p) "#006fa0")
-;;             (t "#444488"))))
-;;       (setq beacon-color color)))
-
-;;   (setq-default beacon-lighter "")
-;;   (setq-default beacon-size 20)
-;;   (add-hook 'beacon-before-blink-hook 'gaeric/change-beacon-color)
-;;   (add-hook 'after-init-hook 'beacon-mode))
-
 (require-package 'sudo-edit)
 
 (when (maybe-require-package 'anzu)
