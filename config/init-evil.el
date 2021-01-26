@@ -117,7 +117,7 @@
 ;;----------------------------------------------------------------------------
 (when (maybe-require-package 'evil-matchit)
   (setq evilmi-shortcut "m")
-  (global-evil-matchit-mode 1))
+  (add-hook 'prog-mode-hook 'evil-matchit-mode))
 
 
 ;; Spaces keybinds for vanilla Emacs
