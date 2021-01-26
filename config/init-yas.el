@@ -21,6 +21,7 @@
   (add-hook hook #'yas-minor-mode))
 
 (with-eval-after-load 'yasnippet
+  (diminish 'yas-minor-mode)
   (yas-reload-all))
 
 (provide 'init-yas)

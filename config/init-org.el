@@ -21,7 +21,8 @@
 (when (maybe-require-package 'org-roam)
   (setq org-roam-directory "~/org/roam/")
   ;; (add-hook 'after-init-hook 'org-roam-mode)
-  )
+  (with-eval-after-load 'org-roam
+    (diminish 'org-roam-mode)))
 
 (setq org-fontify-done-headline t)
 

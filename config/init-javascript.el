@@ -5,7 +5,9 @@
 (maybe-require-package 'json-mode)
 (maybe-require-package 'js2-mode)
 (maybe-require-package 'typescript-mode)
-(maybe-require-package 'prettier-js)
+(when (maybe-require-package 'prettier-js)
+  (with-eval-after-load 'prettier-js
+    (diminish 'prettier-js-mode)))
 (require 'derived)
 
 

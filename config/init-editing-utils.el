@@ -93,4 +93,9 @@
   (interactive)
   (decode-coding-region (point-min) (point-max) 'gbk))
 
+(require-package 'diminish)
+
+(with-eval-after-load 'auto-revert-mode
+    (diminish 'auto-revert-mode))
+
 (provide 'init-editing-utils)
