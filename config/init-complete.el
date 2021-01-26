@@ -25,7 +25,8 @@
   (define-key selectrum-minibuffer-map (kbd "C-c C-c") 'embark-act-noexit))
 
 (when (maybe-require-package 'consult)
-  (setq consult-preview-buffer nil)
+  ;; TODO: Only preview for consult-line
+  (setq consult-preview-key nil)
   (global-set-key [remap switch-to-buffer] 'consult-buffer)
   (global-set-key [remap switch-to-buffer-other-window] 'consult-buffer-other-window)
   (global-set-key [remap switch-to-buffer-other-frame] 'consult-buffer-other-frame))
