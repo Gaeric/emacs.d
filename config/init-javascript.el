@@ -124,9 +124,6 @@
 ;; formats the buffer before saving
 ;; (add-hook 'before-save-hook 'tide-format-before-save)
 
-(with-eval-after-load 'prettier-js
-  (diminish 'prettier-js-mode))
-
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; @https://github.com/ananthakumaran/tide/

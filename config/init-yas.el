@@ -9,8 +9,6 @@
 (require-package 'yasnippet)
 (require-package 'yasnippet-snippets)
 
-(diminish 'yas-minor-mode)
-
 (dolist (hook
          (list
           'c-mode-common-hook

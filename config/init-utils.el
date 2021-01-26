@@ -102,6 +102,4 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-(require-package 'diminish)
-
 (provide 'init-utils)
