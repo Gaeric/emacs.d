@@ -9,7 +9,7 @@
 (require-package 'evil-collection)
 ;; (setq evil-want-integration t)  ; This is optional since it's already default
 (setq evil-want-keybinding nil)
-(setq evil-collection-exclude-modes '(company))
+(setq evil-collection-exclude-modes '(company tide python))
 (with-eval-after-load 'evil-collection
   (dolist (mode evil-collection-exclude-modes)
     (setq evil-collection-mode-list
@@ -127,7 +127,7 @@
 ;; Spaces keybinds for vanilla Emacs
 (when (macrop 'gaeric-space-leader-def)
   (gaeric-space-leader-def
-    "<SPC>" 'execute-extended-command
+    ;; "<SPC>" 'execute-extended-command
     "ff"    'find-file
     "fo"    'find-file-other-window
     "bo"    'switch-to-buffer-other-window
