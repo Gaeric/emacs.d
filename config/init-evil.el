@@ -9,8 +9,12 @@
 (require-package 'evil-collection)
 ;; (setq evil-want-integration t)  ; This is optional since it's already default
 (setq evil-want-keybinding nil)
-(with-eval-after-load
-    (evil-collection-init))
+(setq evil-collection-exclude-modes '(company))
+(with-eval-after-load 'evil-collection
+  (dolist (mode evil-collection-exclude-modes)
+    (setq evil-collection-mode-list
+          (delq mode evil-collection-mode-list))))
+(evil-collection-init)
 
 (when (maybe-require-package 'evil-org)
   (with-eval-after-load 'org-agenda
