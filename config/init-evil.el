@@ -25,10 +25,28 @@
 ;; evil config
 ;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
 ;;----------------------------------------------------------------------------
+
+(when (maybe-require-package 'undo-fu)
+  (define-minor-mode undo-fu-mode
+    "Enables `undo-fu' for the curent session."
+    :keymap (let ((map (make-sparse-keymap)))
+              (define-key map [remap undo] #'undo-fu-only-undo)
+              (define-key map [remap redo] #'undo-fu-only-redo)
+              map)
+    :init-value nil
+    :global t)
+
+
+  (undo-fu-mode 1)
+  (setq undo-limit 8000000)
+  (setq undo-strong-limit 8000000)
+  (setq undo-outer-limit 8000000))
+
 (when (maybe-require-package 'evil)
-  (maybe-require-package 'undo-fu)
   (setq evil-undo-system 'undo-fu)
   (evil-mode 1)
+  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+  (define-key evil-normal-state-map (kbd "C-r") 'undo-fu-only-redo)
   (setq evil-move-cursor-back t))
 
 
