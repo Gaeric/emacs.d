@@ -8,9 +8,9 @@
 ;; License: GPLv3
 
 (with-eval-after-load 'xref
-  (local-require 'completing-read-xref)
-  (setq xref-show-definitions-function 'completing-read-xref-show-defs)
-  (setq xref-show-xrefs-function 'completing-read-xref-show-xrefs))
+  (setq xref-search-program 'ripgrep)
+  (setq xref-show-definitions-function 'xref-show-definitions-completing-read)
+  (setq xref-show-xrefs-function 'xref-show-definitions-completing-read))
 
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
