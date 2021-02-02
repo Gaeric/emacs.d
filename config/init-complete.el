@@ -35,6 +35,8 @@
   (with-eval-after-load 'embark
     (require 'embark-consult)))
 
+(require-package 'wgrep)
+
 (when (maybe-require-package 'marginalia)
   (add-hook 'after-init-hook 'marginalia-mode)
   (setq-default marginalia-annotators '(marginalia-annotators-heavy)))
