@@ -15,10 +15,9 @@
   (add-hook 'emacs-startup-hook 'selectrum-mode))
 
 (when (maybe-require-package 'selectrum-prescient)
-  (with-eval-after-load 'selectrum
     (require 'prescient)
     (prescient-persist-mode 1)
-    (selectrum-prescient-mode 1)))
+    (selectrum-prescient-mode 1))
 
 (when (maybe-require-package 'embark)
   ;; use C-h to show help after embark-act-noexit

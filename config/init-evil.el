@@ -14,7 +14,8 @@
   (dolist (mode evil-collection-exclude-modes)
     (setq evil-collection-mode-list
           (delq mode evil-collection-mode-list))))
-(evil-collection-init)
+(with-eval-after-load 'evil
+  (evil-collection-init))
 
 (when (maybe-require-package 'evil-org)
   (with-eval-after-load 'org-agenda
