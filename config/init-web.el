@@ -71,6 +71,7 @@
   (with-eval-after-load 'prettier-js
     (diminish 'prettier-js-mode)))
 
+(require-package 'tide)
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
@@ -84,17 +85,25 @@
   (company-mode +1)
   (prettier-js-mode))
 
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (add-hook 'js-mode-hook #'setup-tide-mode)
 
+;;; lsp slow 
+;; (defun setup-js/ts-lsp ()
+;;   (eglot-ensure)
+;;   (prettier-js-mode))
+
+;; (add-hook 'typescript-mode-hook #'setup-js/ts-lsp)
+;; (add-hook 'js-mode-hook #'setup-js/ts-lsp)
+
 ;; @https://github.com/ananthakumaran/tide/
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 (add-hook 'web-mode-hook
           (lambda ()
-            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+            (when (or 
+                   (string-equal "tsx" (file-name-extension buffer-file-name))
+                   (string-equal "jsx" (file-name-extension buffer-file-name)))
               (setup-tide-mode))))
 
 (provide 'init-web)
