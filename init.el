@@ -54,7 +54,6 @@
   (require 'init-python)
   (require 'init-rust)
   (require 'init-web)
-  (require 'init-javascript)
 
   ;;----------------------------------------------------------------------------
   ;;
