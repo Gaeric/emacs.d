@@ -15,7 +15,7 @@
 ;; <TAB> just use for indent
 ;; (setq tab-always-indent 'complete)
 
-(add-hook 'after-init-hook
+(add-hook 'emacs-startup-hook
           (lambda ()
             (progn
               (global-company-mode)
@@ -35,8 +35,7 @@
   (define-key company-active-map (kbd "M-k") 'company-select-previous)
   (define-key company-search-map (kbd "M-n") nil)
   (define-key company-search-map (kbd "M-p") nil)
-  (setq company-dabbrev-other-buffers 'all
-        company-tooltip-align-annotations t
+  (setq company-tooltip-align-annotations t
         company-minimum-prefix-length 2
         company-idle-delay .1))
 
