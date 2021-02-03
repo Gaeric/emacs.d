@@ -28,6 +28,7 @@
 
 (when (maybe-require-package 'consult)
   ;; Only preview for consult-line
+  ;; https://github.com/minad/consult/issues/186
   (setq consult-preview-key nil)
   (setq consult-config `((consult-line :preview-key any)))
 
