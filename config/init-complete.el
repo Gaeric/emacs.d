@@ -12,21 +12,25 @@
     (recentf-mode)
     (define-key selectrum-minibuffer-map (kbd "M-j") 'selectrum-next-candidate)
     (define-key selectrum-minibuffer-map (kbd "M-k") 'selectrum-previous-candidate))
-  (add-hook 'after-init-hook 'selectrum-mode))
+  (add-hook 'emacs-startup-hook 'selectrum-mode))
 
 (when (maybe-require-package 'selectrum-prescient)
-  (require 'prescient)
-  (prescient-persist-mode 1)
-  (selectrum-prescient-mode 1))
+  (with-eval-after-load 'selectrum
+    (require 'prescient)
+    (prescient-persist-mode 1)
+    (selectrum-prescient-mode 1)))
 
 (when (maybe-require-package 'embark)
   ;; use C-h to show help after embark-act-noexit
-  (define-key selectrum-minibuffer-map (kbd "C-c C-o") 'embark-export)
-  (define-key selectrum-minibuffer-map (kbd "C-c C-c") 'embark-act-noexit))
+  (with-eval-after-load 'selectrum
+    (define-key selectrum-minibuffer-map (kbd "C-c C-o") 'embark-export)
+    (define-key selectrum-minibuffer-map (kbd "C-c C-c") 'embark-act-noexit)))
 
 (when (maybe-require-package 'consult)
-  ;; TODO: Only preview for consult-line
+  ;; Only preview for consult-line
   (setq consult-preview-key nil)
+  (setq consult-config `((consult-line :preview-key any)))
+
   (global-set-key [remap switch-to-buffer] 'consult-buffer)
   (global-set-key [remap switch-to-buffer-other-window] 'consult-buffer-other-window)
   (global-set-key [remap switch-to-buffer-other-frame] 'consult-buffer-other-frame))
