@@ -12,7 +12,7 @@
     (recentf-mode)
     (define-key selectrum-minibuffer-map (kbd "M-j") 'selectrum-next-candidate)
     (define-key selectrum-minibuffer-map (kbd "M-k") 'selectrum-previous-candidate))
-  (add-hook 'emacs-startup-hook 'selectrum-mode))
+  (add-hook 'after-init-hook 'selectrum-mode))
 
 (when (maybe-require-package 'selectrum-prescient)
     (require 'prescient)

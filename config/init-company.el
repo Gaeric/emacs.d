@@ -15,7 +15,7 @@
 ;; <TAB> just use for indent
 ;; (setq tab-always-indent 'complete)
 
-(add-hook 'emacs-startup-hook
+(add-hook 'after-init-hook
           (lambda ()
             (progn
               (global-company-mode)
