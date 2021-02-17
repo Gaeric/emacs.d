@@ -6,27 +6,7 @@
 ;;
 ;;; License: GPLv3
 
-(require-package 'evil-collection)
-;; (setq evil-want-integration t)  ; This is optional since it's already default
-(setq evil-want-keybinding nil)
-(setq evil-collection-exclude-modes '(company tide python))
-(with-eval-after-load 'evil-collection
-  (dolist (mode evil-collection-exclude-modes)
-    (setq evil-collection-mode-list
-          (delq mode evil-collection-mode-list))))
-(with-eval-after-load 'evil
-  (evil-collection-init))
-
-(when (maybe-require-package 'evil-org)
-  (with-eval-after-load 'org-agenda
-    (require 'evil-org-agenda)
-    (evil-org-agenda-set-keys)))
-
-;;----------------------------------------------------------------------------
-;; evil config
-;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
-;;----------------------------------------------------------------------------
-
+;; New undo/redo system
 (when (maybe-require-package 'undo-fu)
   (define-minor-mode undo-fu-mode
     "Enables `undo-fu' for the curent session."
@@ -37,68 +17,37 @@
     :init-value nil
     :global t)
 
-
   (undo-fu-mode 1)
   (setq undo-limit 8000000)
   (setq undo-strong-limit 8000000)
   (setq undo-outer-limit 8000000))
 
-(when (maybe-require-package 'evil)
-  (setq evil-undo-system 'undo-fu)
-  (evil-mode 1)
-  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
-  (define-key evil-normal-state-map (kbd "C-r") 'undo-fu-only-redo)
-  (setq evil-move-cursor-back t))
 
-
-(require-package 'general)
-(general-create-definer gaeric-space-leader-def
-  :prefix "SPC"
-  :states '(normal visual))
-
-(general-create-definer gaeric-comma-leader-def
-  :prefix ","
-  :states '(normal visual))
-
-
-;; As a general RULE, mode specific evil leader keys started
-;; with uppercased character or 'g' or special character except "=" and "-"
-(evil-declare-key 'normal org-mode-map
-  "$" 'org-end-of-line ; smarter behaviour on headlines etc.
-  "^" 'org-beginning-of-line ; ditto
-  (kbd "TAB") 'org-cycle)
-
-(when (maybe-require-package 'expand-region)
-  (define-key evil-visual-state-map (kbd "v") 'er/expand-region))
-
-;; {{ specify major mode uses Evil (vim) NORMAL state or EMACS original state.
-;; You may delete this setup to use Evil NORMAL state always.
-;; Such as
-;; (dolist (p '((minibuffer-inactive-mode . emacs)
-;;              (ivy-occur-grep-mode . normal)
-;;              (js2-error-buffer-mode . emacs)
-;;              (image-mode . emacs)))
-;;   (evil-set-initial-state (car p) (cdr p)))
-;; }}
-
-
-;; Prefer Emacs way after pressing ":" in evil-mode
-(define-key evil-ex-completion-map (kbd "C-a") 'move-beginning-of-line)
-(define-key evil-ex-completion-map (kbd "C-b") 'backward-char)
-(define-key evil-ex-completion-map (kbd "M-p") 'previous-complete-history-element)
-(define-key evil-ex-completion-map (kbd "M-n") 'next-complete-history-element)
-
+;; evil keybinds for org-mode/org-agenda
+(when (maybe-require-package 'evil-org)
+  (with-eval-after-load 'org-agenda
+    (require 'evil-org-agenda)
+    (evil-org-agenda-set-keys)))
 
 (when (maybe-require-package 'avy)
   (setq avy-all-windows nil)
   (setq avy-style 'pre)
   (global-set-key (kbd "M-g") 'avy-goto-char-timer))
 
-;;----------------------------------------------------------------------------
-;; evil-surround config
-;;----------------------------------------------------------------------------
+
+;; evil/evil-plugin
+(require-package 'evil-collection)
 (require-package 'evil-surround)
-(global-evil-surround-mode 1)
+(require-package 'evil-visualstar)
+(require-package 'evil-exchange)
+(require-package 'evil-nerd-commenter)
+
+(setq evil-want-keybinding nil)
+(setq evil-collection-exclude-modes '(company tide python))
+(with-eval-after-load 'evil-collection
+  (dolist (mode evil-collection-exclude-modes)
+    (setq evil-collection-mode-list
+          (delq mode evil-collection-mode-list))))
 
 (defun evil-surround-emacs-lisp-mode-hook-setup ()
   (push '(?\( . ("( " . ")")) evil-surround-pairs-alist)
@@ -111,29 +60,51 @@
   (push '(?~ . ("~" . "~")) evil-surround-pairs-alist))
 (add-hook 'org-mode-hook 'evil-surround-org-mode-hook-setup)
 
+(when (maybe-require-package 'evil)
+  (setq evil-undo-system 'undo-fu)
+  (setq evil-move-cursor-back t)
+  (add-hook 'after-init-hook 'evil-mode))
 
-;;----------------------------------------------------------------------------
-;; evil-visualstar config
-;;----------------------------------------------------------------------------
-(require-package 'evil-visualstar)
-(global-evil-visualstar-mode 1)
+(with-eval-after-load 'evil
+  (evil-collection-init))
+
+(with-eval-after-load 'evil
+  ;;----------------------------------------------------------------------------
+  ;; evil config
+  ;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
+  ;;----------------------------------------------------------------------------
+  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+  (define-key evil-normal-state-map (kbd "C-r") 'undo-fu-only-redo)
+
+  ;; As a general RULE, mode specific evil leader keys started
+  ;; with uppercased character or 'g' or special character except "=" and "-"
+  (evil-declare-key 'normal org-mode-map
+    "$" 'org-end-of-line ; smarter behaviour on headlines etc.
+    "^" 'org-beginning-of-line ; ditto
+    (kbd "TAB") 'org-cycle)
+
+  (when (maybe-require-package 'expand-region)
+    (define-key evil-visual-state-map (kbd "v") 'er/expand-region))
+
+  ;; {{ specify major mode uses Evil (vim) NORMAL state or EMACS original state.
+  ;; You may delete this setup to use Evil NORMAL state always.
+  ;; Such as
+  ;; (dolist (p '((minibuffer-inactive-mode . emacs)
+  ;;              (image-mode . emacs)))
+  ;;   (evil-set-initial-state (car p) (cdr p)))
+  ;; }}
 
 
-;; TODO: ffip
-;; TODO: evil-matchit
+  ;; Prefer Emacs way after pressing ":" in evil-mode
+  (define-key evil-ex-completion-map (kbd "C-a") 'move-beginning-of-line)
+  (define-key evil-ex-completion-map (kbd "C-b") 'backward-char)
+  (define-key evil-ex-completion-map (kbd "M-p") 'previous-complete-history-element)
+  (define-key evil-ex-completion-map (kbd "M-n") 'next-complete-history-element)
 
-
-;;----------------------------------------------------------------------------
-;; evil-exchange config
-;;----------------------------------------------------------------------------
-(require-package 'evil-exchange)
-(evil-exchange-install)
-
-;;----------------------------------------------------------------------------
-;; evil-nerd-commenter config
-;; @see https://github.com/redguardtoo/evil-nerd-commenter
-;;----------------------------------------------------------------------------
-(require-package 'evil-nerd-commenter)
+  ;; evil-plugin
+  (global-evil-surround-mode 1)
+  (global-evil-visualstar-mode 1)
+  (evil-exchange-install))
 
 ;;----------------------------------------------------------------------------
 ;; evil-matchit config
@@ -141,6 +112,19 @@
 (when (maybe-require-package 'evil-matchit)
   (setq evilmi-shortcut "m")
   (add-hook 'prog-mode-hook 'evil-matchit-mode))
+
+;;----------------------------------------------------------------------------
+;; General config -- As evil leader
+;;----------------------------------------------------------------------------
+(require-package 'general)
+
+(general-create-definer gaeric-space-leader-def
+  :prefix "SPC"
+  :states '(normal visual))
+
+(general-create-definer gaeric-comma-leader-def
+  :prefix ","
+  :states '(normal visual))
 
 
 ;; Spaces keybinds for vanilla Emacs
