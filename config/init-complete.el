@@ -8,6 +8,7 @@
 ;; License: GPLv3
 
 (when (maybe-require-package 'selectrum)
+  (setq selectrum-fix-vertical-window-height t)
   (with-eval-after-load 'selectrum
     (recentf-mode)
     (define-key selectrum-minibuffer-map (kbd "M-j") 'selectrum-next-candidate)
