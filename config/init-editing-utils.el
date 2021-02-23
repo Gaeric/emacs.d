@@ -7,7 +7,10 @@
 ;;
 ;; License: GPLv3
 
+;; edit file with sudo
 (require-package 'sudo-edit)
+;; unfill region/paragraph
+(require-package 'unfill)
 
 (when (maybe-require-package 'anzu)
   (add-hook 'after-init-hook 'global-anzu-mode)
