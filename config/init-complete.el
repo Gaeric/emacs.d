@@ -24,7 +24,7 @@
   ;; use C-h to show help after embark-act-noexit
   (with-eval-after-load 'selectrum
     (define-key selectrum-minibuffer-map (kbd "C-c C-o") 'embark-export)
-    (define-key selectrum-minibuffer-map (kbd "C-c C-c") 'embark-act-noexit)))
+    (define-key selectrum-minibuffer-map (kbd "C-c C-c") 'embark-act)))
 
 (when (maybe-require-package 'consult)
   ;; Only preview for consult-line
