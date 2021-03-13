@@ -7,10 +7,13 @@
 ;;
 ;; License: GPLv3
 
+(require 'ivy-xref)
+
 (with-eval-after-load 'xref
   (setq xref-search-program 'ripgrep)
-  (setq xref-show-xrefs-function 'xref-show-definitions-completing-read)
-  (setq xref-show-definitions-function 'xref-show-definitions-completing-read))
+  (require 'swiper)
+  (setq xref-show-definitions-function 'ivy-xref-show-defs)
+  (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def

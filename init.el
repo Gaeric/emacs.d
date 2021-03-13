@@ -39,7 +39,7 @@
   (require 'init-ibuffer)
   (require 'init-window)
   (require 'init-pair)
-  (require 'init-complete)
+  (require 'init-ivy)
   (require 'init-project)
   (require 'init-xref)
   (require 'init-company)

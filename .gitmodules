@@ -1,3 +1,6 @@
 [submodule "site-lisp/lim"]
 	path = site-lisp/lim
 	url = git@118.24.23.137:lim.git
+[submodule "site-lisp/ivy-xref"]
+	path = site-lisp/ivy-xref
+	url = https://github.com/Gaeric/ivy-xref.git
