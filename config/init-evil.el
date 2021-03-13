@@ -6,22 +6,8 @@
 ;;
 ;;; License: GPLv3
 
-;; New undo/redo system
-(when (maybe-require-package 'undo-fu)
-  (define-minor-mode undo-fu-mode
-    "Enables `undo-fu' for the curent session."
-    :keymap (let ((map (make-sparse-keymap)))
-              (define-key map [remap undo] #'undo-fu-only-undo)
-              (define-key map [remap redo] #'undo-fu-only-redo)
-              map)
-    :init-value nil
-    :global t)
-
-  (undo-fu-mode 1)
-  (setq undo-limit 8000000)
-  (setq undo-strong-limit 8000000)
-  (setq undo-outer-limit 8000000))
-
+(require-package 'undo-tree)
+(global-undo-tree-mode)
 
 ;; evil keybinds for org-mode/org-agenda
 (when (maybe-require-package 'evil-org)
@@ -61,7 +47,7 @@
 (add-hook 'org-mode-hook 'evil-surround-org-mode-hook-setup)
 
 (when (maybe-require-package 'evil)
-  (setq evil-undo-system 'undo-fu)
+  (setq evil-undo-system 'undo-tree)
   (setq evil-move-cursor-back t)
   (add-hook 'after-init-hook 'evil-mode))
 
@@ -73,8 +59,6 @@
   ;; evil config
   ;; @see https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-evil.el
   ;;----------------------------------------------------------------------------
-  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
-  (define-key evil-normal-state-map (kbd "C-r") 'undo-fu-only-redo)
 
   ;; As a general RULE, mode specific evil leader keys started
   ;; with uppercased character or 'g' or special character except "=" and "-"
