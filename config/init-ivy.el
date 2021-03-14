@@ -34,7 +34,7 @@
    counsel-mode-override-describe-bindings t
    ivy-re-builders-alist
    '((t . ivy--regex-plus)
-     (ivy-switch-buffer . ivy--regex-fuzzy)
+     ;; (ivy-switch-buffer . ivy--regex-fuzzy)
      (counsel-M-x . ivy--regex-fuzzy)))
 
   (global-set-key (kbd "M-x") 'counsel-M-x)
