@@ -102,4 +102,11 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
+(defun gaeric/symbol-at-reg-point ()
+  (if (region-active-p)
+      (unwind-protect
+          (buffer-substring-no-properties (region-beginning) (region-end))
+        (pop-mark))
+    (thing-at-point 'symbol)))
+
 (provide 'init-utils)
