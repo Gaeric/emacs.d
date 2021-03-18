@@ -7,18 +7,22 @@
 ;;
 ;; License: GPLv3
 
+(when (maybe-require-package 'amx)
+  (setq-default amx-save-file (expand-file-name ".amx-items" user-emacs-directory)))
+
 (when (maybe-require-package 'selectrum)
   (setq selectrum-fix-vertical-window-height t)
   (with-eval-after-load 'selectrum
-    (recentf-mode)
+    (recentf-mode 1)
+    (amx-mode 1)
     (define-key selectrum-minibuffer-map (kbd "M-j") 'selectrum-next-candidate)
     (define-key selectrum-minibuffer-map (kbd "M-k") 'selectrum-previous-candidate))
   (add-hook 'after-init-hook 'selectrum-mode))
 
-(when (maybe-require-package 'selectrum-prescient)
-    (require 'prescient)
-    (prescient-persist-mode 1)
-    (selectrum-prescient-mode 1))
+;; config completion style with category
+;; use orderless to completion styles
+(when (maybe-require-package 'orderless)
+  (setq completion-styles '(orderless)))
 
 (when (maybe-require-package 'embark)
   ;; use C-h to show help after embark-act-noexit
