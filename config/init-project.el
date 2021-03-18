@@ -9,13 +9,13 @@
 
 (defun gaeric/project-find-regexp ()
   (interactive)
-  (cond ((functionp 'counsel-rg)
-         (counsel-rg (gaeric/symbol-at-reg-point)))
-        ((functionp 'consult-ripgrep)
+  (cond ((functionp 'consult-ripgrep)
          (let ((project (when-let (project (project-current))
                           (car (project-roots project))))
                (symbol (gaeric/symbol-at-reg-point)))
            (consult-ripgrep project symbol)))
+        ((functionp 'counsel-rg)
+         (counsel-rg (gaeric/symbol-at-reg-point)))
         (t
          (project-find-regexp))))
 
