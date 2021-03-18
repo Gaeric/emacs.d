@@ -21,8 +21,12 @@
 
 ;; config completion style with category
 ;; use orderless to completion styles
+
 (when (maybe-require-package 'orderless)
-  (setq completion-styles '(orderless)))
+  (setq selectrum-refine-candidates-function #'orderless-filter)
+  (setq selectrum-highlight-candidates-function #'orderless-highlight-matches)
+  ;; (setq completion-styles '(orderless))
+  )
 
 (when (maybe-require-package 'embark)
   ;; use C-h to show help after embark-act-noexit
