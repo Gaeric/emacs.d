@@ -19,9 +19,17 @@
         (t
          (project-find-regexp))))
 
+(defun gaeric/directory-find-regexp ()
+  (interactive)
+  (cond ((functionp 'consult-ripgrep)
+         (consult-ripgrep default-directory (gaeric/symbol-at-reg-point)))
+        (t
+         (message "No function"))))
+
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
     "gf" 'project-find-file
+    "gx" 'gaeric/directory-find-regexp
     "gs" 'gaeric/project-find-regexp))
 
 (provide 'init-project)
