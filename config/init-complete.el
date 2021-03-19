@@ -34,7 +34,8 @@
   ;; Only preview for consult-line
   ;; https://github.com/minad/consult/issues/186
   (setq consult-preview-key nil)
-  (setq consult-config `((consult-line :preview-key any)))
+  (setq consult-config `((consult-line :preview-key any)
+                         (consult-buffer :title nil)))
 
   (global-set-key [remap switch-to-buffer] 'consult-buffer)
   (global-set-key [remap switch-to-buffer-other-window] 'consult-buffer-other-window)
