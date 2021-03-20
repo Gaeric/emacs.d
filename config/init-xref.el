@@ -9,8 +9,8 @@
 
 (with-eval-after-load 'xref
   (setq xref-search-program 'ripgrep)
-  (setq xref-show-definitions-function 'xref-show-definitions-completing-read)
-  (setq xref-show-xrefs-function 'xref-show-xrefs-function))
+  (setq xref-show-definitions-function 'consult-xref)
+  (setq xref-show-xrefs-function 'consult-xref))
 
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
