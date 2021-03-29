@@ -26,6 +26,7 @@
 
 (setq org-fontify-done-headline t)
 
+
 (defun gaeric/org-pomodoro-todo-today ()
   "加入时间戳"
   (interactive)
@@ -40,6 +41,13 @@
   "依据pomodoro流程添加和删除时间戳"
   (cond ((equal org-state "READY")
          (gaeric/org-pomodoro-todo-today))))
+
+
+(defun gaeric/get-org-link-ap ()
+  "Get Org link at Point."
+  (interactive)
+  (when (org-in-regexp org-link-plain-re 1)
+    (kill-ring-save (match-beginning 0) (match-end 0))))
 
 
 (add-hook 'org-after-todo-state-change-hook 'gaeric/org-state-change-timestamp-hook)
