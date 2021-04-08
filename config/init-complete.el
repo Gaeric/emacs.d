@@ -13,7 +13,6 @@
 (when (maybe-require-package 'selectrum)
   (setq selectrum-fix-vertical-window-height t)
   (with-eval-after-load 'selectrum
-    (recentf-mode 1)
     (amx-mode 1)
     (define-key selectrum-minibuffer-map (kbd "M-j") 'selectrum-next-candidate)
     (define-key selectrum-minibuffer-map (kbd "M-k") 'selectrum-previous-candidate))
@@ -31,6 +30,7 @@
     (define-key selectrum-minibuffer-map (kbd "C-c C-c") 'embark-act)))
 
 (when (maybe-require-package 'consult)
+  (recentf-mode 1)
   ;; Only preview for consult-line
   ;; https://github.com/minad/consult/issues/186
   (setq consult-preview-key nil)
