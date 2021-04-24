@@ -54,6 +54,24 @@
 (with-eval-after-load 'evil
   (evil-collection-init))
 
+
+;; {{ change mode-line color by evil state
+(with-eval-after-load 'evil
+  (defconst my-default-color (cons (face-background 'mode-line)
+                                   (face-foreground 'mode-line)))
+  (defun my-show-evil-state ()
+    "Change mode line color to notify user evil current state."
+    (let* ((color (cond ((minibufferp) my-default-color)
+                        ((evil-insert-state-p) '("#8d00a0" . "#ffffff"))
+                        ((evil-emacs-state-p)  '("#444488" . "#ffffff"))
+                        ((buffer-modified-p)   '("#006fa0" . "#ffffff"))
+                        (t my-default-color))))
+      (set-face-background 'mode-line (car color))
+      (set-face-foreground 'mode-line (cdr color))))
+  (add-hook 'post-command-hook #'my-show-evil-state))
+;; }}
+
+
 (with-eval-after-load 'evil
   ;;----------------------------------------------------------------------------
   ;; evil config
