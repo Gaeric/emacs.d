@@ -92,6 +92,7 @@
 (when (maybe-require-package 'diff-hl)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (add-hook 'after-init-hook 'global-diff-hl-mode)
+  (unless (display-graphic-p) (add-hook 'after-init-hook 'diff-hl-margin-mode))
   (with-eval-after-load 'dired
     (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
   (with-eval-after-load 'diff-hl
