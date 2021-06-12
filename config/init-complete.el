@@ -58,6 +58,8 @@
     "ss" 'consult-line))
 
 (when (maybe-require-package 'which-key)
+  (with-eval-after-load 'vertico
+    (which-key-mode))
   (with-eval-after-load 'which-key
     (diminish 'which-key-mode)))
 
