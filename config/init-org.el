@@ -178,6 +178,7 @@
 
   (gaeric-comma-leader-def
     :keymaps 'org-src-mode-map
+    "c," 'org-insert-structure-template
     "c'" 'org-edit-src-exit
     "ck" 'org-edit-src-abort))
 
