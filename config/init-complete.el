@@ -57,6 +57,7 @@
   (gaeric-space-leader-def
     ;; use consult-ripgrep grep at current-dir
     "cs" 'consult-ripgrep
+    "ci" 'consult-imenu
     "ss" 'consult-line))
 
 (when (maybe-require-package 'which-key)
