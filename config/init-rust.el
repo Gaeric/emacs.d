@@ -20,6 +20,7 @@ Major mode for Rust code.
 
 ;; use eglot for auto-complete and browser
 (with-eval-after-load 'rust-mode
+  (setq rust-indent-offset 8)
   (eglot-ensure))
 
 
