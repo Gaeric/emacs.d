@@ -174,11 +174,11 @@
     "ns" 'org-narrow-to-subtree
     "nb" 'org-narrow-to-block
     "ne" 'org-narrow-to-element
+    "c," 'org-insert-structure-template
     "'"  'org-edit-special)
 
   (gaeric-comma-leader-def
     :keymaps 'org-src-mode-map
-    "c," 'org-insert-structure-template
     "c'" 'org-edit-src-exit
     "ck" 'org-edit-src-abort))
 
