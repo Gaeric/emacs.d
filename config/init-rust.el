@@ -19,9 +19,10 @@ Major mode for Rust code.
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
 ;; use eglot for auto-complete and browser
-(with-eval-after-load 'rust-mode
-  (setq rust-indent-offset 8)
-  (eglot-ensure))
-
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (setq rust-indent-offset 4)
+            (setq tab-width 4)
+            (eglot-ensure)))
 
 (provide 'init-rust)
