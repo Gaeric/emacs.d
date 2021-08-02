@@ -28,12 +28,14 @@
       (define-key vertico-map (kbd "C-c C-c") 'embark-act))))
 ;; }
 
+
 (when (maybe-require-package 'consult)
   (recentf-mode 1)
   ;; Only preview for consult-line
   ;; https://github.com/minad/consult/issues/186
   (setq consult-preview-key nil)
   (with-eval-after-load 'consult
+    (setq consult-line-start-from-top t)
     (consult-customize
      ;; consult-buffer :group nil
      consult-line :preview-key 'any))
