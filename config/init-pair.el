@@ -20,8 +20,11 @@
   "To right of next match parentheses."
   (interactive)
   ;; Jump out of string if cursor in string area.
-  (while (not (looking-at "\\(['\">)}]\\|]\\)")) (forward-char 1))
+  (re-search-forward "\\(['\"<({]\\|[[]\\)"  (line-end-position) t)
   (forward-char 1))
+
+
+;; (re-search-forward "\\(['\"<({]\\|[[]\\)"  (line-end-position) t)
 
 (define-key global-map (kbd "M-n") 'gaeric-pair-jump-right)
 (define-key global-map (kbd "M-p") 'gaeric-pair-jump-left)
