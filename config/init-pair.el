@@ -20,8 +20,9 @@
   "To right of next match parentheses."
   (interactive)
   ;; Jump out of string if cursor in string area.
-  (re-search-forward "\\(['\"<({]\\|[[]\\)"  (line-end-position) t)
-  (forward-char 1))
+  (unless
+      (re-search-forward "\\(['\">)}]\\|]\\)"  (line-end-position) t 1)
+    (forward-char 1)))
 
 
 ;; (re-search-forward "\\(['\"<({]\\|[[]\\)"  (line-end-position) t)
