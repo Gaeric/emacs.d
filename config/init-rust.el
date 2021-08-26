@@ -7,22 +7,10 @@
 ;;
 ;; License: GPLv3
 
-(require-package 'rust-mode)
+(when (maybe-require-package 'rustic)
+  (setq rustic-lsp-client 'eglot)
+  (remove-hook 'rustic-mode-hook 'flycheck-mode))
 
-(autoload 'rust-mode "rust-mode" "\
-Major mode for Rust code.
-
-\\{rust-mode-map}
-
-\(fn)" t nil)
-
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-
-;; use eglot for auto-complete and browser
-(add-hook 'rust-mode-hook
-          (lambda ()
-            (setq rust-indent-offset 4)
-            (setq tab-width 4)
-            (eglot-ensure)))
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rustic-mode))
 
 (provide 'init-rust)
