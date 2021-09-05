@@ -22,8 +22,7 @@
 
 (when (maybe-require-package 'org-roam)
   (setq org-roam-directory "~/org/roam/")
-  ;; (add-hook 'after-init-hook 'org-roam-mode)
-  )
+  (setq org-roam-v2-ack t))
 
 
 (defun gaeric/org-pomodoro-todo-today ()
