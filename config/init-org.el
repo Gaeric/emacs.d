@@ -114,6 +114,10 @@
           ("n" "notes" entry
            (file+headline "~/org/inbox.org" "notes")
            "* %?\n  %i\n %U")
+          ("r" "reviews" entry
+           (file+olp+datetree "~/org/gtd.org" "reviews")
+           "* review\n   %?%i\n  %U"
+           :time-prompt t :tree-type week)
           ("b" "Breakpoint" entry (clock)
            "* TODO %? :BreakPoint:\n  %U\n  %i")
           ("e" "Excerpt" entry
