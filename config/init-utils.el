@@ -109,4 +109,21 @@
         (pop-mark))
     (thing-at-point 'symbol)))
 
+(defun gaeric/change-eol ()
+  "change end of line style"
+  (interactive)
+  (let ((eol (coding-system-eol-type buffer-file-coding-system)))
+    (set-buffer-file-coding-system
+     (cond ((eq eol 0) 'dos)
+           ((eq eol 1) 'mac)
+           (t 'unix)))))
+
+(defun gaeric/clear-log ()
+  "clear \0 or ^M in log"
+  (interactive)
+  (replace-string (char-to-string 13) "")
+  ;; suit for long line
+  (while (re-search-forward (concat (char-to-string 0) "+") nil t)
+    (replace-match "")))
+
 (provide 'init-utils)
