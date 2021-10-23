@@ -64,10 +64,8 @@
   (setq org-export-with-sub-superscripts '{})
   ;; 适用于org-mode中渲染
   ;; (setq org-use-sub-superscripts '{})
-  ;; ----------------------------------------------------------------------
-  ;; 控制RET键行为
-  ;; ----------------------------------------------------------------------
-  (org-defkey org-mode-map (kbd "RET") #'org-return-indent)
+  ;; replace the RET Setting for org-mode-map
+  (setq org-startup-indented t)
   
 
   ;; 导出的源代码内容使用单独的css文件控制样式
