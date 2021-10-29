@@ -34,7 +34,7 @@
 
 (add-hook
  'web-mode-hook
- '(lambda ()
+ #'(lambda ()
     (setq-local electric-pair-pairs
                 (append '((?' . ?')) electric-pair-pairs))
     (setq-local electric-pair-text-pairs
