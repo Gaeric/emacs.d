@@ -19,6 +19,7 @@
     (define-key org-agenda-mode-map (kbd "Z") 'org-agenda)))
 
 (setq org-fontify-done-headline t)
+(setq org-adapt-indentation t)
 
 (when (maybe-require-package 'org-roam)
   (setq org-roam-directory "~/org/roam/")
