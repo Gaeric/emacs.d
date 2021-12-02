@@ -1,0 +1,8 @@
+#+title: Emacs Profile
+#+startup: content
+#+author: Gaeric
+#+HTML_HEAD: <link href="./worg.css" rel="stylesheet" type="text/css">
+#+HTML_HEAD: <link href="/static/css/worg.css" rel="stylesheet" type="text/css">
+#+OPTIONS: ^:{}
+* Introduce
+  I tried many solutions. Finally, under the mature configuration of the giant, a little improvement every day is the most suitable solution for me.
