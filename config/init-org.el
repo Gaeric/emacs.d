@@ -52,18 +52,16 @@
 (add-hook 'org-after-todo-state-change-hook 'gaeric/org-state-change-timestamp-hook)
 
 (with-eval-after-load 'org
-  ;; ----------------------------------------------------------------------
-  ;; 配置org-emphasis，优化org-mode中文体验
-  ;; ----------------------------------------------------------------------
+  ;; org-emphasis for chinese
   (setq org-emphasis-regexp-components
         ;; add multibyte char at pre and post For chinese
         '("-[:space:][:multibyte:]('\"{" "-[:space:][:multibyte:].,:!?;'\")}\\[" "[:space:]" "." 1))
   (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
   ;; (org-element-update-syntax)
   ;; Non-nil means interpret "_" and "^" for display.
-  ;; 适用于导出
+  ;; for export
   (setq org-export-with-sub-superscripts '{})
-  ;; 适用于org-mode中渲染
+  ;; for render
   ;; (setq org-use-sub-superscripts '{})
   
 
