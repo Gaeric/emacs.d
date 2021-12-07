@@ -8,6 +8,8 @@
 
 (require-package 'undo-tree)
 (global-undo-tree-mode)
+;; evil-want-keybinding must be set before evil/evil-surround load
+(setq evil-want-keybinding nil)
 
 ;; evil keybinds for org-mode/org-agenda
 (when (maybe-require-package 'evil-org)
@@ -28,7 +30,6 @@
 (require-package 'evil-exchange)
 (require-package 'evil-nerd-commenter)
 
-(setq evil-want-keybinding nil)
 (setq evil-collection-exclude-modes '(company tide python))
 (with-eval-after-load 'evil-collection
   (dolist (mode evil-collection-exclude-modes)
