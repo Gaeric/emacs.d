@@ -22,6 +22,7 @@
 ;; inhibit start screen
 (setq inhibit-startup-screen t)
 
+(prefer-coding-system 'utf-8-unix)
 (setq use-file-dialog nil)
 (setq use-dialog-box nil)              ;never pop dialog
 (setq ring-bell-function 'ignore)      ;关闭出错时的提示声
