@@ -12,10 +12,9 @@
 ;; Official MELPA Mirror, in case necessary.
 (add-to-list
  'package-archives
- (cons "melpa-mirror"
-       (concat
-        proto
-        "://www.mirrorservice.org/sites/melpa.org/packages/"))
+ (cons
+  "melpa-mirror"
+  "https://www.mirrorservice.org/sites/melpa.org/packages/")
  t)
 
 
