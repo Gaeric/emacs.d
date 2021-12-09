@@ -68,7 +68,7 @@
                 (show-paren-mode t)
                 (global-hl-line-mode)
                 (winner-mode)
-                (toggle-frame-fullscreen))))
+                (toggle-frame-maximized))))
 
   (setq gc-cons-threshold normal-gc-cons-threshold))
 
