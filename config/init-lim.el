@@ -9,7 +9,7 @@
 ;; Load lim-xixi
 ;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lim/"))
 
-(load-file "~/.emacs.d/site-lisp/lim/config.el")
+;; (load-file "~/.emacs.d/site-lisp/lim/config.el")
 
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
