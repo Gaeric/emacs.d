@@ -15,7 +15,7 @@
   (add-hook 'after-init-hook 'vertico-mode)
 
   (require-package 'orderless)
-  (advice-add 'orderless-regexp :around #'lim-orderless-regexp)
+  ;; (advice-add 'orderless-regexp :around #'lim-orderless-regexp)
   (with-eval-after-load 'vertico
     (amx-mode 1)
     (define-key vertico-map (kbd "M-j") 'vertico-next)
