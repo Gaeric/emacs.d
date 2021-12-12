@@ -11,8 +11,8 @@
 
 ;; (load-file "~/.emacs.d/site-lisp/lim/config.el")
 
-(when (macrop 'gaeric-comma-leader-def)
-  (gaeric-comma-leader-def
-    "wc" 'lim-count-words))
+;; (when (macrop 'gaeric-comma-leader-def)
+;;   (gaeric-comma-leader-def
+;;     "wc" 'lim-count-words))
 
 (provide 'init-lim)
