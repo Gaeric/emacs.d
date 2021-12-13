@@ -26,6 +26,25 @@
   (setq org-roam-v2-ack t))
 
 
+(defvar gaeric/work-dir "~/org/work/")
+
+(defun gaeric/org-capture-work ()
+  (org-back-to-heading t)
+  (if (string-equal (plist-get org-capture-current-plist :description) "work")
+      (let ((case-fold-search nil))
+        (when (looking-at org-complex-heading-regexp)
+          (let* ((headline (match-string-no-properties 4))
+                 (filename (concat
+                            (format-time-string "%Y%m%d") "_" headline))
+                 (dir (concat gaeric/work-dir filename)))
+            (unless (file-exists-p dir)
+              (dired-create-directory dir))
+            (end-of-line)
+            (newline-and-indent)
+            (insert (format "[[%s][%s]]" dir headline)))))))
+
+(add-hook 'org-capture-before-finalize-hook 'gaeric/org-capture-work)
+
 (defun gaeric/org-pomodoro-todo-today ()
   "加入时间戳"
   (interactive)
