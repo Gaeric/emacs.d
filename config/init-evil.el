@@ -145,6 +145,7 @@
     "bb"    'switch-to-buffer
     "fed"   'open-init-file
     "ad"    'dired
+    "es"    'eshell
     "tl"    'toggle-truncate-lines
     "tn"    'display-line-numbers-mode
     "wc"    'count-words
