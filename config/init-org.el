@@ -6,6 +6,10 @@
 ;;
 ;;; License: GPLv3
 
+(when (maybe-require-package 'org-download)
+  ;; Drag-and-drop to `dired`
+  (add-hook 'dired-mode-hook 'org-download-enable))
+
 (when (maybe-require-package  'org-bullets)
   (setq org-bullets-bullet-list '( "●"  "◆" "▶" "•" "○" "◇"))
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
