@@ -10,6 +10,8 @@
   ;; Drag-and-drop to `dired`
   (add-hook 'dired-mode-hook 'org-download-enable))
 
+(maybe-require-package 'htmlize)
+
 (when (maybe-require-package  'org-bullets)
   (setq org-bullets-bullet-list '( "●"  "◆" "▶" "•" "○" "◇"))
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
