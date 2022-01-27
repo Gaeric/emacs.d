@@ -67,6 +67,7 @@
               (progn
                 (show-paren-mode t)
                 (global-hl-line-mode)
+                (global-so-long-mode)
                 (winner-mode)
                 (toggle-frame-maximized))))
 
