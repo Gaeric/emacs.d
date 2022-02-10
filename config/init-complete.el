@@ -21,7 +21,9 @@
     (define-key vertico-map (kbd "M-j") 'vertico-next)
     (define-key vertico-map (kbd "M-k") 'vertico-previous))
 
-  (setq completion-styles '(basic partial-completion orderless))
+  (defun sanityinc/use-orderless-in-minibuffer ()
+    (setq-local completion-styles '(substring orderless)))
+  (add-hook 'minibuffer-setup-hook 'sanityinc/use-orderless-in-minibuffer)
 
   (when (maybe-require-package 'embark)
     (with-eval-after-load 'vertico
