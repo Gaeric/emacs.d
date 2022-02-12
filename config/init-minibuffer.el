@@ -1,4 +1,4 @@
-;; init-complete.el -*- coding: utf-8; lexical-binding: t; -*-
+;; init-minibuffer.el -*- coding: utf-8; lexical-binding: t; -*-
 ;; 
 ;; Author:  <Gaeric>
 ;; URL: https://github.com/Gaeric
@@ -71,4 +71,4 @@
   (with-eval-after-load 'which-key
     (diminish 'which-key-mode)))
 
-(provide 'init-complete)
+(provide 'init-minibuffer)
