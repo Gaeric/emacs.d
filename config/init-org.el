@@ -14,7 +14,9 @@
 
 (when (maybe-require-package  'org-bullets)
   (setq org-bullets-bullet-list '( "●"  "◆" "▶" "•" "○" "◇"))
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  (add-hook 'org-mode-hook (lambda ()
+                             (save-place-local-mode)
+                             (org-bullets-mode 1))))
 
 (when (maybe-require-package 'org-pomodoro)
   (setq org-pomodoro-keep-killed-pomodoro-time t)
