@@ -12,6 +12,9 @@
 
 (maybe-require-package 'htmlize)
 
+(when (maybe-require-package 'toc-org)
+  (add-hook 'org-mode-hook 'toc-org-mode))
+
 (when (maybe-require-package  'org-bullets)
   (setq org-bullets-bullet-list '( "●"  "◆" "▶" "•" "○" "◇"))
   (add-hook 'org-mode-hook (lambda ()
