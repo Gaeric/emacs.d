@@ -118,6 +118,20 @@
            ((eq eol 1) 'mac)
            (t 'unix)))))
 
+(defun gaeric/search-clip-content ()
+  "search the content from clip"
+  (interactive)
+  (let ((str (xclip-gclip))
+        match-p)
+    (save-excursion
+      (goto-char (point-min))
+      (setq match-p (search-forward str nil t)))
+    (if match-p
+        (goto-char match-p)
+      (message (format "Str: %s can not found" str)))))
+
+(keymap-global-set "C-c C-s" #'gaeric/search-clip-content)
+
 (defun gaeric/clear-log ()
   "clear \0 or ^M in log"
   (interactive)
