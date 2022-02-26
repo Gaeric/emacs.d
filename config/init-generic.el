@@ -69,6 +69,8 @@
   ;; was dired-up-directory
   (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file ".."))))
 
+(add-hook 'text-mode-hook 'save-place-local-mode)
+
 (provide 'init-generic)
 
 ;;; init-generic.el ends here
