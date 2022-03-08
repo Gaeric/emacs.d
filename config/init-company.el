@@ -7,20 +7,6 @@
 ;;
 ;; License: GPLv3
 
-(require-package 'company)
-;; need pos-tip
-;; for document info
-(require-package 'company-quickhelp)
-
-;; <TAB> just use for indent
-;; (setq tab-always-indent 'complete)
-
-(add-hook 'after-init-hook
-          (lambda ()
-            (progn
-              (global-company-mode)
-              (company-quickhelp-mode))))
-
 (with-eval-after-load 'company
   ;; company-eclim for Eclipse
   ;; semantic use for CEDET semantic
@@ -36,10 +22,19 @@
   (define-key company-search-map (kbd "M-n") nil)
   (define-key company-search-map (kbd "M-p") nil)
   (setq company-tooltip-align-annotations t
-        company-minimum-prefix-length 2
-        company-idle-delay .1))
+   company-minimum-prefix-length 2
+   company-idle-delay .1))
 
-;; TODO page-break-lines-mode
+(require-package 'company-quickhelp)
+
+;; <TAB> just use for indent
+;; (setq tab-always-indent 'complete)
+
+(add-hook 'after-init-hook
+          (lambda ()
+            (progn
+              (global-company-mode)
+              (company-quickhelp-mode))))
 
 
 (provide 'init-company)
