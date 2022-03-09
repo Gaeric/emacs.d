@@ -22,7 +22,7 @@
     (define-key vertico-map (kbd "M-k") 'vertico-previous))
 
   (defun sanityinc/use-orderless-in-minibuffer ()
-    (setq-local completion-styles '(substring orderless)))
+    (setq-local completion-styles '(basic partial-completion orderless)))
   (add-hook 'minibuffer-setup-hook 'sanityinc/use-orderless-in-minibuffer)
 
   (when (maybe-require-package 'embark)
