@@ -54,16 +54,6 @@
 
 
 
-;;; git-svn support
-
-;; (when (maybe-require-package 'magit-svn)
-;;   (require-package 'magit-svn)
-;;   (autoload 'magit-svn-enabled "magit-svn")
-;;   (defun sanityinc/maybe-enable-magit-svn-mode ()
-;;     (when (magit-svn-enabled)
-;;       (magit-svn-mode)))
-;;   (add-hook 'magit-status-mode-hook #'sanityinc/maybe-enable-magit-svn-mode))
-
 (with-eval-after-load 'compile
   (dolist (defn (list '(git-svn-updated "^\t[A-Z]\t\\(.*\\)$" 1 nil nil 0 1)
                       '(git-svn-needs-update "^\\(.*\\): needs update$" 1 nil nil 2 1)))
