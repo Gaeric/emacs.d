@@ -140,4 +140,10 @@
   (while (re-search-forward (concat (char-to-string 0) "+") nil t)
     (replace-match "")))
 
+(defun gaeric/split-line ()
+  (interactive)
+  (while (< (point) (point-max))
+    (forward-char 10)
+    (insert "\n")))
+
 (provide 'init-utils)
