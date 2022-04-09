@@ -46,6 +46,7 @@
   (require 'init-company)
   (require 'init-yas)
   (require 'init-lsp)
+  (require 'init-langs)
 
 
   ;;----------------------------------------------------------------------------
