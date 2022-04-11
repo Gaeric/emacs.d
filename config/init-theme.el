@@ -45,16 +45,6 @@
 
 
 ;; -------------------------------------------------------------------
-;; modeline
-;; -------------------------------------------------------------------
-;; (when (maybe-require-package 'doom-modeline)
-;;   (setq doom-modeline-icon nil)
-;;   (setq all-the-icons-color-icons nil)
-;;   (setq doom-modeline-buffer-file-name-style 'buffer-name)
-;;   (add-hook 'after-init-hook #'doom-modeline-mode))
-
-
-;; -------------------------------------------------------------------
 ;; circadian load the theme record time
 ;; -------------------------------------------------------------------
 ;; (require-package 'circadian)
