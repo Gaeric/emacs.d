@@ -23,4 +23,6 @@
 
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
+(setq tsc-dyn-get-from '(:compilation))
+
 (provide 'init-langs)
