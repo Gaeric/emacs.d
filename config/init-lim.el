@@ -6,9 +6,6 @@
 ;;
 ;;; License: GPLv3
 
-;; Load lim-xixi
-;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/site-lisp/lim/"))
-
 (load-file "~/.emacs.d/site-lisp/lim/lim-sbfd.el")
 
 (when (macrop 'gaeric-comma-leader-def)
