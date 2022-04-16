@@ -89,14 +89,7 @@
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 (add-hook 'js-mode-hook #'setup-tide-mode)
 
-;;; lsp slow 
-;; (defun setup-js/ts-lsp ()
-;;   (eglot-ensure)
-;;   (prettier-js-mode))
-
-;; (add-hook 'typescript-mode-hook #'setup-js/ts-lsp)
-;; (add-hook 'js-mode-hook #'setup-js/ts-lsp)
-
+;;; lsp is slowly
 ;; @https://github.com/ananthakumaran/tide/
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
