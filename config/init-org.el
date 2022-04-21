@@ -29,9 +29,6 @@
     (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
     (define-key org-agenda-mode-map (kbd "Z") 'org-agenda)))
 
-(setq org-fontify-done-headline t)
-(setq org-adapt-indentation t)
-
 (when (maybe-require-package 'org-roam)
   (setq org-roam-directory "~/org/roam/")
   (setq org-roam-v2-ack t))
@@ -93,6 +90,9 @@
   (setq org-export-with-sub-superscripts '{})
   ;; for render
   ;; (setq org-use-sub-superscripts '{})
+
+  (setq org-fontify-done-headline t)
+  (setq org-adapt-indentation t)
   
 
   ;; 导出的源代码内容使用单独的css文件控制样式
