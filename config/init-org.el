@@ -185,31 +185,11 @@
                         (buffer-substring-no-properties (point-min) (point-max)))))
           (format "data:image/%s;base64,%s" type base64)))))
 
-(defun gaeric/org-export-img-base64 (link desc backend &optional info)
+(defun gaeric/org-export-img-base64 (path desc backend &optional info)
   "Export img to base64 then insert the file"
-  (let (a b)
-    (setq a (plist-get info :html-inline-image-rules))
-    (setq b (org-export-inline-image-p link a))
-    (message "link is %s" link)
-    (message "a is %s" a)
-    (message "b is %s" b))
-  (org-export-inline-image-p link (plist-get info :html-inline-image-rules))
-  (let ((source (gaeric/html-base64-image link)))
-    (if (and (plist-get info :html-inline-images)
-             (org-export-inline-image-p link (plist-get info :html-inline-image-rules))
-             source)
-        (let ((attributes-plist
-               (org-combine-plists
-                (let* ((parent (org-export-get-parent-element link))
-                       (link (let ((container (org-export-get-parent link)))
-                               (if (and (eq 'link (org-element-type container))
-                                        (org-html-inline-image-p link info))
-                                   container
-                                 link))))
-                  (and (eq link (org-element-map parent 'link #'identity info t))
-                       (org-export-read-attribute :attr_html parent)))
-	        (org-export-read-attribute :attr_html link))))
-          (org-html--format-image source attributes-plist info)))))
+  (let ((source (gaeric/html-base64-image path)))
+    (if (and (plist-get info :html-inline-images) source)
+        (org-html--format-image source nil info))))
 
 ;; only use for org-download image
 ;; (org-link-set-parameters "file" :export #'gaeric/org-export-img-base64)
