@@ -8,6 +8,8 @@
 
 (when (maybe-require-package 'org-download)
   ;; Drag-and-drop to `dired`
+  ;; Use ImageMagaick convert on windows
+  (add-hook 'org-mode-hook 'org-download-enable)
   (add-hook 'dired-mode-hook 'org-download-enable))
 
 (maybe-require-package 'htmlize)
