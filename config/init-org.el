@@ -77,7 +77,6 @@
   (when (org-in-regexp org-link-plain-re 1)
     (kill-ring-save (match-beginning 0) (match-end 0))))
 
-
 (add-hook 'org-after-todo-state-change-hook 'gaeric/org-state-change-timestamp-hook)
 
 (with-eval-after-load 'org
@@ -87,23 +86,10 @@
         '("-[:space:][:multibyte:]('\"{" "-[:space:][:multibyte:].,:!?;'\")}\\[" "[:space:]" "." 1))
   (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
   ;; (org-element-update-syntax)
-  ;; Non-nil means interpret "_" and "^" for display.
-  ;; for export
-  (setq org-export-with-sub-superscripts '{})
-  ;; for render
-  ;; (setq org-use-sub-superscripts '{})
+  (gaeric/export-conf)
 
   (setq org-fontify-done-headline t)
   (setq org-adapt-indentation t)
-  
-
-  ;; 导出的源代码内容使用单独的css文件控制样式
-  (setq org-html-htmlize-output-type 'css)
-  ;; 不生成默认的css及javascript内容
-  (setq org-html-head-include-default-style nil)
-  (setq org-html-head-include-scripts nil)
-  (setq org-publish-timestamp-directory
-        (convert-standard-filename "~/.emacs.d/.org-timestamps/"))
 
   (setq org-publish-project-alist
         '(
@@ -113,6 +99,8 @@
            :base-extension "png\\|org"
            :publishing-directory "~/project_py/org_blog/static/static_html" ;导出目录
            :publishing-function org-html-publish-to-html
+           :preparation-function gaeric/publish-conf
+           :completion-function gaeric/export-conf
            ;; :auto-sitemap t
            )))
 
@@ -150,11 +138,31 @@
            (file+headline "~/org/inbox.org" "Excerpt")
            "* %?"))))
 
+(defun gaeric/publish-conf ()
+;; only use for org-download image
+  (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
+
+(defun gaeric/export-conf ()
+  ;; Non-nil means interpret "_" and "^" for display.
+  ;; for export
+  (setq org-export-with-sub-superscripts '{})
+  ;; for render
+  ;; (setq org-use-sub-superscripts '{})
+
+  ;; 导出的源代码内容使用单独的css文件控制样式
+  (setq org-html-htmlize-output-type 'css)
+  ;; 不生成默认的css及javascript内容
+  (setq org-html-head-include-default-style nil)
+  (setq org-html-head-include-scripts nil)
+  (setq org-publish-timestamp-directory
+        (convert-standard-filename "~/.emacs.d/.org-timestamps/"))
+  (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
+
 ;; -------------------------------------------------------------------
 ;; for blog static file
 ;; -------------------------------------------------------------------
 (defvar gaeric-static-file-dir "")
-(defun gaeric-static-blog-change-link (path desc backend)
+(defun gaeric/org-export-link-static (path desc backend &optional info)
   "change link for static file"
   (if (eq backend 'html)
       (unless desc
@@ -192,10 +200,6 @@
   (let ((source (gaeric/html-base64-image path)))
     (if (and (plist-get info :html-inline-images) source)
         (org-html--format-image source nil info))))
-
-;; only use for org-download image
-;; (org-link-set-parameters "file" :export #'gaeric/org-export-img-base64)
-
 
 (with-eval-after-load 'org-agenda
   (setq org-agenda-span 'day)
