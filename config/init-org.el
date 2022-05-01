@@ -138,11 +138,11 @@
            (file+headline "~/org/inbox.org" "Excerpt")
            "* %?"))))
 
-(defun gaeric/publish-conf ()
+(defun gaeric/publish-conf (&optional plist)
 ;; only use for org-download image
   (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
 
-(defun gaeric/export-conf ()
+(defun gaeric/export-conf (&optional plist)
   ;; Non-nil means interpret "_" and "^" for display.
   ;; for export
   (setq org-export-with-sub-superscripts '{})
