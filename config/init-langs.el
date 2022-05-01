@@ -18,7 +18,6 @@
   ;; @see https://github.com/joaotavora/eglot/issues/514
   (setq eldoc-area-use-multiline-p 3) ;; you can experiment with other values, and also `nil
   (setq eldoc-prefer-doc-buffer t)
-
   (setq eglot-autoshutdown t)
   (setq eglot-ignored-server-capabilites '(:documentHighlightProvider)))
 
@@ -29,7 +28,6 @@
 
 (maybe-require-package 'tree-sitter)
 (maybe-require-package 'tree-sitter-langs)
-
 
 (dolist (hook
          '(rust-mode-hook

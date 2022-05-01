@@ -45,11 +45,11 @@
   (require 'init-xref)
   (require 'init-company)
   (require 'init-yas)
-  (require 'init-langs)
 
   ;;----------------------------------------------------------------------------
   ;; Prog Lang
   ;;----------------------------------------------------------------------------
+  (require 'init-langs)
   (require 'init-cc)
   (require 'init-python)
   (require 'init-rust)
