@@ -143,6 +143,7 @@
     "bi"    'ibuffer
     "bm"    'switch-to-message-buffer
     "bb"    'switch-to-buffer
+    "pb"    'project-switch-to-buffer
     "fed"   'open-init-file
     "ad"    'dired
     "es"    'eshell
