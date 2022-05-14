@@ -4,3 +4,6 @@
 [submodule "site-lisp/lsp-bridge"]
 	path = site-lisp/lsp-bridge
 	url = https://github.com/manateelazycat/lsp-bridge.git
+[submodule "site-lisp/shiftless"]
+	path = site-lisp/shiftless
+	url = git@github.com:DogLooksGood/shiftless.el.git

@@ -83,4 +83,7 @@
 (with-eval-after-load 'auto-revert-mode
     (diminish 'auto-revert-mode))
 
+(add-to-list 'load-path "~/.emacs.d/site-lisp/shiftless/")
+(require 'shiftless)
+
 (provide 'init-editing-utils)
