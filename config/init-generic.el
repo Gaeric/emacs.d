@@ -23,20 +23,24 @@
 (setq inhibit-startup-screen t)
 
 (prefer-coding-system 'utf-8-unix)
-(setq use-file-dialog nil)
-(setq use-dialog-box nil)              ;never pop dialog
-(setq ring-bell-function 'ignore)      ;关闭出错时的提示声
-(setq default-major-mode 'text-mode)   ;设置默认地主模式为TEXT模式
-(setq ad-redefinition-action 'warn)    ;redefine warning 时进行警告
-(setq resize-mini-windows nil)         ;保持minibuffer window固定高度
-(setq recentf-max-saved-items 2048)    ;设置recentf的默认大小
-(setq-default comment-style 'indent)   ;设定自动缩进的注释风格
-(setq-default indent-tabs-mode nil)    ;不使用Tab键插入\t
-(setq-default cursor-type 'bar)        ;设置默认的光标样式
-(setq make-backup-files nil)           ;默认不进行备份
+(setq use-file-dialog nil
+      use-dialog-box nil              ;never pop dialog
+      ring-bell-function 'ignore      ;关闭出错时的提示声
+      default-major-mode 'text-mode   ;设置默认地主模式为TEXT模式
+      ad-redefinition-action 'warn    ;redefine warning 时进行警告
+      resize-mini-windows nil         ;保持minibuffer window固定高度
+      recentf-max-saved-items 2048    ;设置recentf的默认大小
+      make-backup-files nil           ;默认不进行备份
+      ad-redefinition-action 'accept  ;清除ad-handle-definition的告警
+      )
+
+(setq-default comment-style 'indent   ;设定自动缩进的注释风格
+              setq-default indent-tabs-mode nil    ;不使用Tab键插入\t
+              setq-default cursor-type 'bar        ;设置默认的光标样式
+              )
+
 (global-auto-revert-mode t)            ;文件修改后自动载入
 (column-number-mode 1)                 ;在modeline上展示行列位置（行默认开启）
-(setq ad-redefinition-action 'accept)  ;清除ad-handle-definition的告警
 
 (fset 'yes-or-no-p 'y-or-n-p)          ;以 y/n代表 yes/no
 (set-face-attribute 'default nil :height 105) ;设置字体大小
