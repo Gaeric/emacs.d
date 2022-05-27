@@ -34,10 +34,11 @@
       ad-redefinition-action 'accept  ;清除ad-handle-definition的告警
       )
 
-(setq-default comment-style 'indent   ;设定自动缩进的注释风格
-              setq-default indent-tabs-mode nil    ;不使用Tab键插入\t
-              setq-default cursor-type 'bar        ;设置默认的光标样式
-              )
+(setq-default 
+  comment-style 'indent   ;设定自动缩进的注释风格
+  indent-tabs-mode nil    ;不使用Tab键插入\t
+  cursor-type 'bar        ;设置默认的光标样式
+  )
 
 (global-auto-revert-mode t)            ;文件修改后自动载入
 (column-number-mode 1)                 ;在modeline上展示行列位置（行默认开启）
