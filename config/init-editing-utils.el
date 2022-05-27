@@ -87,7 +87,7 @@
 (defun gaeric/shift-replace ()
   (interactive)
   (let ((ch (char-before)))
-    (if (and (<= ?a ch ?z) (eq (char-before (1- (point))) ?`))
+    (if (and (<= ?a ch ?z) (eq (char-before (1- (point))) ?,))
         (progn
           (backward-char)
           (delete-char -1)
