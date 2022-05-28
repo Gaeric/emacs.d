@@ -14,8 +14,13 @@
   (global-set-key (kbd "C-x g") 'magit-status)
   (global-set-key (kbd "C-x M-g") 'magit-dispatch))
 
+;; for window-nt
+;; (setq vc-git-program "path/to/git")
+;; (setq magit-git-executable "path/to/git")
 
 (with-eval-after-load 'magit
+  ;; we can set magit-refresh-verbose for benchmark
+  ;; (setq magit-refresh-verbose t)
   (define-key magit-status-mode-map (kbd "C-M-<up>") 'magit-section-up))
 
 (require-package 'fullframe)
