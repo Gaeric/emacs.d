@@ -26,7 +26,6 @@
   (let* ((powershell-program (executable-find "powershell.exe")))
     (cond
      ;; win
-     
      (powershell-program
       (string-trim-right
        (with-output-to-string
