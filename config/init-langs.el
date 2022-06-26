@@ -29,8 +29,6 @@
 (maybe-require-package 'tree-sitter)
 (maybe-require-package 'tree-sitter-langs)
 
-;; todo: lsp-bridge 
-
 (dolist (hook
          '(rust-mode-hook
            css-mode-hook
