@@ -205,9 +205,9 @@
   (setq org-agenda-span 'day)
   (setq org-agenda-custom-commands
         '(("w" . "任务安排")
-          ("wa" "重要且紧急的任务" tags-todo "+PRIORITY=\"A\"")
-          ("wb" "重要且不紧急的任务" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
-          ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
+          ("wa" "重要紧急" tags-todo "+PRIORITY=\"A\"")
+          ("wb" "重要不紧急" tags-todo "-Weekly-Monthly-Daily+PRIORITY=\"B\"")
+          ("wc" "不重要紧急" tags-todo "+PRIORITY=\"C\"")
           ("W" "Weekly Review")))
 
   (setq org-agenda-files
