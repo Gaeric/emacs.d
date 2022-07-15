@@ -130,7 +130,7 @@
         (goto-char match-p)
       (message (format "Str: %s can not found" str)))))
 
-(keymap-global-set "C-c C-s" #'gaeric/search-clip-content)
+(global-set-key "C-c C-s" #'gaeric/search-clip-content)
 
 (defun gaeric/clear-log ()
   "clear \0 or ^M in log"
