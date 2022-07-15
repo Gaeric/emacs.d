@@ -6,8 +6,8 @@
 
 
 ;;; Standard package repositories
-(setq package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
-                         ("melpa" . "http://elpa.zilongshanren.com/melpa/")))
+(setq package-archives '(("gnu"   . "http://1.15.88.122/gnu/")
+                         ("melpa" . "http://1.15.88.122/melpa/")))
 
 
 ;; Work-around for https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
