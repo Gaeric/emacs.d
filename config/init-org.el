@@ -35,6 +35,25 @@
   (setq org-roam-directory "~/org/roam/")
   (setq org-roam-v2-ack t))
 
+(defun gaeric/publish-conf (&optional plist)
+;; only use for org-download image
+  (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
+
+(defun gaeric/export-conf (&optional plist)
+  ;; Non-nil means interpret "_" and "^" for display.
+  ;; for export
+  (setq org-export-with-sub-superscripts '{})
+  ;; for render
+  ;; (setq org-use-sub-superscripts '{})
+
+  ;; 导出的源代码内容使用单独的css文件控制样式
+  (setq org-html-htmlize-output-type 'css)
+  ;; 不生成默认的css及javascript内容
+  (setq org-html-head-include-default-style nil)
+  (setq org-html-head-include-scripts nil)
+  (setq org-publish-timestamp-directory
+        (convert-standard-filename "~/.emacs.d/.org-timestamps/"))
+  (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
 
 (defvar gaeric/work-dir "~/org/work/")
 
@@ -137,27 +156,6 @@
           ("e" "Excerpt" entry
            (file+headline "~/org/inbox.org" "Excerpt")
            "* %?"))))
-
-(defun gaeric/publish-conf (&optional plist)
-;; only use for org-download image
-  (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
-
-(defun gaeric/export-conf (&optional plist)
-  ;; Non-nil means interpret "_" and "^" for display.
-  ;; for export
-  (setq org-export-with-sub-superscripts '{})
-  ;; for render
-  ;; (setq org-use-sub-superscripts '{})
-
-  ;; 导出的源代码内容使用单独的css文件控制样式
-  (setq org-html-htmlize-output-type 'css)
-  ;; 不生成默认的css及javascript内容
-  (setq org-html-head-include-default-style nil)
-  (setq org-html-head-include-scripts nil)
-  (setq org-publish-timestamp-directory
-        (convert-standard-filename "~/.emacs.d/.org-timestamps/"))
-  (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
-
 ;; -------------------------------------------------------------------
 ;; for blog static file
 ;; -------------------------------------------------------------------
