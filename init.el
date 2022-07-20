@@ -43,7 +43,7 @@
   (require 'init-minibuffer)
   (require 'init-project)
   (require 'init-xref)
-  (require 'init-company)
+  (require 'init-complete)
   (require 'init-yas)
 
   ;;----------------------------------------------------------------------------
