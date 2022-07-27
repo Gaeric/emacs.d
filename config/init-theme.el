@@ -55,7 +55,7 @@
 (when (display-graphic-p)
   ;; Setting English Font
   (set-face-attribute
-   'default nil :family "Monospace")
+   'default nil :family "Monospace" :height 110)
   ;; Setting Chinese Font
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
