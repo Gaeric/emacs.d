@@ -36,7 +36,6 @@
            js-mode-hook
            c-mode-common-hook
            python-mode-hook))
-
   (add-hook hook #'tree-sitter-mode))
 
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
