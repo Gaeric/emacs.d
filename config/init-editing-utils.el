@@ -83,23 +83,4 @@
 (with-eval-after-load 'auto-revert-mode
     (diminish 'auto-revert-mode))
 
-
-(defun gaeric/shift-replace ()
-  (interactive)
-  (let ((ch (char-before)))
-    (if (and (<= ?a ch ?z) (eq (char-before (1- (point))) ?,))
-        (progn
-          (backward-char)
-          (delete-char -1)
-          (forward-char)
-          (upcase-char -1)))))
-
-(defun gaeric/shift-replace-enable ()
-  (interactive)
-  (add-hook 'post-self-insert-hook 'gaeric/shift-replace))
-
-(defun gaeric/shift-replace-disable ()
-  (interactive)
-  (remove-hook 'post-self-insert-hook 'gaeric/shift-replace))
-
 (provide 'init-editing-utils)
