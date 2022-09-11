@@ -14,6 +14,8 @@
 ;; @see https://github.com/joaotavora/eglot/issues/334
 (require-package 'eglot)
 
+(setq read-process-output-max (* 1024 1024))
+
 (with-eval-after-load 'eglot
   ;; @see https://github.com/joaotavora/eglot/issues/514
   (setq eldoc-area-use-multiline-p 3) ;; you can experiment with other values, and also `nil
