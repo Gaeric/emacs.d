@@ -120,6 +120,7 @@
 ;; General config -- As evil leader
 ;;----------------------------------------------------------------------------
 (require-package 'general)
+(require 'general)
 
 (general-create-definer gaeric-space-leader-def
   :prefix "SPC"
