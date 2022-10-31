@@ -15,16 +15,12 @@
   (add-hook 'after-init-hook 'vertico-mode)
 
   (require-package 'orderless)
+  (setq completion-styles (orderless basic))
   ;; (advice-add 'orderless-regexp :around #'lim-orderless-regexp)
   (with-eval-after-load 'vertico
     (amx-mode 1)
     (define-key vertico-map (kbd "M-j") 'vertico-next)
     (define-key vertico-map (kbd "M-k") 'vertico-previous))
-
-  (defun sanityinc/use-orderless-in-minibuffer ()
-    ;; filter result intersection  
-    (setq-local completion-styles '(orderless)))
-  (add-hook 'minibuffer-setup-hook 'sanityinc/use-orderless-in-minibuffer)
 
   (when (maybe-require-package 'embark)
     (with-eval-after-load 'vertico
