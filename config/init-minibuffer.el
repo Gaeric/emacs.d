@@ -15,10 +15,11 @@
   (add-hook 'after-init-hook 'vertico-mode)
 
   (require-package 'orderless)
-  (setq completion-styles (orderless basic))
   ;; (advice-add 'orderless-regexp :around #'lim-orderless-regexp)
   (with-eval-after-load 'vertico
     (amx-mode 1)
+    (require 'orderless)
+    (setq completion-styles '(orderless basic))
     (define-key vertico-map (kbd "M-j") 'vertico-next)
     (define-key vertico-map (kbd "M-k") 'vertico-previous))
 
