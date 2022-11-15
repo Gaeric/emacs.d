@@ -45,6 +45,7 @@
   (require 'init-xref)
   (require 'init-complete)
   (require 'init-yas)
+  (require 'init-rs-module)
 
   ;;----------------------------------------------------------------------------
   ;; Prog Lang
