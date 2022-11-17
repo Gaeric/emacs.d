@@ -56,6 +56,7 @@
   (require 'init-rust)
   (require 'init-web)
   (require 'init-godot)
+  (require 'init-sql)
 
   ;;----------------------------------------------------------------------------
   ;;
