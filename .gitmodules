@@ -1,3 +1,6 @@
 [submodule "site-lisp/lim"]
 	path = site-lisp/lim
 	url = git@119.45.19.250:lim.git
+[submodule "site-lisp/emacs-module-rs"]
+	path = site-lisp/emacs-module-rs
+	url = https://github.com/ubolonton/emacs-module-rs.git
