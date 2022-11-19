@@ -146,4 +146,25 @@
     (forward-char 10)
     (insert "\n")))
 
+(defun occur-delete-candidate ()
+  "Fork from ivy, delete the line in occur mode"
+  (interactive)
+  (let ((inhibit-read-only t))
+    (delete-region (line-beginning-position)
+                   (1+ (line-end-position)))))
+
+(defun gaeric/get-org-link-ap ()
+  "Get Org link at Point"
+  (interactive)
+  (when (org-in-regexp org-link-plain-re 1)
+    (kill-ring-save (match-beginning 0) (match-end 0))))
+
+(defun gaeric/get-relpath-from-project ()
+  (interactive)
+  (kill-new
+   (if (and (project-current)
+            (buffer-file-name))
+       (file-relative-name (buffer-file-name) (project-root (project-current)))
+     (expand-file-name (buffer-name)))))
+
 (provide 'init-utils)
