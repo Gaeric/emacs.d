@@ -12,5 +12,6 @@
 (setq keyfreq-file "~/.emacs.d/.emacs.keyfreq")
 
 (add-hook 'after-init-hook 'keyfreq-mode)
+(add-hook 'after-init-hook 'keyfreq-autosave-mode)
 
 (provide 'init-keyfreq)
