@@ -52,7 +52,6 @@ locate PACKAGE."
 
 (unless (file-exists-p package-quickstart-file)
   (package-quickstart-refresh))
-(setq package-quickstart t)
 
 (package-initialize)
 
