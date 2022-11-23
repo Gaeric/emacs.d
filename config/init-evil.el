@@ -150,7 +150,6 @@
     "es"    'eshell
     "tl"    'toggle-truncate-lines
     "tn"    'display-line-numbers-mode
-    "wc"    'count-words
     "!"     'shell-command
     ))
 
