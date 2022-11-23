@@ -76,7 +76,8 @@
 
 (add-hook 'text-mode-hook 'save-place-local-mode)
 
-(add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8-dos . windows-1251-dos)))
+(if (eq system-type 'window-nt)
+    (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8-dos . windows-1251-dos))))
 
 (provide 'init-generic)
 
