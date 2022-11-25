@@ -28,3 +28,4 @@ projects
 /.org-id-locations
 /places
 /.emacs.keyfreq
+/server/
