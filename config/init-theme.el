@@ -54,12 +54,21 @@
 ;; Only Setting Fonts for GUI
 (when (display-graphic-p)
   ;; Setting English Font
-  (set-face-attribute
-   'default nil :family "Monospace" :height 110)
-  ;; Setting Chinese Font
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec :family "WenQuanYi Micro Hei Mono" :size 14))))
+  (if (eq system-type 'windows-nt)
+      (progn
+        (set-face-attribute
+         'default nil :family "Noto Mono" :height 110)
+        ;; Setting Chinese Font
+        (dolist (charset '(kana han symbol cjk-misc bopomofo))
+          (set-fontset-font (frame-parameter nil 'font)
+                            charset
+                            (font-spec :family "微软雅黑" :size 14))))
+    (set-face-attribute
+     'default nil :family "Monospace" :height 110)
+    ;; Setting Chinese Font
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset
+                        (font-spec :family "WenQuanYi Micro Hei Mono" :size 14)))))
 
 (provide 'init-theme)
