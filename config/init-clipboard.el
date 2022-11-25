@@ -12,7 +12,7 @@
 ;; So `C-y' could paste from clipboard if you are NOT using emacs-nox
 (setq select-enable-clipboard t)
 (unless (eq system-type 'window-nt)
-  (setq select-enable-primary t))
+  (setq select-enable-primary nil))
 ;; kill-ring and clipboard are same? No, it's annoying!
 (setq save-interprogram-paste-before-kill nil)
 
