@@ -73,14 +73,15 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (add-hook 'after-init-hook 'sanityinc/show-init-time)
 
-(defun gaeric/log-time (param)
-  (message "%s: %s" param (format-time-string "%s.%3N")))
+
+(defun gaeric/log-time (msg)
+  (message "%s: %s" msg (format-time-string "%s.%3N")))
 
 
 (defun gaeric/profiler-process (func)
-  (insert (format ";;%s start\n" (gaeric/log-time (identity func))))
+  (insert (format ";; %s start\n" (gaeric/log-time (identity func))))
   (with-temp-buffer (funcall func))
-  (insert (format ";;%s end\n" (gaeric/log-time (identity func)))))
+  (insert (format ";; %s end\n" (gaeric/log-time (identity func)))))
 
 (provide 'init-benchmarking)
 ;;; init-benchmarking.el ends here
