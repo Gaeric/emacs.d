@@ -4,3 +4,9 @@
 [submodule "site-lisp/emacs-module-rs"]
 	path = site-lisp/emacs-module-rs
 	url = https://github.com/ubolonton/emacs-module-rs.git
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
+	url = https://github.com/magit/magit.git
+[submodule "site-lisp/libegit2"]
+	path = site-lisp/libegit2
+	url = https://github.com/magit/libegit2.git
