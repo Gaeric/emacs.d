@@ -70,6 +70,7 @@
   (tide-setup)
   (flycheck-mode +1)
   (setq js-indent-level 2)
+  (setq typescript-indent-level 2)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
