@@ -19,32 +19,25 @@
 (when (maybe-require-package 'eglot)
   (maybe-require-package 'consult-eglot))
 
-(with-eval-after-load 'eglot
-  ;; @see https://github.com/joaotavora/eglot/issues/514
-  (setq eldoc-area-use-multiline-p 3) ;; you can experiment with other values, and also `nil
-  (setq eldoc-prefer-doc-buffer t)
-  (setq eglot-autoshutdown t)
-  (setq eglot-ignored-server-capabilites '(:documentHighlightProvider)))
-
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
     "en"  'prog-next-error
     "ep"  'prog-prev-error))
 
-(maybe-require-package 'tree-sitter)
-(maybe-require-package 'tree-sitter-langs)
+;; (maybe-require-package 'tree-sitter)
+;; (maybe-require-package 'tree-sitter-langs)
 
-(dolist (hook
-         '(rust-mode-hook
-           css-mode-hook
-           web-mode-hook
-           js-mode-hook
-           c-mode-common-hook
-           python-mode-hook))
-  (add-hook hook #'tree-sitter-mode))
+;; (dolist (hook
+;;          '(rust-mode-hook
+;;            css-mode-hook
+;;            web-mode-hook
+;;            js-mode-hook
+;;            c-mode-common-hook
+;;            python-mode-hook))
+;;   (add-hook hook #'tree-sitter-mode))
 
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
-(setq tsc-dyn-get-from '(:compilation))
+;; (setq tsc-dyn-get-from '(:compilation))
 
 (provide 'init-langs)
