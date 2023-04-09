@@ -17,6 +17,7 @@
 
 ;; If you don't customize it, this is the theme you get.
 (setq-default custom-enabled-themes '(sanityinc-tomorrow-bright))
+;; (setq-default custom-enabled-themes '(sanityinc-tomorrow-day))
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
@@ -69,6 +70,6 @@
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)
                         charset
-                        (font-spec :family "WenQuanYi Micro Hei Mono" :size 14)))))
+                        (font-spec :family "WenQuanYi Micro Hei Mono" :size 15)))))
 
 (provide 'init-theme)
