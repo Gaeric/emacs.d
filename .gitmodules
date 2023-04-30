@@ -10,3 +10,6 @@
 [submodule "site-lisp/libegit2"]
 	path = site-lisp/libegit2
 	url = https://github.com/magit/libegit2.git
+[submodule "site-lisp/mind-wave"]
+	path = site-lisp/mind-wave
+	url = https://github.com/manateelazycat/mind-wave.git
