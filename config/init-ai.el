@@ -9,10 +9,9 @@
 
 (require 'mind-wave)
 
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-        ("http" . "http://proxy.com:8080")
-        ("https" . "http://proxy.com:8080")))
-
+;; (setq url-proxy-services
+;;       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+;;         ("http" . "http://proxy.com:8080")
+;;         ("https" . "http://proxy.com:8080")))
 
 (provide 'init-ai)
