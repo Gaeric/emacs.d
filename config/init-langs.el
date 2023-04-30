@@ -24,6 +24,13 @@
     "en"  'prog-next-error
     "ep"  'prog-prev-error))
 
+(setq treesit-extra-load-path '("~/.emacs.d/site-lisp/tree-sitter-module/dist/"))
+
+(when (maybe-require-package 'treesit-auto)
+  (require 'treesit-auto)
+  (global-treesit-auto-mode))
+
+
 ;; (maybe-require-package 'tree-sitter)
 ;; (maybe-require-package 'tree-sitter-langs)
 
