@@ -62,18 +62,6 @@
 
 ;; narrow config
 (put 'narrow-to-region 'disabled nil)
-;;----------------------------------------------------------------------------
-;; make dired use the same buffer for viewing directory
-;; http://ergoemacs.org/emacs/emacs_dired_tips.html
-;;----------------------------------------------------------------------------
-(with-eval-after-load 'dired
-  (setq dired-kill-when-opening-new-dired-buffer t)
-  ;; was dired-advertised-find-file
-  (put 'dired-find-alternate-file 'disabled nil)
-  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
-  ;; was dired-up-directory
-  (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file ".."))))
-
 (add-hook 'text-mode-hook 'save-place-local-mode)
 
 (if (eq system-type 'window-nt)
