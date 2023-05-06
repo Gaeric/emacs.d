@@ -81,7 +81,9 @@
   (prettier-js-mode))
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-hook 'typescript-ts-mode-hook #'setup-tide-mode)
 (add-hook 'js-mode-hook #'setup-tide-mode)
+(add-hook 'js-ts-mode-hook #'setup-tide-mode)
 
 ;;; lsp is slowly
 ;; @https://github.com/ananthakumaran/tide/
