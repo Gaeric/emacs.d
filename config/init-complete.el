@@ -27,13 +27,17 @@
 
 (require-package 'company-quickhelp)
 
+(add-hook 'company-mode-hook
+          (company-quickhelp-local-mode))
+
 ;; <TAB> just use for indent
 ;; (setq tab-always-indent 'complete)
 
 (add-hook 'after-init-hook
           (lambda ()
             (progn
-              (global-company-mode)
-              (company-quickhelp-mode))))
+              ;; (global-company-mode)
+              ;; (company-quickhelp-mode)
+              )))
 
 (provide 'init-complete)
