@@ -80,9 +80,10 @@
   (company-mode +1)
   (prettier-js-mode))
 
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
+
 (add-hook 'typescript-ts-mode-hook #'setup-tide-mode)
-(add-hook 'js-mode-hook #'setup-tide-mode)
 (add-hook 'js-ts-mode-hook #'setup-tide-mode)
 
 ;;; lsp is slowly
