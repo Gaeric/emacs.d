@@ -55,7 +55,9 @@
         (convert-standard-filename "~/.emacs.d/.org-timestamps/"))
   (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
 
-(defvar gaeric/work-dir "~/org/work/")
+(defvar gaeric/work-base "D:/work_cloud/")
+(defvar gaeric/daily-dir (concat gaeric/work-base "daily_work/"))
+(defvar gaeric/wiki-file (concat gaeric/work-base "wiki.org"))
 
 (defun gaeric/org-capture-work ()
   (org-back-to-heading t)
@@ -65,12 +67,12 @@
           (let* ((headline (match-string-no-properties 4))
                  (filename (concat
                             (format-time-string "%Y%m%d") "_" headline))
-                 (dir (concat gaeric/work-dir filename)))
+                 (dir (concat gaeric/daily-dir filename)))
             (unless (file-exists-p dir)
               (dired-create-directory dir))
             (end-of-line)
             (newline-and-indent)
-            (insert (format "[[%s][%s]]" dir headline)))))))
+            (insert (format "[[file+sys:%s][%s]]" dir headline)))))))
 
 (add-hook 'org-capture-before-finalize-hook 'gaeric/org-capture-work)
 
@@ -141,7 +143,11 @@
   (setq org-clock-out-switch-to-state "PEND")
   
   (setq org-capture-templates
-        '(("t" "Todo" entry
+        '(
+          ("w" "work" entry
+           (file+headline gaeric/wiki-file "DailyRecord")
+           "* TODO [#B] %?\n  %i\n")
+          ("t" "Todo" entry
            (file+headline "~/org/gtd.org" "Workspace")
            "* TODO [#B] %?\n  %i\n")
           ("n" "notes" entry
@@ -224,6 +230,7 @@
   (gaeric-comma-leader-def
     :keymaps 'org-mode-map
     "op" 'org-pomodoro
+    "oa" 'org-open-at-point
     "cp" 'org-previous-visible-heading
     "cn" 'org-next-visible-heading
     "ns" 'org-narrow-to-subtree
