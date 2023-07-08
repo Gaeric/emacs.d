@@ -58,7 +58,7 @@
   (if (eq system-type 'windows-nt)
       (progn
         (set-face-attribute
-         'default nil :family "Noto Mono" :height 110)
+         'default nil :family "Consolas" :height 110)
         ;; Setting Chinese Font
         (dolist (charset '(kana han symbol cjk-misc bopomofo))
           (set-fontset-font (frame-parameter nil 'font)
