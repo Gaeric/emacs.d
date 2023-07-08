@@ -217,6 +217,7 @@
     "oc" 'org-capture
     "oo" 'org-agenda
     "oa" 'org-agenda-list
+    "of" 'org-roam-node-find
     ))
 
 (when (macrop 'gaeric-comma-leader-def)
