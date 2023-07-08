@@ -18,11 +18,27 @@
 ;; (setq read-process-output-max (* 1024 1024))
 
 ;; (when (maybe-require-package 'eglot)
+;;   (setq eglot-autoshutdown t)
 ;;   (maybe-require-package 'consult-eglot))
 
 ;; (gaeric-comma-leader-def
-;;     "en" 'prog-next-error
-;;     "ep" 'prog-prev-error)
+;;   "en" 'prog-next-error
+;;   "ep" 'prog-prev-error
+;;   "ef"  'eglot-format)
+
+;; (unless  (version< "28.0" emacs-version)
+;;   (require-package 'xref))
+
+;; (with-eval-after-load 'xref
+;;   (setq xref-search-program 'ripgrep)
+;;   (setq xref-show-definitions-function 'xref-show-definitions-completing-read)
+;;   (setq xref-show-xrefs-function 'xref-show-definitions-completing-read))
+
+;; (when (macrop 'gaeric-comma-leader-def)
+;;   (gaeric-comma-leader-def
+;;     "gd" 'xref-find-definitions
+;;     "gr" 'xref-find-references
+;;     "go" 'xref-find-definitions-other-window))
 
 ;; --------- eglot config finish
 

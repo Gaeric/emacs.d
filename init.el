@@ -43,7 +43,6 @@
   (require 'init-pair)
   (require 'init-minibuffer)
   (require 'init-project)
-  (require 'init-xref)
   (require 'init-complete)
   (require 'init-yas)
   (require 'init-rs-module)
