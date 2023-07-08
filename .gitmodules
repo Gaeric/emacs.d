@@ -16,3 +16,6 @@
 [submodule "site-lisp/tree-sitter-module"]
 	path = site-lisp/tree-sitter-module
 	url = https://github.com/casouri/tree-sitter-module.git
+[submodule "site-lisp/lsp-bridge"]
+	path = site-lisp/lsp-bridge
+	url = https://github.com/manateelazycat/lsp-bridge.git
