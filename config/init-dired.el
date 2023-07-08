@@ -21,8 +21,6 @@
   ;; was dired-up-directory
   (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file ".."))))
 
-(when (maybe-require-package 'dirvish)
-  (add-hook 'after-init-hook (lambda () (dirvish-override-dired-mode))))
-
+(maybe-require-package 'dirvish)
 
 (provide 'init-dired)
