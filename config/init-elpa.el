@@ -4,6 +4,8 @@
 
 (require 'package)
 
+(setq package-check-signature nil)
+
 
 ;;; Standard package repositories
 (setq package-archives '(("gnu"    . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -51,8 +53,8 @@ locate PACKAGE."
 
 ;;; Fire up package.el
 
-(unless (file-exists-p package-quickstart-file)
-  (package-quickstart-refresh))
+;; (unless (file-exists-p package-quickstart-file)
+  ;; (package-quickstart-refresh))
 
 (package-initialize)
 
