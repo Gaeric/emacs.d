@@ -57,7 +57,10 @@
 
 (defvar gaeric/work-base "D:/work_cloud/")
 (defvar gaeric/daily-dir (concat gaeric/work-base "daily_work/"))
-(defvar gaeric/wiki-file (concat gaeric/work-base "wiki.org"))
+(defvar gaeric/work-wiki-file (concat gaeric/work-base "wiki.org"))
+(defvar gaeric/org-home "~/org/")
+(defvar gaeric/org-gtd-file (concat gaeric/org-home "gtd.org"))
+(defvar gaeric/org-inbox-file (concat gaeric/org-home "inbox.org"))
 
 (defun gaeric/org-capture-work ()
   (org-back-to-heading t)
@@ -145,22 +148,26 @@
   (setq org-capture-templates
         '(
           ("w" "work" entry
-           (file+headline gaeric/wiki-file "DailyRecord")
+           (file+headline gaeric/work-wiki-file "DailyRecord")
            "* TODO [#B] %?\n  %i\n")
+          ("R" "Report" plain
+           (file+olp+datetree gaeric/work-wiki-file "Report")
+           "%?\n %i\n  %U"
+           :time-prompt t :tree-type week)
           ("t" "Todo" entry
-           (file+headline "~/org/gtd.org" "Workspace")
+           (file+headline gaeric/org-gtd-file "Workspace")
            "* TODO [#B] %?\n  %i\n")
           ("n" "notes" entry
-           (file+headline "~/org/inbox.org" "notes")
+           (file+headline gaeric/org-inbox-file "notes")
            "* %?\n  %i\n %U")
           ("r" "reviews" entry
-           (file+olp+datetree "~/org/gtd.org" "reviews")
+           (file+olp+datetree gaeric/org-inbox-file "reviews")
            "* review\n   %?%i\n  %U"
            :time-prompt t :tree-type week)
           ("b" "Breakpoint" entry (clock)
            "* TODO %? :BreakPoint:\n  %U\n  %i")
           ("e" "Excerpt" entry
-           (file+headline "~/org/inbox.org" "Excerpt")
+           (file+headline gaeric/org-inbox-file "Excerpt")
            "* %?"))))
 ;; -------------------------------------------------------------------
 ;; for blog static file
