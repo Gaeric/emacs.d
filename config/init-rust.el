@@ -13,7 +13,4 @@
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
 
-(add-hook 'rust-ts-mode-hook 'lsp-bridge-mode)
-(add-hook 'rust-ts-mode-hook 'yas-minor-mode)
-
 (provide 'init-rust)
