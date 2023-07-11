@@ -19,7 +19,9 @@
   (with-eval-after-load 'vertico
     (amx-mode 1)
     (require 'orderless)
-    (setq completion-styles '(orderless basic))
+    (setq completion-styles '(orderless basic)
+          completion-category-defaults nil
+          completion-category-overrides nil)
     (define-key vertico-map (kbd "M-j") 'vertico-next)
     (define-key vertico-map (kbd "M-k") 'vertico-previous)))
   
