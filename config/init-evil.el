@@ -144,7 +144,7 @@
     "bi"    'ibuffer
     "bm"    'switch-to-message-buffer
     "bb"    'switch-to-buffer
-    "pb"    'project-switch-to-buffer
+    "bp"    'project-switch-to-buffer
     "fed"   'open-init-file
     "ad"    'dired
     "es"    'eshell
@@ -176,11 +176,12 @@
     "ee"  'eval-last-sexp
     ","   'evil-repeat-find-char-reverse
     "nn"  'narrow-to-region
-    "nd"   'narrow-to-defun
-    "np"   'narrow-to-page
-    "ma"   'beginning-of-defun
-    "me"   'end-of-defun
-    "nw"    'widen
+    "nd"  'narrow-to-defun
+    "np"  'narrow-to-page
+    "nw"  'widen
+    "ma"  'beginning-of-defun
+    "me"  'end-of-defun
+    "mm"  'mark-defun
     ))
 
 (provide 'init-evil)
