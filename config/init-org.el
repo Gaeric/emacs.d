@@ -6,7 +6,8 @@
 ;;
 ;;; License: GPLv3
 
-(when (maybe-require-package 'org-download)
+(when (display-graphic-p)
+  (require-package 'org-download)
   ;; Drag-and-drop to `dired`
   ;; Use ImageMagaick convert on windows
   (add-hook 'org-mode-hook 'org-download-enable)
