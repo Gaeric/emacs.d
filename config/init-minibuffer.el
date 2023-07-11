@@ -21,12 +21,32 @@
     (require 'orderless)
     (setq completion-styles '(orderless basic))
     (define-key vertico-map (kbd "M-j") 'vertico-next)
-    (define-key vertico-map (kbd "M-k") 'vertico-previous))
+    (define-key vertico-map (kbd "M-k") 'vertico-previous)))
+  
+(when (maybe-require-package 'embark)
+  (with-eval-after-load 'vertico
+    (define-key vertico-map (kbd "C-c C-o") 'embark-export)
+    (define-key vertico-map (kbd "C-c C-c") 'embark-act)
+    (define-key vertico-map (kbd "M-.") 'embark-act))
 
-  (when (maybe-require-package 'embark)
-    (with-eval-after-load 'vertico
-      (define-key vertico-map (kbd "C-c C-o") 'embark-export)
-      (define-key vertico-map (kbd "C-c C-c") 'embark-act))))
+
+  (with-eval-after-load 'embark
+    (defun embark-consult-goto-grep-other-window (location)
+      "Go to LOCATION, which should be a string with a grep match."
+      (let ((pos (car (consult--grep-position location))))
+        (message "pos is %s" pos)
+        (if (and (markerp pos) (marker-buffer pos))
+            (progn
+              (message "other-windows")
+              (push-mark (point) t)
+              (switch-to-buffer-other-window (current-buffer) 'norecord)))
+        (consult--jump pos))
+      (pulse-momentary-highlight-one-line (point)))
+
+    (defvar-keymap embark-consult-grep-map
+      :doc "embark keymap for consult-grep/ripgrep"
+      "o" #'embark-consult-goto-grep-other-window)
+    (push '(consult-grep embark-consult-grep-map) embark-keymap-alist)))
 ;; }
 
 
