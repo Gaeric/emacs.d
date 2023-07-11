@@ -7,8 +7,6 @@
 ;;
 ;; License: GPLv3
 
-(load-file "~/.emacs.d/site-lisp/emacs-module-rs/target/release/libemacs_rs_module.so")
-
 ;; For example
 ;; (rs-module/load ".emacs.d/site-lisp/lim/target/release/liblim.so")
 ;; (lim-count-words (buffer-substring-no-properties (point-min) (point-max)))
@@ -35,5 +33,13 @@
      (file-relative-name
       (expand-file-name path)
       gaeric/rs-module-default-path))))
+
+(defvar libemacs-rs-module "~/.emacs.d/site-lisp/emacs-module-rs/target/release/libemacs_rs_module.so")
+(defvar libemacs-rs-module-support t)
+
+(if (file-exists-p libemacs-rs-module)
+    (load-file libemacs-rs-module)
+  (setq libemacs-rs-module-support nil))
+
 
 (provide 'init-rs-module)
