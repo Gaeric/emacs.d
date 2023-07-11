@@ -1,18 +1,9 @@
 [submodule "site-lisp/lim"]
 	path = site-lisp/lim
-	url = git@119.45.19.250:lim.git
-[submodule "site-lisp/emacs-module-rs"]
-	path = site-lisp/emacs-module-rs
-	url = https://github.com/ubolonton/emacs-module-rs.git
-[submodule "site-lisp/magit"]
-	path = site-lisp/magit
-	url = https://github.com/magit/magit.git
-[submodule "site-lisp/libegit2"]
-	path = site-lisp/libegit2
-	url = https://github.com/magit/libegit2.git
+	url = git@github.com:Gaeric/lim.git
 [submodule "site-lisp/tree-sitter-module"]
 	path = site-lisp/tree-sitter-module
-	url = https://github.com/casouri/tree-sitter-module.git
-[submodule "site-lisp/lsp-bridge"]
-	path = site-lisp/lsp-bridge
-	url = https://github.com/manateelazycat/lsp-bridge.git
+	url = git@github.com:casouri/tree-sitter-module.git
+[submodule "site-lisp/emacs-module-rs"]
+	path = site-lisp/emacs-module-rs
+	url = git@github.com:ubolonton/emacs-module-rs.git
