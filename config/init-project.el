@@ -29,6 +29,7 @@
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
     "gf" 'project-find-file
+    "gg" 'project-find-regexp
     "gx" 'gaeric/directory-find-regexp
     "gs" 'gaeric/project-find-regexp))
 
