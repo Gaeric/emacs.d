@@ -16,6 +16,9 @@
 ;; kill-ring and clipboard are same? No, it's annoying!
 (setq save-interprogram-paste-before-kill nil)
 
+(unless (display-graphic-p)
+  (maybe-require-package 'clipetty)
+  (global-clipetty-mode))
 
 (require-package 'xclip)
 (autoload 'xclip-get-selection "xclip" "" t)
