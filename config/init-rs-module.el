@@ -12,8 +12,13 @@
 ;; (lim-count-words (buffer-substring-no-properties (point-min) (point-max)))
 
 (defvar gaeric/rs-module-default-path default-directory)
-
+(defvar libemacs-rs-module "~/.emacs.d/site-lisp/emacs-module-rs/target/release/libemacs_rs_module.so")
+(defvar libemacs-rs-module-support t)
 (defvar gaeric/rs-module-file-dir "dylib")
+
+(if (file-exists-p libemacs-rs-module)
+    (load-file libemacs-rs-module)
+  (setq libemacs-rs-module-support nil))
 
 (defun dos-reload-workaround (path)
   "Hot Reload Dynamic Module On Windows"
@@ -33,13 +38,5 @@
      (file-relative-name
       (expand-file-name path)
       gaeric/rs-module-default-path))))
-
-(defvar libemacs-rs-module "~/.emacs.d/site-lisp/emacs-module-rs/target/release/libemacs_rs_module.so")
-(defvar libemacs-rs-module-support t)
-
-(if (file-exists-p libemacs-rs-module)
-    (load-file libemacs-rs-module)
-  (setq libemacs-rs-module-support nil))
-
 
 (provide 'init-rs-module)
