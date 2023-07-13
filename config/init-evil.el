@@ -30,6 +30,14 @@
 (require-package 'evil-exchange)
 (require-package 'evil-nerd-commenter)
 
+
+(when (maybe-require-package 'evil-escape)
+  (setq-default evil-escape-delay 0.3)
+  (setq evil-escape-excluded-major-modes '(dired-mode))
+  (setq-default evil-escape-key-sequence ",.")
+  ;; disable evil-escape when input method is on
+  (evil-escape-mode 1))
+
 (setq evil-collection-exclude-modes '(company tide python))
 (with-eval-after-load 'evil-collection
   (dolist (mode evil-collection-exclude-modes)
