@@ -142,7 +142,7 @@
 ;; Spaces keybinds for vanilla Emacs
 (when (macrop 'gaeric-space-leader-def)
   (gaeric-space-leader-def
-    ;; "<SPC>" 'execute-extended-command
+    "<SPC>" 'execute-extended-command
     "ff"    'find-file
     "fo"    'find-file-other-window
     "bo"    'switch-to-buffer-other-window
@@ -159,6 +159,8 @@
     "tl"    'toggle-truncate-lines
     "tn"    'display-line-numbers-mode
     "!"     'shell-command
+    "hf"    'describe-function
+    "hv"    'describe-variable
     ))
 
 
