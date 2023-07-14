@@ -27,8 +27,6 @@
   
 (when (maybe-require-package 'embark)
   (with-eval-after-load 'vertico
-    (define-key vertico-map (kbd "C-c C-o") 'embark-export)
-    (define-key vertico-map (kbd "C-c C-c") 'embark-act)
     (define-key vertico-map (kbd "M-.") 'embark-act))
 
 
@@ -48,7 +46,19 @@
     (defvar-keymap embark-consult-grep-map
       :doc "embark keymap for consult-grep/ripgrep"
       "o" #'embark-consult-goto-grep-other-window)
-    (push '(consult-grep embark-consult-grep-map) embark-keymap-alist)))
+    (push '(consult-grep embark-consult-grep-map) embark-keymap-alist)
+
+    ;; (defun gaeric/embark-goto-xref-other-window (xref)
+    ;;   (message "call xref-location-embark")
+    ;;   (switch-to-buffer-other-window (current-buffer))
+    ;;   (xref-pop-to-location xref 'window))
+
+    ;; (defvar-keymap embark-xref-map
+    ;;   :doc "embark keymap for xref-location"
+    ;;   "RET" #'gaeric/embark-goto-xref-other-window)
+    ;; (push '(xref-location embark-xref-map) embark-keymap-alist)
+    )
+  )
 ;; }
 
 
