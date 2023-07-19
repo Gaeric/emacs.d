@@ -46,8 +46,14 @@
   (setq-default corfu-quit-no-match 'separator)
 
   (add-hook 'after-init-hook 'global-corfu-mode)
+
+  (with-eval-after-load 'corfu
+    (define-key corfu-map (kbd "M-n") nil)
+    (define-key corfu-map (kbd "M-p") nil))
+
   (when (display-graphic-p)
     (with-eval-after-load 'corfu
+
       (corfu-popupinfo-mode)))
 
   (unless (display-graphic-p)
