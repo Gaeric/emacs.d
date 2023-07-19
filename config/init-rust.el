@@ -7,10 +7,10 @@
 ;;
 ;; License: GPLv3
 
-;; (when (maybe-require-package 'rustic)
-;;   (setq rustic-lsp-client 'eglot)
-;;   (remove-hook 'rustic-mode-hook 'flycheck-mode))
+(when (maybe-require-package 'rustic)
+  (setq rustic-lsp-client 'eglot)
+  (remove-hook 'rustic-mode-hook 'flycheck-mode))
 
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
 
 (provide 'init-rust)
