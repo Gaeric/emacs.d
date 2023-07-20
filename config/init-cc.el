@@ -9,7 +9,6 @@
 (defun gaeric-common-cc-mode-setup ()
   "setup shared by all languages (java/groovy/c++ ...)"
   (setq-default c-basic-offset 4)
-  (setq-default c-ts-mode-indent-offset 4)
   ;; give me NO newline automatically after electric expressions are entered
   (setq c-auto-newline nil)
 
@@ -17,7 +16,10 @@
   (c-toggle-hungry-state 1)
   (eglot-ensure))
 
+(defun gaeric/c-ts-mode-setup()
+  (setq-default c-ts-mode-indent-offset 4))
+
 (add-hook 'c-mode-common-hook 'gaeric-common-cc-mode-setup)
-(add-hook 'c-ts-mode-hook 'gaeric-common-cc-mode-setup)
+(add-hook 'c-ts-mode-hook 'gaeric/c-ts-mode-setup)
 
 (provide 'init-cc)
