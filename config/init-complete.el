@@ -53,7 +53,6 @@
 
   (when (display-graphic-p)
     (with-eval-after-load 'corfu
-
       (corfu-popupinfo-mode)))
 
   (unless (display-graphic-p)
