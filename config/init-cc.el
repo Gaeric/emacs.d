@@ -23,5 +23,6 @@
   (eglot-ensure))
 
 (add-hook 'c-mode-common-hook 'gaeric-common-cc-mode-setup)
+(add-hook 'c-ts-mode-hook 'gaeric-common-cc-mode-setup)
 
 (provide 'init-cc)
