@@ -9,6 +9,7 @@
 (defun gaeric-common-cc-mode-setup ()
   "setup shared by all languages (java/groovy/c++ ...)"
   (setq c-basic-offset 4)
+  (setq c-ts-mode-indent-offset 4)
   ;; give me NO newline automatically after electric expressions are entered
   (setq c-auto-newline nil)
 
