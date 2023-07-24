@@ -6,10 +6,13 @@
 ;;
 ;;; License: GPLv3
 
-(require-package 'undo-tree)
-(global-undo-tree-mode)
 ;; evil-want-keybinding must be set before evil/evil-surround load
+(maybe-require-package 'undo-fu)
+
 (setq evil-want-keybinding nil)
+(setq undo-limit 8000000
+      undo-strong-limit 8000000
+      undo-outer-limit 8000000)
 
 ;; evil keybinds for org-mode/org-agenda
 (when (maybe-require-package 'evil-org)
@@ -56,7 +59,13 @@
 (add-hook 'org-mode-hook 'evil-surround-org-mode-hook-setup)
 
 (when (maybe-require-package 'evil)
-  (setq evil-undo-system 'undo-tree)
+  ;; (setq evil-undo-system 'undo-tree)
+  (setq evil-undo-system 'undo-redo)
+  (define-key evil-normal-state-map "u" 'undo-fu-only-undo)
+  (define-key evil-normal-state-map (kbd "C-r") 'undo-fu-only-redo)
+  ;; @see https://www.reddit.com/r/emacs/comments/12arjtn/my_basic_keybinding_setup_for_emacs_with_evilmode/
+  (define-key evil-normal-state-map "U" 'undo-fu-only-redo)
+
   (setq evil-move-cursor-back t)
   (add-hook 'after-init-hook 'evil-mode))
 
