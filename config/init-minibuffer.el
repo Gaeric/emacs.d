@@ -43,10 +43,10 @@
         (consult--jump pos))
       (pulse-momentary-highlight-one-line (point)))
 
-    (defvar-keymap embark-consult-grep-map
-      :doc "embark keymap for consult-grep/ripgrep"
-      "o" #'embark-consult-goto-grep-other-window)
-    (push '(consult-grep embark-consult-grep-map) embark-keymap-alist)
+    ;; (defvar-keymap embark-consult-grep-map
+    ;;   :doc "embark keymap for consult-grep/ripgrep"
+    ;;   "o" #'embark-consult-goto-grep-other-window)
+    ;; (push '(consult-grep embark-consult-grep-map) embark-keymap-alist)
 
     ;; (defun gaeric/embark-goto-xref-other-window (xref)
     ;;   (message "call xref-location-embark")
