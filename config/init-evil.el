@@ -75,7 +75,7 @@
 
 ;; {{ change mode-line color by evil state
 (with-eval-after-load 'evil
-  (defconst my-default-color (cons "#424242"  "eaeaea"))
+  (defconst my-default-color (cons "#424242"  "#eaeaea"))
   ;; (cons (face-background 'mode-line) (face-foreground 'mode-line))
   (defun my-show-evil-state ()
     "Change mode line color to notify user evil current state."
