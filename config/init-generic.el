@@ -67,7 +67,7 @@
 (if (eq system-type 'window-nt)
     (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8-dos . windows-1251-dos))))
 
-;; config recentf-exclude to ignore some file
+;; use customize-variable to config recentf-exclude for ignore some file
 ;; (add-to-list 'recentf-exclude "")
 
 (provide 'init-generic)
