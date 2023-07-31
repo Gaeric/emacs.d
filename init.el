@@ -70,12 +70,20 @@
   (when (file-exists-p custom-file)
     (load custom-file))
 
+  ;; Allow access from emacsclient
+  ;; (add-hook 'after-init-hook
+  ;;           (lambda ()
+  ;;             (require 'server)
+  ;;             (unless (server-running-p)
+  ;;               (server-start))))
+
   (add-hook 'after-init-hook
             (lambda ()
               (progn
                 (show-paren-mode t)
                 (global-hl-line-mode)
                 (global-so-long-mode)
+                (save-place-mode)
                 (winner-mode)
                 (toggle-frame-maximized))))
 
