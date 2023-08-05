@@ -91,12 +91,12 @@
 (defun switch-to-scratch-buffer ()
   "Switch to the `*scratch*' buffer."
   (interactive)
-  (switch-to-buffer (get-buffer-create "*scratch*")))
+  (switch-to-buffer "*scratch*"))
 
 (defun switch-to-message-buffer ()
   "Switch to the `*Message*' buffer."
   (interactive)
-  (switch-to-buffer (get-buffer-create "*Messages*")))
+  (switch-to-buffer "*Messages*"))
 
 (defun open-init-file ()
   (interactive)
