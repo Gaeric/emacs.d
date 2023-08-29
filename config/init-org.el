@@ -114,6 +114,7 @@
   (gaeric/export-conf)
 
   (setq org-fontify-done-headline t)
+  (setq org-ascii-text-width 65536)
   (setq org-adapt-indentation t)
 
   (setq org-publish-project-alist
