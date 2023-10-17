@@ -52,6 +52,7 @@
   ;; Prog Lang
   ;;----------------------------------------------------------------------------
   (require 'init-langs)
+  ;; (require 'init-lsp-bridge)
   (require 'init-cc)
   (require 'init-python)
   (require 'init-rust)
