@@ -15,6 +15,11 @@
 ;; @see https://github.com/joaotavora/eglot/issues/334
 (require-package 'eglot)
 
+(require-package 'breadcrumb)
+(add-hook 'after-init-hook
+          (lambda ()
+            (breadcrumb-mode)))
+
 (setq read-process-output-max (* 1024 1024))
 
 (when (maybe-require-package 'eglot)
