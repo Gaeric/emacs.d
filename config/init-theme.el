@@ -65,11 +65,15 @@
                             charset
                             (font-spec :family "微软雅黑" :size 14))))
     (set-face-attribute
-     'default nil :family "Monospace" :height 110)
+     'default nil :family "Monospace" :height 105)
     ;; Setting Chinese Font
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)
                         charset
-                        (font-spec :family "WenQuanYi Micro Hei Mono" :size 15)))))
+                        (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)))))
+
+;; (require 'hide-mode-line)
+;; (add-hook 'after-init-hook
+;;           (global-hide-mode-line-mode))
 
 (provide 'init-theme)
