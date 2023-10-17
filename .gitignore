@@ -1,5 +1,4 @@
 auto-save-list
-elpa
 .cache
 recentf
 anaconda-mode
@@ -35,3 +34,4 @@ projects
 /gpt/
 /.ccls-cache/
 /rime/
+/elpa*
