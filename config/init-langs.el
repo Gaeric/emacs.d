@@ -55,8 +55,14 @@
     "ep" 'prog-prev-error
     "ef"  'eglot-format
     "gd" 'xref-find-definitions
-    "gr" 'xref-find-references
+    ;; "gr" 'xref-find-references
     "go" 'xref-find-definitions-other-window))
+
+
+(when (macrop 'gaeric-comma-leader-def)
+  (gaeric-comma-leader-def
+    :keymaps 'citre-mode-map
+    "gr" 'citre-jump-to-reference))
 
 ;; --------- eglot config finish
 
