@@ -11,7 +11,34 @@
   ;; Drag-and-drop to `dired`
   ;; Use ImageMagaick convert on windows
   (add-hook 'org-mode-hook 'org-download-enable)
-  (add-hook 'dired-mode-hook 'org-download-enable))
+  (add-hook 'dired-mode-hook 'org-download-enable)
+
+  (setq org-download-image-dir "d:/work_cloud/wiki/images")
+  (defun org-download-clipboard-ms (&optional basename)
+    "Capture the image from the clipboard and insert the resulting file."
+    (interactive)
+    (let ((org-download-screenshot-method
+           (cl-case system-type
+             (gnu/linux
+              (if (string= "wayland" (getenv "XDG_SESSION_TYPE"))
+                  (if (executable-find "wl-paste")
+                      "wl-paste -t image/png > %s"
+                    (user-error
+                     "Please install the \"wl-paste\" program included in wl-clipboard"))
+                (if (executable-find "xclip")
+                    "xclip -selection clipboard -t image/png -o > %s"
+                  (user-error
+                   "Please install the \"xclip\" program"))))
+             ((windows-nt cygwin) "magick clipboard: %s")
+             ((darwin berkeley-unix)
+              (if (executable-find "pngpaste")
+                  "pngpaste %s"
+                (user-error
+                 "Please install the \"pngpaste\" program from Homebrew."))))))
+      (org-download-screenshot basename)))
+
+  (advice-add #'org-download-clipboard :override
+              #'org-download-clipboard-ms))
 
 (maybe-require-package 'htmlize)
 
@@ -242,6 +269,7 @@
     :keymaps 'org-mode-map
     "op" 'org-pomodoro
     "oa" 'org-open-at-point
+    "od" 'org-download-clipboard
     "cp" 'org-previous-visible-heading
     "cn" 'org-next-visible-heading
     "ns" 'org-narrow-to-subtree
