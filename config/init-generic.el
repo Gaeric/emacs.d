@@ -68,7 +68,7 @@
     (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8-dos . windows-1251-dos))))
 
 ;; use customize-variable to config recentf-exclude for ignore some file
-;; (add-to-list 'recentf-exclude "")
+(setq recentf-exclude '("~/Downloads/novel/*"))
 
 (provide 'init-generic)
 
