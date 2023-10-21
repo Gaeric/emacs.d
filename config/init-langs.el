@@ -34,7 +34,7 @@
             'c-ts-mode-hook
             'python-ts-mode-hook
             'rust-ts-mode-hook))
-    (add-hook hook #'eglot-ensure)
+    ;; (add-hook hook #'eglot-ensure)
     (add-hook hook 'yas-minor-mode)))
 
 (unless  (version< "28.0" emacs-version)

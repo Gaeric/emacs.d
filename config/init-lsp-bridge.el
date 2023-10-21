@@ -7,7 +7,7 @@
 ;;
 ;; License: GPLv3
 
-(add-to-list 'load-path "~/prog/lsp-bridge")
+;; (add-to-list 'load-path "~/prog/lsp-bridge")
 
 (require 'lsp-bridge)
 (global-lsp-bridge-mode)
