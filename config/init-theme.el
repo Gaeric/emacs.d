@@ -73,7 +73,7 @@
                         (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)))))
 
 (require-package 'hide-mode-line)
-(add-hook 'after-init-hook
-          (global-hide-mode-line-mode))
+;; (add-hook 'after-init-hook
+;;           (global-hide-mode-line-mode))
 
 (provide 'init-theme)
