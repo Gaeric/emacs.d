@@ -38,6 +38,7 @@
   ;; to select text, so expand-region.el is not used
   (remove-hook 'web-mode-hook 'er/add-web-mode-expansions)
   (setq web-mode-enable-auto-closing t) ; enable auto close tag in text-mode
+  (setq-default web-mode-code-indent-offset 2)
   (setq web-mode-enable-auto-pairing nil)
   (setq web-mode-enable-css-colorization t)
   (setq web-mode-imenu-regexp-list
