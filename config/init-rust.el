@@ -8,8 +8,8 @@
 ;; License: GPLv3
 
 (when (maybe-require-package 'rustic)
-  ;; eglot/lsp-bridge config in init-langs
-  (setq rustic-lsp-client 'nil)
+  ;; (setq rustic-lsp-setup-p nil)
+  (setq rustic-lsp-client 'eglot)
   (remove-hook 'rustic-mode-hook 'flycheck-mode))
 
 ;; (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
