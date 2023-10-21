@@ -1,3 +1,12 @@
+;; init-godot.el -*- coding: utf-8; lexical-binding: t; -*-
+;; 
+;; Author:  <Gaeric>
+;; URL: https://github.com/Gaeric
+;;
+;; This file is not part of GNU Emacs.
+;;
+;; License: GPLv3
+
 (when (maybe-require-package 'gdscript-mode)
   (setq gdscript-use-tab-indents t) ;; If true, use tabs for indents. Default: t
   (setq gdscript-indent-offset 4) ;; Controls the width of tab-based indents

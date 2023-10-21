@@ -23,11 +23,20 @@
   (yas-minor-mode)
   ;make DEL take all previous whitespace with it
   (c-toggle-hungry-state 1)
-  (setup-citre-config))
+  (setup-citre-config)
+  (setq lsp-bridge-find-def-fallback-function #'citre-jump)
+  (setq lsp-bridge-find-ref-fallback-function #'citre-jump-to-reference))
 
 (defun gaeric/c-ts-mode-setup()
   (setq-default c-ts-mode-indent-offset 4)
   (setup-citre-config))
+
+(require-package 'clang-format)
+
+(when (and (eq 'emacs-lsp-package 'native) (macrop 'gaeric-comma-leader-def))
+  (gaeric-comma-leader-def
+    :keymaps 'citre-mode-map
+    "gr" 'citre-jump-to-reference))
 
 (add-hook 'c-mode-common-hook 'gaeric-common-cc-mode-setup)
 (add-hook 'c-ts-mode-hook 'gaeric/c-ts-mode-setup)

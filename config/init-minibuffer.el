@@ -8,7 +8,8 @@
 ;; License: GPLv3
 
 (when (maybe-require-package 'amx)
-  (setq-default amx-save-file (expand-file-name ".amx-items" user-emacs-directory)))
+  (setq-default amx-save-file (expand-file-name ".amx-items" user-emacs-directory))
+  (setq amx-auto-update-interval nil))
 
 ;; vertico {
 (when (maybe-require-package 'vertico)

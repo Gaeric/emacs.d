@@ -45,7 +45,7 @@
     (add-hook 'eshell-mode-hook (lambda () (setq-local corfu-auto nil))))
   (setq-default corfu-quit-no-match 'separator)
 
-  (add-hook 'after-init-hook 'global-corfu-mode)
+  ;; (add-hook 'after-init-hook 'global-corfu-mode)
 
   (with-eval-after-load 'corfu
     (define-key corfu-map (kbd "M-n") nil)
