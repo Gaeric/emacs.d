@@ -11,7 +11,16 @@
 (defvar emacs-lsp-package 'lsp-bridge
   "lsp-bridge/native/lsp-mode")
 
-(when (eq emacs-lsp-package #'eglot)
+(setq lsp-manage-mode
+      (list
+       'elisp-mode-hook
+       'c-ts-mode-hook
+       'python-ts-mode-hook
+       'rust-ts-mode-hook
+       'typescript-ts-mode
+       'tsx-ts-mode))
+
+(when (eq emacs-lsp-package #'native)
   ;; eglot
   ;; https://github.com/joaotavora/eglot/issues/369
 
@@ -29,13 +38,9 @@
             :inlayHintProvider))
     (maybe-require-package 'consult-eglot)
 
-    (dolist (hook
-             (list
-              'c-ts-mode-hook
-              'python-ts-mode-hook
-              'rust-ts-mode-hook))
+    (dolist (hook lsp-manage-mode)
       ;; (add-hook hook #'eglot-ensure)
-      (add-hook hook 'yas-minor-mode)))
+      (add-hook hook #'yas-minor-mode)))
   ;; --- eglot config finish
 
   (when (macrop 'gaeric-comma-leader-def)
@@ -51,9 +56,9 @@
 (when (eq emacs-lsp-package 'lsp-bridge)
   ;; (add-to-list 'load-path "~/prog/lsp-bridge")
   (require 'lsp-bridge)
-  (setq lsp-bridge-enable-inlay-hint nil)
+  (setq-default lsp-bridge-enable-inlay-hint nil)
 
-  ;; (add-hook 'after-init-hook (lambda () (global-lsp-bridge-mode)))
+  (add-hook 'after-init-hook (lambda () (global-lsp-bridge-mode)))
 
   (define-key acm-mode-map (kbd "M-j") 'acm-select-next)
   (define-key acm-mode-map (kbd "M-k") 'acm-select-prev)
