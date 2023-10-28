@@ -11,6 +11,10 @@
 (defvar emacs-lsp-package 'lsp-bridge
   "lsp-bridge/native/lsp-mode")
 
+(unless (display-graphic-p)
+  (if (eq emacs-lsp-package 'lsp-bridge)
+      (setq emacs-lsp-package 'native)))
+
 (setq lsp-manage-mode
       (list
        'elisp-mode-hook
