@@ -33,7 +33,7 @@
 
 (require-package 'clang-format)
 
-(when (and (eq 'emacs-lsp-package 'native) (macrop 'gaeric-comma-leader-def))
+(when (and (eq emacs-lsp-package 'native) (macrop 'gaeric-comma-leader-def))
   (gaeric-comma-leader-def
     :keymaps 'citre-mode-map
     "gr" 'citre-jump-to-reference))
