@@ -17,10 +17,11 @@
 
 (setq lsp-manage-mode
       (list
-       'elisp-mode-hook
+       'emacs-lisp-mode-hook
        'c-ts-mode-hook
        'python-ts-mode-hook
        'rust-ts-mode-hook
+       'rustic-mode-hook
        'typescript-ts-mode
        'tsx-ts-mode))
 
@@ -43,8 +44,9 @@
     (maybe-require-package 'consult-eglot)
 
     (dolist (hook lsp-manage-mode)
-      ;; (add-hook hook #'eglot-ensure)
-      (add-hook hook #'yas-minor-mode)))
+      (add-hook hook #'eglot-ensure)
+      (add-hook hook #'yas-minor-mode)
+      (add-hook hook #'corfu-mode)))
   ;; --- eglot config finish
 
   (when (macrop 'gaeric-comma-leader-def)
