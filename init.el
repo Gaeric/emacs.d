@@ -33,6 +33,7 @@
   (require 'init-org)
   (require 'init-keyfreq)
   (require 'init-lim)
+  (require 'init-exec-path)
 
   ;;----------------------------------------------------------------------------
   ;; Advanced Config
