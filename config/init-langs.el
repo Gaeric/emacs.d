@@ -8,7 +8,7 @@
 ;; License: GPLv3
 
 
-(defvar emacs-lsp-package 'lsp-bridge
+(defvar emacs-lsp-package 'native
   "lsp-bridge/native/lsp-mode")
 
 (unless (display-graphic-p)
