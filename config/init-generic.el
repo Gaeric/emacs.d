@@ -59,6 +59,14 @@
 		     collecting (expand-file-name dir))
 	       load-path)))))
 
+;; for long line performance
+;; @see https://emacs-china.org/t/topic/25811/5
+(setq-default bidi-display-reordering nil)
+(setq bidi-inhibit-bpa t
+      long-line-threshold 1000
+      large-hscroll-threshold 1000
+      syntax-wholeline-max 1000)
+
 
 ;; narrow config
 (put 'narrow-to-region 'disabled nil)
