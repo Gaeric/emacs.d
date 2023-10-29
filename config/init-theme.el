@@ -64,8 +64,6 @@
           (set-fontset-font (frame-parameter nil 'font)
                             charset
                             (font-spec :family "微软雅黑" :size 14))))
-    ;; (set-face-attribute
-    ;;  'default nil :family "Monospace" :height 105 :weight 'thin)
     (set-face-attribute
      'default nil :family "Monospace" :height 110)
     ;; Setting Chinese Font
