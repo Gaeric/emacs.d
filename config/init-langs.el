@@ -8,7 +8,7 @@
 ;; License: GPLv3
 
 
-(defvar emacs-lsp-package 'native
+(defvar emacs-lsp-package 'lspce
   "lsp-bridge/native/lsp-mode")
 
 (unless (display-graphic-p)
@@ -44,10 +44,41 @@
     (maybe-require-package 'consult-eglot)
 
     (dolist (hook lsp-manage-mode)
-      (add-hook hook #'eglot-ensure)
+      (unless (eq hook 'emacs-lisp-mode-hook)
+        (add-hook hook #'eglot-ensure)
+        (add-hook hook #'yas-minor-mode)
+        (add-hook hook #'corfu-mode))))
+  ;; --- eglot config finish
+
+  (when (macrop 'gaeric-comma-leader-def)
+    (gaeric-comma-leader-def
+      "en" 'prog-next-error
+      "ep" 'prog-prev-error
+      "ef" 'eglot-format
+      "gd" 'xref-find-definitions
+      ;; "gr" 'xref-find-references
+      "go" 'xref-find-definitions-other-window)))
+
+(when (eq emacs-lsp-package #'lspce)
+  (load-rs-module "~/.emacs.d/site-lisp/lspce/target/release/liblspce_module.so")
+  (require 'lspce)
+
+  (setq lspce-server-programs `(("rust"  "rust-analyzer" "")
+                                ("rustic"  "rust-analyzer" "")
+                                ("python" "pylsp" "" )
+                                ("python" "pyright-langserver" "--stdio")
+                                ("C" "clangd" "")
+                                ("java" ,lspce-java-path lspce-jdtls-cmd-args)
+                                ("sh" "bash-language-server" "start")
+                                ("go" "gopls" "")
+                                ("typescript" "typescript-language-server" "--stdio")
+                                ("js" "typescript-language-server" "--stdio")))
+
+  (dolist (hook lsp-manage-mode)
+    (unless (eq hook 'emacs-lisp-mode-hook)
+      (add-hook hook #'lspce-mode)
       (add-hook hook #'yas-minor-mode)
       (add-hook hook #'corfu-mode)))
-  ;; --- eglot config finish
 
   (when (macrop 'gaeric-comma-leader-def)
     (gaeric-comma-leader-def
