@@ -83,5 +83,37 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
   (with-temp-buffer (funcall func))
   (insert (format ";; %s end\n" (gaeric/log-time (identity func)))))
 
+
+(setq gaeric/profiler-buffer "*gaeric-profiler*")
+(setq gaeric/msg-tick-start 0)
+
+(defun gaeric/profiler-init ()
+  (unless (buffer-live-p gaeric/profiler-buffer)
+    (generate-new-buffer gaeric/profiler-buffer)))
+
+(defun gaeric/profiler-record (msg)
+  (with-current-buffer gaeric/profiler-buffer
+    (goto-char (point-max))
+    (insert msg)))
+
+(defun gaeric/msg-start (&rest args)
+  (setq gaeric/msg-tick-start (current-time)))
+
+(defun gaeric/msg-log (OLDFUN &rest args)
+  (apply OLDFUN args))
+
+(defun gaeric/msg-end (&rest args)
+  (let ((escape-time (float-time (time-subtract (current-time) gaeric/msg-tick-start))))
+    (gaeric/profiler-record (format " take: %f ms\n" (* 1000 escape-time)))))
+
+(gaeric/profiler-init)
+
+(dolist (symbol '(jsonrpc--log-event))
+  (advice-add symbol :before `(lambda (&rest args)
+                                (gaeric/msg-start)
+                                (gaeric/profiler-record (format "%s" ',symbol))))
+  (advice-add symbol :after 'gaeric/msg-end))
+
+
 (provide 'init-benchmarking)
 ;;; init-benchmarking.el ends here
