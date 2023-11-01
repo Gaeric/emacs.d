@@ -33,36 +33,22 @@
   ;; disable some feature such as highlight symbol
   ;; @see https://github.com/joaotavora/eglot/issues/334
   (require-package 'eglot)
+  (require-package 'consult-eglot)
 
   (setq read-process-output-max (* 1024 1024))
-
-  (when (maybe-require-package 'eglot)
-    (setq eglot-autoshutdown t)
-    (setq eglot-ignored-server-capabilities
-          '(:documentHighlightProvider
-            :inlayHintProvider))
-    (maybe-require-package 'consult-eglot)
-
-    (dolist (hook lsp-manage-mode)
-      (unless (eq hook 'emacs-lisp-mode-hook)
-        (add-hook hook #'eglot-ensure)
-        (add-hook hook #'yas-minor-mode)
-        (add-hook hook #'corfu-mode))))
+  (setq eglot-autoshutdown t)
+  (setq eglot-ignored-server-capabilities
+        '(:documentHighlightProvider :inlayHintProvider))
   ;; --- eglot config finish
 
-  (when (macrop 'gaeric-comma-leader-def)
-    (gaeric-comma-leader-def
-      "en" 'prog-next-error
-      "ep" 'prog-prev-error
-      "ef" 'eglot-format
-      "gd" 'xref-find-definitions
-      ;; "gr" 'xref-find-references
-      "go" 'xref-find-definitions-other-window)))
+  (dolist (hook lsp-manage-mode)
+    (unless (eq hook 'emacs-lisp-mode-hook)
+      (add-hook hook #'eglot-ensure))))
+  
 
 (when (eq emacs-lsp-package #'lspce)
   (load-rs-module "~/.emacs.d/site-lisp/lspce/target/release/liblspce_module.so")
   (require 'lspce)
-
   (setq lspce-server-programs `(("rust"  "rust-analyzer" "")
                                 ("rustic"  "rust-analyzer" "")
                                 ("python" "pylsp" "" )
@@ -73,13 +59,35 @@
                                 ("go" "gopls" "")
                                 ("typescript" "typescript-language-server" "--stdio")
                                 ("js" "typescript-language-server" "--stdio")))
-
   (dolist (hook lsp-manage-mode)
     (unless (eq hook 'emacs-lisp-mode-hook)
-      (add-hook hook #'lspce-mode)
-      (add-hook hook #'yas-minor-mode)
-      (add-hook hook #'corfu-mode)))
+      (add-hook hook #'lspce-mode))))
 
+(when (eq emacs-lsp-package 'lsp-bridge)
+  ;; (add-to-list 'load-path "~/prog/lsp-bridge")
+  (require 'lsp-bridge)
+  (setq-default lsp-bridge-enable-inlay-hint nil)
+  (add-hook 'after-init-hook (lambda () (global-lsp-bridge-mode))))
+
+(if (eq emacs-lsp-package 'lsp-bridge)
+    (progn
+      (define-key acm-mode-map (kbd "M-j") 'acm-select-next)
+      (define-key acm-mode-map (kbd "M-k") 'acm-select-prev)
+      (define-key acm-mode-map (kbd "M-n") 'acm-doc-scroll-up)
+      (define-key acm-mode-map (kbd "M-p") 'acm-doc-scroll-down)
+
+      (when (macrop 'gaeric-comma-leader-def)
+        (gaeric-comma-leader-def
+          "en" 'lsp-bridge-diagnostic-jump-next
+          "ep" 'lsp-bridge-diagnostic-jump-prev
+          "ef" 'lsp-bridge-code-format
+          "gd" 'lsp-bridge-find-def
+          "gr" 'lsp-bridge-find-references
+          "go" 'lsp-bridge-find-def-other-window)))
+
+  (dolist (hook lsp-manage-mode)
+    (add-hook hook #'yas-minor-mode)
+    (add-hook hook #'corfu-mode))
   (when (macrop 'gaeric-comma-leader-def)
     (gaeric-comma-leader-def
       "en" 'prog-next-error
@@ -88,29 +96,6 @@
       "gd" 'xref-find-definitions
       ;; "gr" 'xref-find-references
       "go" 'xref-find-definitions-other-window)))
-
-
-(when (eq emacs-lsp-package 'lsp-bridge)
-  ;; (add-to-list 'load-path "~/prog/lsp-bridge")
-  (require 'lsp-bridge)
-  (setq-default lsp-bridge-enable-inlay-hint nil)
-
-  (add-hook 'after-init-hook (lambda () (global-lsp-bridge-mode)))
-
-  (define-key acm-mode-map (kbd "M-j") 'acm-select-next)
-  (define-key acm-mode-map (kbd "M-k") 'acm-select-prev)
-  (define-key acm-mode-map (kbd "M-n") 'acm-doc-scroll-up)
-  (define-key acm-mode-map (kbd "M-p") 'acm-doc-scroll-down)
-
-  (when (macrop 'gaeric-comma-leader-def)
-    (gaeric-comma-leader-def
-      "en" 'lsp-bridge-diagnostic-jump-next
-      "ep" 'lsp-bridge-diagnostic-jump-prev
-      "ef" 'lsp-bridge-code-format
-      "gd" 'lsp-bridge-find-def
-      "gr" 'lsp-bridge-find-references
-      "go" 'lsp-bridge-find-def-other-window)))
-
 
 ;; breadcrumb config --- 
 (require-package 'breadcrumb)
