@@ -84,11 +84,13 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
   (insert (format ";; %s end\n" (gaeric/log-time (identity func)))))
 
 
+(require 'gnus-util)
+
 (setq gaeric/profiler-buffer "*gaeric-profiler*")
 (setq gaeric/msg-tick-start 0)
 
 (defun gaeric/profiler-init ()
-  (unless (buffer-live-p gaeric/profiler-buffer)
+  (unless (gnus-buffer-live-p gaeric/profiler-buffer)
     (generate-new-buffer gaeric/profiler-buffer)))
 
 (defun gaeric/profiler-record (msg)
@@ -97,23 +99,20 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
     (insert msg)))
 
 (defun gaeric/msg-start (&rest args)
+  (gaeric/profiler-init)
   (setq gaeric/msg-tick-start (current-time)))
 
-(defun gaeric/msg-log (OLDFUN &rest args)
-  (apply OLDFUN args))
-
 (defun gaeric/msg-end (&rest args)
-  (let ((escape-time (float-time (time-subtract (current-time) gaeric/msg-tick-start))))
-    (gaeric/profiler-record (format " take: %f ms\n" (* 1000 escape-time)))))
-
-(gaeric/profiler-init)
+  (let ((escape-time (* 1000 (float-time (time-subtract (current-time) gaeric/msg-tick-start)))))
+    (gaeric/profiler-record
+     (format " take: %f ms %s\n" escape-time
+             (if (> escape-time 1) "++" "")))))
 
 (dolist (symbol '(jsonrpc--log-event))
   (advice-add symbol :before `(lambda (&rest args)
                                 (gaeric/msg-start)
                                 (gaeric/profiler-record (format "%s" ',symbol))))
   (advice-add symbol :after 'gaeric/msg-end))
-
 
 (provide 'init-benchmarking)
 ;;; init-benchmarking.el ends here
