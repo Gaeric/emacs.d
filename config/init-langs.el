@@ -35,6 +35,7 @@
   (require-package 'eglot)
   (require-package 'consult-eglot)
 
+  (setq eglot-events-buffer-size 0)
   (setq read-process-output-max (* 1024 1024))
   (setq eglot-autoshutdown t)
   (setq eglot-ignored-server-capabilities
