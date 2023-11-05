@@ -9,7 +9,7 @@
 
 
 (defvar emacs-lsp-package 'native
-  "lsp-bridge/native/lsp-mode")
+  "lsp-bridge/native/lsp-mode/lspec")
 
 (unless (display-graphic-p)
   (if (eq emacs-lsp-package 'lsp-bridge)
