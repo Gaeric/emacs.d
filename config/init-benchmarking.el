@@ -108,7 +108,9 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
      (format " take: %f ms %s\n" escape-time
              (if (> escape-time 1) "++" "")))))
 
-(dolist (symbol '(jsonrpc--log-event))
+(dolist (symbol '(jsonrpc--log-event
+                  eglot-completion-at-point
+                  ))
   (advice-add symbol :before `(lambda (&rest args)
                                 (gaeric/msg-start)
                                 (gaeric/profiler-record (format "%s" ',symbol))))
