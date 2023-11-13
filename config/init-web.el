@@ -48,7 +48,6 @@
           ;; angular imenu
           (" \\(ng-[a-z]*\\)=\"\\([^\"]+\\)" 1 2 "="))))
 
-
 (dolist (hook
          '(css-mode-hook
            html-mode-hook
@@ -65,27 +64,30 @@
   (with-eval-after-load 'prettier-js
     (diminish 'prettier-js-mode)))
 
-(require-package 'tide)
-(defun setup-tide-mode ()
+(defvar webide-package 'tide "tide/lsp")
+
+(defun setup-webide-mode ()
   (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq js-indent-level 2)
-  (setq typescript-indent-level 2)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1)
-  (prettier-js-mode))
+  (if (eq webide-package 'lsp)
+      (progn
+        nil)
+    (require-package 'tide)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq js-indent-level 2)
+    (setq typescript-indent-level 2)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (tide-hl-identifier-mode +1)
+    ;; company is an optional dependency. You have to
+    ;; install it separately via package-install
+    ;; `M-x package-install [ret] company`
+    (company-mode +1))
+
+  (prettier-js-mode)
+  (eldoc-mode))
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
-
-(add-hook 'typescript-ts-mode-hook #'setup-tide-mode)
-(add-hook 'js-ts-mode-hook #'setup-tide-mode)
 
 ;;; lsp is slowly
 ;; @https://github.com/ananthakumaran/tide/
@@ -96,7 +98,10 @@
             (when (or 
                    (string-equal "tsx" (file-name-extension buffer-file-name))
                    (string-equal "jsx" (file-name-extension buffer-file-name)))
-              (setup-tide-mode))))
+              (setup-webide-mode))))
+
+(add-hook 'typescript-ts-mode-hook #'setup-webide-mode)
+(add-hook 'js-ts-mode-hook #'setup-webide-mode)
 
 (provide 'init-web)
 ;;; init-web.el ends here

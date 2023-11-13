@@ -22,8 +22,9 @@
        'python-ts-mode-hook
        'rust-ts-mode-hook
        'rustic-mode-hook
-       'typescript-ts-mode
-       'tsx-ts-mode))
+       ;; 'typescript-ts-mode-hook
+       ;; 'tsx-ts-mode-hook
+       ))
 
 (when (eq emacs-lsp-package #'native)
   ;; eglot
@@ -95,7 +96,7 @@
       "ep" 'prog-prev-error
       "ef" 'eglot-format
       "gd" 'xref-find-definitions
-      ;; "gr" 'xref-find-references
+      "gr" 'xref-find-references
       "go" 'xref-find-definitions-other-window)))
 
 ;; breadcrumb config --- 
