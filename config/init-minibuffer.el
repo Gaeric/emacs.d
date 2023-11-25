@@ -18,7 +18,8 @@
   (require-package 'orderless)
   ;; (advice-add 'orderless-regexp :around #'lim-orderless-regexp)
   (with-eval-after-load 'vertico
-    (amx-mode 1)
+    ;; (amx-mode 1)
+    (savehist-mode 1)
     (require 'orderless)
     (setq completion-styles '(orderless basic)
           completion-category-defaults nil
