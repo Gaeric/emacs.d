@@ -64,7 +64,7 @@
   (with-eval-after-load 'prettier-js
     (diminish 'prettier-js-mode)))
 
-(defvar webide-package 'tide "tide/lsp")
+(defvar webide-package 'lsp "tide/lsp")
 
 (defun setup-webide-mode ()
   (interactive)
