@@ -133,6 +133,25 @@
   (setq evilmi-shortcut "m")
   (add-hook 'prog-mode-hook 'evil-matchit-mode))
 
+(when (maybe-require-package 'evil-goggles)
+  (setq evil-goggles-duration 0.100) 
+  (setq evil-goggles-enable-delete                nil
+        evil-goggles-enable-yank                  t
+        evil-goggles-enable-change                nil
+        evil-goggles-enable-indent                nil
+        evil-goggles-enable-join                  nil
+        evil-goggles-enable-fill-and-move         nil
+        evil-goggles-enable-shift                 nil
+        evil-goggles-enable-surround              nil
+        evil-goggles-enable-commentary            nil
+        evil-goggles-enable-nerd-commenter        nil
+        evil-goggles-enable-replace-with-register nil
+        evil-goggles-enable-set-marker            nil
+        evil-goggles-enable-record-macro          nil
+        evil-goggles-enable-paste                 nil
+        evil-goggles-enable-paste                 nil)
+  (add-hook 'after-init-hook 'evil-goggles-mode))
+
 ;;----------------------------------------------------------------------------
 ;; General config -- As evil leader
 ;;----------------------------------------------------------------------------
