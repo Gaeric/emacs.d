@@ -22,8 +22,8 @@
        'python-ts-mode-hook
        'rust-ts-mode-hook
        'rustic-mode-hook
-       ;; 'typescript-ts-mode-hook
-       ;; 'tsx-ts-mode-hook
+       'typescript-ts-mode-hook
+       'tsx-ts-mode-hook
        ))
 
 (when (eq emacs-lsp-package #'native)

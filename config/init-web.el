@@ -100,8 +100,8 @@
                    (string-equal "jsx" (file-name-extension buffer-file-name)))
               (setup-webide-mode))))
 
-(add-hook 'typescript-ts-mode-hook #'setup-webide-mode)
-(add-hook 'js-ts-mode-hook #'setup-webide-mode)
+(add-hook 'typescript-ts-mode-hook 'setup-webide-mode)
+(add-hook 'js-ts-mode-hook 'setup-webide-mode)
 
 (provide 'init-web)
 ;;; init-web.el ends here
