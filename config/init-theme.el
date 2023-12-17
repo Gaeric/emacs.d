@@ -72,7 +72,9 @@
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)
                         charset
-                        (font-spec :family "WenQuanYi Micro Hei Mono" :size 15)))))
+                        ;; (font-spec :family "WenQuanYi Micro Hei Mono" :size 15)
+                        (font-spec :family "LXGW WenKai Mono" :size 16 :weight 'bold)
+                        ))))
 
 (require-package 'hide-mode-line)
 ;; (add-hook 'after-init-hook
