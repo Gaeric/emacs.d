@@ -67,7 +67,7 @@
                             charset
                             (font-spec :family "微软雅黑" :size 14))))
     (set-face-attribute
-     'default nil :family "Monospace" :height 110)
+     'default nil :family "Monospace" :height 105)
     ;; Setting Chinese Font
     (dolist (charset '(kana han symbol cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font)

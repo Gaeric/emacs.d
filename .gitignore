@@ -36,3 +36,4 @@ projects
 /rime/
 /elpa*
 /history
+/config/init-local.el

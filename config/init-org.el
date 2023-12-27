@@ -47,7 +47,7 @@
 
 (when (maybe-require-package  'org-bullets)
   ;; (setq org-bullets-bullet-list '("♠" "♥" "♣" "♦" "♪" "♫"))
-  (setq org-bullets-bullet-list '("♠" "♥" "♦" "♪" "♫" "*"))
+  (setq org-bullets-bullet-list '("𝄞" "✶" "✡" "♫" "*"))
 
   (add-hook 'org-mode-hook (lambda ()
                              (save-place-local-mode)
@@ -86,7 +86,7 @@
   (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
 
 (defvar gaeric/work-base "D:/work_cloud/")
-(defvar gaeric/daily-dir (concat gaeric/work-base "daily_work/"))
+(defvar gaeric/work-daily-dir (concat gaeric/work-base "daily_work/"))
 (defvar gaeric/work-wiki-file (concat gaeric/work-base "wiki/wiki.org"))
 (defvar gaeric/org-home "~/org/")
 (defvar gaeric/org-gtd-file (concat gaeric/org-home "gtd.org"))
@@ -100,12 +100,16 @@
           (let* ((headline (match-string-no-properties 4))
                  (filename (concat
                             (format-time-string "%Y%m%d") "_" headline))
-                 (dir (concat gaeric/daily-dir filename)))
+                 (dir (concat
+                       gaeric/work-daily-dir
+                       filename)))
             (unless (file-exists-p dir)
               (dired-create-directory dir))
             (end-of-line)
             (newline-and-indent)
-            (insert (format "[[file+sys:%s][%s]]" dir headline)))))))
+            (insert (format "[[file+sys:%s][%s]]"
+                            (file-relative-name dir (file-name-directory gaeric/work-wiki-file))
+                            headline)))))))
 
 (add-hook 'org-capture-before-finalize-hook 'gaeric/org-capture-work)
 
