@@ -48,6 +48,7 @@
   (require 'init-yas)
   (require 'init-rs-module)
   (require 'init-eldoc)
+  (require 'init-term)
   
   ;;----------------------------------------------------------------------------
   ;; Prog Lang
