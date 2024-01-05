@@ -13,7 +13,7 @@
   (add-hook 'org-mode-hook 'org-download-enable)
   (add-hook 'dired-mode-hook 'org-download-enable)
 
-  (setq org-download-image-dir "d:/work_cloud/wiki/images")
+  (defvar org-download-image-dir "~/org-download/")
   (defun org-download-clipboard-ms (&optional basename)
     "Capture the image from the clipboard and insert the resulting file."
     (interactive)
@@ -85,9 +85,10 @@
         (convert-standard-filename "~/.emacs.d/.org-timestamps/"))
   (org-link-set-parameters "file" :export #'gaeric/org-export-link-static))
 
-(defvar gaeric/work-base "D:/work_cloud/")
+(defvar gaeric/work-base "~/work_cloud/")
 (defvar gaeric/work-daily-dir (concat gaeric/work-base "daily_work/"))
 (defvar gaeric/work-wiki-file (concat gaeric/work-base "wiki/wiki.org"))
+
 (defvar gaeric/org-home "~/org/")
 (defvar gaeric/org-gtd-file (concat gaeric/org-home "gtd.org"))
 (defvar gaeric/org-inbox-file (concat gaeric/org-home "inbox.org"))
