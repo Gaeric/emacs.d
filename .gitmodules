@@ -10,9 +10,6 @@
 [submodule "site-lisp/citre"]
 	path = site-lisp/citre
 	url = git@github.com:universal-ctags/citre.git
-[submodule "site-lisp/lsp-bridge"]
-	path = site-lisp/lsp-bridge
-	url = git@github.com:manateelazycat/lsp-bridge.git
 [submodule "site-lisp/lspce"]
 	path = site-lisp/lspce
 	url = git@github.com:zbelial/lspce.git
