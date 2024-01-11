@@ -11,7 +11,7 @@
 
 (when (macrop 'gaeric-space-leader-def)
   (gaeric-space-leader-def
-    "ev" 'vterm
+    "ev" 'vterm-other-window
     )
   )
 

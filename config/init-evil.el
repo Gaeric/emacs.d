@@ -220,6 +220,7 @@
     "ma"  'beginning-of-defun
     "me"  'end-of-defun
     "mm"  'mark-defun
+    "xg"  'revert-buffer-quick
     ))
 
 (provide 'init-evil)
