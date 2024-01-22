@@ -12,8 +12,9 @@
 (maybe-require-package 'gptel)
 
 (setq gpt-api-key-file "~/.emacs.d/gpt/api-key")
-(setq gptel-proxy "http://127.0.0.1:20171")
+;; (setq gptel-proxy "http://127.0.0.1:20171")
 ;; (setq gptel-model "gpt-4-32k")
+(setq gptel-default-mode 'org-mode)
 
 (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
 
@@ -32,8 +33,7 @@
 
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
-    :keymaps 'gptel-mode-map
-    "cc" 'gaeric/gptel-send
+    "ac" 'gaeric/gptel-send
     )
   )
 
