@@ -24,6 +24,7 @@
        'rustic-mode-hook
        'typescript-ts-mode-hook
        'tsx-ts-mode-hook
+       'lua-ts-mode-hook
        ))
 
 (when (eq emacs-lsp-package #'native)

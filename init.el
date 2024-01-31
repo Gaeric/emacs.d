@@ -60,6 +60,7 @@
   (require 'init-web)
   (require 'init-godot)
   (require 'init-sql)
+  (require 'init-lua)
   
   ;;----------------------------------------------------------------------------
   ;; tools
