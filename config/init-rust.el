@@ -7,9 +7,12 @@
 ;;
 ;; License: GPLv3
 
-(when (maybe-require-package 'rustic)
-  ;; eglot/lsp-bridge config in init-langs
-  (setq rustic-lsp-client nil)
-  (remove-hook 'rustic-mode-hook 'flycheck-mode))
+(if (version< emacs-version "29.1")
+    (when (maybe-require-package 'rustic)
+      ;; eglot/lsp-bridge config in init-langs
+      (setq rustic-lsp-client nil)
+      (remove-hook 'rustic-mode-hook 'flycheck-mode))
+  (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode)))
+
 
 (provide 'init-rust)
