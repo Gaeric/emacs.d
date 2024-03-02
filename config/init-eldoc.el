@@ -13,4 +13,19 @@
     (add-hook 'eldoc-mode-hook #'eldoc-box-hover-mode)
     (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)))
 
+(defun gaeric/show-eldoc-buffer ()
+  (interactive)
+  (save-excursion
+    (switch-to-buffer-other-window (eldoc-doc-buffer))
+    (let ((eldoc-doc-buffer-width 50)
+          (width (window-text-width)))
+      (if (> width eldoc-doc-buffer-width)
+          (shrink-window-horizontally (- width eldoc-doc-buffer-width))
+        (enlarge-window-horizontally (- eldoc-doc-buffer-width width))))))
+
+(when (macrop 'gaeric-space-leader-def)
+  (gaeric-space-leader-def
+    "ei" 'gaeric/show-eldoc-buffer))
+
+
 (provide 'init-eldoc)
