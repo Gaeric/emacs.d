@@ -19,6 +19,7 @@
       (list
        'emacs-lisp-mode-hook
        'c-ts-mode-hook
+       'c++-ts-mode-hook
        'python-ts-mode-hook
        'rust-ts-mode-hook
        'rustic-mode-hook
