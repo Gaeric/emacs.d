@@ -73,7 +73,7 @@
       (set-fontset-font (frame-parameter nil 'font)
                         charset
                         ;; (font-spec :family "WenQuanYi Micro Hei Mono" :size 15)
-                        (font-spec :family "LXGW WenKai Mono" :foundry "LXGW" :slant 'normal :weight 'bold :height 120 :width 'normal)
+                        (font-spec :family "LXGW WenKai Screen" :size 16)
                         ))))
 
 (require-package 'hide-mode-line)
