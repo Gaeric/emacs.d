@@ -37,3 +37,4 @@ projects
 /elpa*
 /history
 /config/init-local.el
+/tree-sitter/

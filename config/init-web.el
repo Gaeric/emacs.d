@@ -70,6 +70,7 @@
   (interactive)
   (if (eq webide-package 'lsp)
       (progn
+        (setq typescript-ts-mode-indent-offset 4)
         nil)
     (require-package 'tide)
     (tide-setup)
