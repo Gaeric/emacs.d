@@ -119,7 +119,7 @@
   (setq xref-show-definitions-function 'consult-xref)
   (setq xref-show-xrefs-function 'consult-xref))
 
-(setq treesit-extra-load-path '("~/.emacs.d/site-lisp/tree-sitter-module/dist/"))
+;; use treesit-auto-install-all to install grammers for treesit
 (when (maybe-require-package 'treesit-auto)
   (require 'treesit-auto)
   (global-treesit-auto-mode))

@@ -1,9 +1,6 @@
 [submodule "site-lisp/lim"]
 	path = site-lisp/lim
 	url = git@github.com:Gaeric/lim.git
-[submodule "site-lisp/tree-sitter-module"]
-	path = site-lisp/tree-sitter-module
-	url = git@github.com:casouri/tree-sitter-module.git
 [submodule "site-lisp/emacs-module-rs"]
 	path = site-lisp/emacs-module-rs
 	url = git@github.com:ubolonton/emacs-module-rs.git
