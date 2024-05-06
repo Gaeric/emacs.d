@@ -89,6 +89,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.mjs\\'" . js-ts-mode))
 
 ;;; lsp is slowly
 ;; @https://github.com/ananthakumaran/tide/

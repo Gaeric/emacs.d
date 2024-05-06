@@ -23,6 +23,7 @@
        'python-ts-mode-hook
        'rust-ts-mode-hook
        'rustic-mode-hook
+       'js-ts-mode-hook
        'typescript-ts-mode-hook
        'tsx-ts-mode-hook
        'lua-ts-mode-hook
