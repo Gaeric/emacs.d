@@ -27,6 +27,8 @@
        'typescript-ts-mode-hook
        'tsx-ts-mode-hook
        'lua-ts-mode-hook
+       'gdscript-mode-hook
+       'gdscript-ts-mode-hook
        ))
 
 (when (eq emacs-lsp-package #'native)
