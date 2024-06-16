@@ -273,6 +273,7 @@
   (gaeric-comma-leader-def
     :keymaps 'org-mode-map
     "op" 'org-pomodoro
+    "oh" 'org-archive-subtree
     "oa" 'org-open-at-point
     "od" 'org-download-clipboard
     "cp" 'org-previous-visible-heading
