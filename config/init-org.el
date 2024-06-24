@@ -274,6 +274,7 @@
     :keymaps 'org-mode-map
     "op" 'org-pomodoro
     "oh" 'org-archive-subtree
+    "oi" 'org-id-get-create
     "oa" 'org-open-at-point
     "od" 'org-download-clipboard
     "cp" 'org-previous-visible-heading
