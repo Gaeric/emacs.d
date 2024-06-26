@@ -8,6 +8,7 @@
 
 ;; evil-want-keybinding must be set before evil/evil-surround load
 (maybe-require-package 'undo-fu)
+(maybe-require-package 'expand-region)
 
 (setq evil-want-keybinding nil)
 (setq undo-limit 8000000
@@ -103,8 +104,7 @@
     "^" 'org-beginning-of-line ; ditto
     (kbd "TAB") 'org-cycle)
 
-  (when (maybe-require-package 'expand-region)
-    (define-key evil-visual-state-map (kbd "v") 'er/expand-region))
+  (define-key evil-visual-state-map (kbd "v") 'er/expand-region)
 
   ;; {{ specify major mode uses Evil (vim) NORMAL state or EMACS original state.
   ;; You may delete this setup to use Evil NORMAL state always.
