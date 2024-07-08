@@ -125,6 +125,8 @@
 ;; use treesit-auto-install-all to install grammers for treesit
 (when (maybe-require-package 'treesit-auto)
   (require 'treesit-auto)
-  (global-treesit-auto-mode))
+  (global-treesit-auto-mode)
+  ;; disable toml-ts-mode, it's very slow
+  (setq treesit-auto-langs (remove 'toml treesit-auto-langs)))
 
 (provide 'init-langs)
