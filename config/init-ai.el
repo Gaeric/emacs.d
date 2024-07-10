@@ -31,6 +31,12 @@
   (insert (if use-hard-newlines hard-newline "\n"))
   (gptel-send))
 
+(when (macrop 'gaeric-space-leader-def)
+  (gaeric-space-leader-def
+    "ag" 'gptel
+    )
+  )
+
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
     "ac" 'gaeric/gptel-send
