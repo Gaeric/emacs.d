@@ -277,6 +277,7 @@
     "oi" 'org-id-get-create
     "oa" 'org-open-at-point
     "od" 'org-download-clipboard
+    "ot" 'org-todo
     "cp" 'org-previous-visible-heading
     "cn" 'org-next-visible-heading
     "ns" 'org-narrow-to-subtree
