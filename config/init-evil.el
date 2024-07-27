@@ -175,7 +175,7 @@
     "fo"    'find-file-other-window
     "bo"    'switch-to-buffer-other-window
     "fs"    'save-buffer
-    "bd"    'kill-this-buffer
+    "bd"    'kill-current-buffer
     "bs"    'switch-to-scratch-buffer
     "bi"    'ibuffer
     "bm"    'switch-to-message-buffer
