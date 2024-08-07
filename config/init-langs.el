@@ -29,6 +29,7 @@
        'lua-ts-mode-hook
        'gdscript-mode-hook
        'gdscript-ts-mode-hook
+       'wgsl-mode-hook
        ))
 
 (when (eq emacs-lsp-package #'native)
@@ -115,6 +116,7 @@
   (require-package 'xref))
 
 (with-eval-after-load 'xref
+  (setq xref-history-storage 'xref-window-local-history)
   (setq xref-search-program 'ripgrep)
   ;; (setq xref-show-definitions-function 'xref-show-definitions-completing-read)
   ;; (setq xref-show-xrefs-function 'xref-show-definitions-completing-read)

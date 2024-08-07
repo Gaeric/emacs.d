@@ -61,6 +61,7 @@
   (require 'init-godot)
   (require 'init-sql)
   (require 'init-lua)
+  (require 'init-wgsl)
   
   ;;----------------------------------------------------------------------------
   ;; tools
