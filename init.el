@@ -91,7 +91,8 @@
                 (global-so-long-mode)
                 (save-place-mode)
                 (winner-mode)
-                (toggle-frame-maximized))))
+                ;; (toggle-frame-maximized)
+                )))
 
   (setq gc-cons-threshold normal-gc-cons-threshold))
 
