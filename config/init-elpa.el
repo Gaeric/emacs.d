@@ -12,10 +12,9 @@
 
 
 ;;; Standard package repositories
-(setq package-archives '(("gnu"    . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
-                         ("melpa"  . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
-
+(setq package-archives '(("gnu"    . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("nongnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
+                         ("melpa"  . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 ;; Work-around for https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
 (when (and (version< emacs-version "26.3")
@@ -58,7 +57,7 @@ locate PACKAGE."
 ;;; Fire up package.el
 
 ;; (unless (file-exists-p package-quickstart-file)
-  ;; (package-quickstart-refresh))
+;; (package-quickstart-refresh))
 
 (package-initialize)
 
@@ -82,7 +81,7 @@ locate PACKAGE."
   (require-package 'seq)
   (add-hook 'after-init-hook
             (lambda () (package--save-selected-packages
-                   (seq-uniq (append sanityinc/required-packages package-selected-packages))))))
+                        (seq-uniq (append sanityinc/required-packages package-selected-packages))))))
 
 
 (let ((package-check-signature nil))
