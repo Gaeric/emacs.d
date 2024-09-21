@@ -29,7 +29,7 @@
        'lua-ts-mode-hook
        'gdscript-mode-hook
        'gdscript-ts-mode-hook
-       'wgsl-mode-hook
+       ;; 'wgsl-mode-hook
        ))
 
 (when (eq emacs-lsp-package #'native)
