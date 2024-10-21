@@ -30,6 +30,7 @@
        'gdscript-mode-hook
        'gdscript-ts-mode-hook
        ;; 'wgsl-mode-hook
+       'bash-ts-mode-hook
        ))
 
 (when (eq emacs-lsp-package #'native)
