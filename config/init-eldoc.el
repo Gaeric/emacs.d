@@ -11,7 +11,8 @@
   (when (display-graphic-p)
     (add-hook 'prog-mode-hook #'eldoc-mode)
     (add-hook 'eldoc-mode-hook #'eldoc-box-hover-mode)
-    (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)))
+    (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
+    (setq eldoc-box-max-pixel-height 300)))
 
 (defun gaeric/show-eldoc-buffer ()
   (interactive)
