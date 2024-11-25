@@ -275,6 +275,7 @@
     "op" 'org-pomodoro
     "oh" 'org-archive-subtree
     "oi" 'org-id-get-create
+    "ol" 'org-latex-preview
     "oa" 'org-open-at-point
     "od" 'org-download-clipboard
     "ot" 'org-todo
