@@ -21,7 +21,7 @@
   (interactive)
   ;; Jump out of string if cursor in string area.
   (unless
-      (re-search-forward "\\(['\">)}]\\|]\\)"  (line-end-position) t 1)
+      (re-search-forward "\\(['\">)}|]\\|]\\)"  (line-end-position) t 1)
     (forward-char 1)))
 
 
