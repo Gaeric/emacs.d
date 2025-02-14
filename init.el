@@ -32,7 +32,7 @@
   (require 'init-theme)
   (require 'init-org)
   (require 'init-keyfreq)
-  (require 'init-lim)
+  (require 'init-ime)
   (require 'init-exec-path)
 
   ;;----------------------------------------------------------------------------
