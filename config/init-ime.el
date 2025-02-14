@@ -7,10 +7,13 @@
 ;;
 ;; License: GPLv3
 
-(load-file "~/.emacs.d/site-lisp/lim/lim-sbfd.el")
+;; (load-file "~/.emacs.d/site-lisp/lim/lim-sbfd.el")
 
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
     "wc" 'lim-count-words))
+
+(when (maybe-require-package 'rime)
+  (setq default-input-method "rime"))
 
 (provide 'init-ime)
