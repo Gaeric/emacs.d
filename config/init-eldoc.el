@@ -8,7 +8,7 @@
 ;; License: GPLv3
 
 (when (maybe-require-package 'eldoc-box)
-  (when (display-graphic-p)
+  (when (and (version< emacs-version "31.0") (display-graphic-p))
     (setq eldoc-box-max-pixel-height 200)
     (add-hook 'prog-mode-hook #'eldoc-mode)
     (add-hook 'eldoc-mode-hook #'eldoc-box-hover-mode)
