@@ -14,6 +14,8 @@
     "wc" 'lim-count-words))
 
 (when (maybe-require-package 'rime)
+  ;; origin key-binding tab-to-tab-stop
+  (global-set-key (kbd "M-i") 'toggle-input-method)
   (setq default-input-method "rime"))
 
 (provide 'init-ime)
