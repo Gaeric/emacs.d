@@ -7,7 +7,7 @@
 ;;
 ;; License: GPLv3
 
-;; (load-file "~/.emacs.d/site-lisp/lim/lim-sbfd.el")
+(load-file "~/.emacs.d/site-lisp/lim/lim-comm.el")
 
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
