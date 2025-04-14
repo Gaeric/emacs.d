@@ -16,6 +16,9 @@
 (when (maybe-require-package 'rime)
   ;; origin key-binding tab-to-tab-stop
   (global-set-key (kbd "M-i") 'toggle-input-method)
+  (setq rime-translate-keybindings
+        '("C-f" "C-b" "C-n" "C-p" "C-g" "<left>" "<right>" "<up>" "<down>"
+          "<prior>" "<next>" "<delete>" "<tab>"))
   (setq default-input-method "rime"))
 
 (provide 'init-ime)
