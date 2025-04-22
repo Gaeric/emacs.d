@@ -104,6 +104,7 @@
       "en" 'prog-next-error
       "ep" 'prog-prev-error
       "ef" 'eglot-format
+      "er" 'eglot-code-actions
       "gd" 'xref-find-definitions
       "gr" 'xref-find-references
       "go" 'xref-find-definitions-other-window)))
