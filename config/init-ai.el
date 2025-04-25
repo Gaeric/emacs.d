@@ -11,18 +11,33 @@
 
 (maybe-require-package 'gptel)
 
-(setq gpt-api-key-file "~/.emacs.d/gpt/api-key")
+(setq gpt-api-key-file "~/.emacs.d/ai/gpt-key")
+(setq xai-api-key-file "~/.emacs.d/ai/xai-key")
+
+;; local config
 ;; (setq gptel-proxy "http://127.0.0.1:20171")
-(setq gptel-model 'gpt-4o-mini)
-(setq gptel-default-mode 'org-mode)
+;; (setq gptel-model 'gpt-4o-mini)
 
 (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
+(setq gptel-default-mode 'org-mode)
 
-(if (file-exists-p gpt-api-key-file)
-    (with-temp-buffer
-      "*gpt-api-key*"
-      (insert-file-contents gpt-api-key-file)
-      (setq gptel-api-key (buffer-string))))
+(defun gaeric/ai-read-api (key-file)
+  (let (api-key)
+    (if (file-exists-p key-file)
+        (with-temp-buffer
+          "*ai-api-key*"
+          (insert-file-contents key-file)
+          (setq api-key (buffer-string))))
+    api-key))
+
+(setq gptel-api-key (gaeric/ai-read-api gpt-api-key-file))
+(setq xai-api-key (gaeric/ai-read-api xai-api-key-file))
+
+(setq gptel-model 'grok-3-mini-latest
+      gptel-backend
+      (gptel-make-xai "xAI"
+        :key xai-api-key
+        :stream t))
 
 
 (defun gaeric/gptel-send ()
