@@ -62,6 +62,7 @@
   (require 'init-sql)
   (require 'init-lua)
   (require 'init-wgsl)
+  (require 'init-markdown)
   
   ;;----------------------------------------------------------------------------
   ;; tools
