@@ -96,8 +96,8 @@
 
   (dolist (hook lsp-manage-mode)
     (add-hook hook #'yas-minor-mode)
-    ;; (add-hook hook #'corfu-mode)
-    (add-hook hook #'company-mode)
+    (add-hook hook #'corfu-mode)
+    ;; (add-hook hook #'company-mode)
     )
   (when (macrop 'gaeric-comma-leader-def)
     (gaeric-comma-leader-def
