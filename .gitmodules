@@ -4,9 +4,6 @@
 [submodule "site-lisp/emacs-module-rs"]
 	path = site-lisp/emacs-module-rs
 	url = git@github.com:ubolonton/emacs-module-rs.git
-[submodule "site-lisp/citre"]
-	path = site-lisp/citre
-	url = git@github.com:universal-ctags/citre.git
 [submodule "site-lisp/lspce"]
 	path = site-lisp/lspce
 	url = git@github.com:zbelial/lspce.git
