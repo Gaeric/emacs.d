@@ -172,6 +172,8 @@
   (gaeric-space-leader-def
     "<SPC>" 'execute-extended-command
     "ff"    'find-file
+    "fd"    'delete-this-file-and-buffer
+    "fr"    'rename-this-file-and-buffer
     "fo"    'find-file-other-window
     "bo"    'switch-to-buffer-other-window
     "fs"    'save-buffer
