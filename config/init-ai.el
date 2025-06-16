@@ -33,11 +33,11 @@
 (setq gptel-api-key (gaeric/ai-read-api gpt-api-key-file))
 (setq xai-api-key (gaeric/ai-read-api xai-api-key-file))
 
-(setq gptel-model 'grok-3-mini-latest
-      gptel-backend
-      (gptel-make-xai "xAI"
-        :key xai-api-key
-        :stream t))
+;; (setq gptel-model 'grok-3-mini-latest
+;;       gptel-backend
+;;       (gptel-make-xai "xAI"
+;;         :key xai-api-key
+;;         :stream t))
 
 
 (defun gaeric/gptel-send ()
