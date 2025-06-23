@@ -63,6 +63,7 @@
   (require 'init-lua)
   (require 'init-wgsl)
   (require 'init-markdown)
+  (require 'init-toml)
   
   ;;----------------------------------------------------------------------------
   ;; tools
