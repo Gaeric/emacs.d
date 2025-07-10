@@ -32,6 +32,7 @@
        ;; 'wgsl-mode-hook
        'bash-ts-mode-hook
        'toml-ts-mode-hook
+       'yaml-ts-mode-hook
        ))
 
 (when (eq emacs-lsp-package #'native)
