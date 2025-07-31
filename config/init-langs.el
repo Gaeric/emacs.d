@@ -135,6 +135,6 @@
   (require 'treesit-auto)
   (global-treesit-auto-mode)
   ;; disable toml-ts-mode, it's very slow
-  (setq treesit-auto-langs (remove 'toml treesit-auto-langs)))
+  (setq treesit-auto-langs (remove 'json (remove 'toml treesit-auto-langs))))
 
 (provide 'init-langs)
