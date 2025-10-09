@@ -9,6 +9,9 @@
 
 (require-package 'wgsl-mode)
 
+(with-eval-after-load 'wgsl-mode
+  (setq c-basic-offset 4))
+
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
                '(wgsl-mode . ("wgsl-analyzer"))))
