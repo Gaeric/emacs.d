@@ -68,24 +68,21 @@
 
 (defun setup-webide-mode ()
   (interactive)
-  (if (eq webide-package 'lsp)
-      (progn
-        (setq typescript-ts-mode-indent-offset 4)
-        nil)
+  (setq js-indent-level 2)
+  (setq typescript-indent-level 2)
+
+  (unless (eq webide-package 'lsp)
     (require-package 'tide)
     (tide-setup)
     (flycheck-mode +1)
-    (setq js-indent-level 2)
-    (setq typescript-indent-level 2)
     (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (tide-hl-identifier-mode +1)
     ;; company is an optional dependency. You have to
     ;; install it separately via package-install
     ;; `M-x package-install [ret] company`
+    (eldoc-mode)
     (company-mode +1))
-
-  (prettier-js-mode)
-  (eldoc-mode))
+  (prettier-js-mode))
 
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
