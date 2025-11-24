@@ -14,6 +14,7 @@
 ;; http://ergoemacs.org/emacs/emacs_dired_tips.html
 ;;----------------------------------------------------------------------------
 (with-eval-after-load 'dired
+  (setq dired-listing-switches "-alh")
   (setq dired-kill-when-opening-new-dired-buffer t)
   ;; was dired-advertised-find-file
   (put 'dired-find-alternate-file 'disabled nil)
