@@ -285,6 +285,7 @@
     "nb" 'org-narrow-to-block
     "ne" 'org-narrow-to-element
     "c," 'org-insert-structure-template
+    "os" 'org-toggle-inline-images
     "'"  'org-edit-special)
 
   (gaeric-comma-leader-def
