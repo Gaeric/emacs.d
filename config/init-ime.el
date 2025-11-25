@@ -15,6 +15,17 @@
 
 (when (maybe-require-package 'rime)
   ;; origin key-binding tab-to-tab-stop
+
+  ;; If we intend to use librime-lua as a librime plugin,
+  ;; then librime must be compiled with the librime-lua plugin enabled.
+  ;; For detailed compilation instructions, please refer to:
+  ;; see @https://github.com/hchunhui/librime-lua/wiki
+
+  ;; However, the actions defined within emacs-rime differ from those in fcitx5,
+  ;; leading to inconsistencies where some Lua script dot not produce
+  ;; the same behavior in fcitx5.
+  ;; (setq rime-librime-root "~/data/packages/librime/build/")
+
   (global-set-key (kbd "M-i") 'toggle-input-method)
   (setq rime-translate-keybindings
         '("C-f" "C-b" "C-n" "C-p" "C-g" "<left>" "<right>" "<up>" "<down>"
