@@ -26,7 +26,7 @@
        'js-ts-mode-hook
        'typescript-ts-mode-hook
        'tsx-ts-mode-hook
-       'lua-ts-mode-hook
+       ;; 'lua-ts-mode-hook
        'gdscript-mode-hook
        'gdscript-ts-mode-hook
        ;; 'wgsl-mode-hook
@@ -135,6 +135,7 @@
   (require 'treesit-auto)
   (global-treesit-auto-mode)
   ;; disable toml-ts-mode, it's very slow
-  (setq treesit-auto-langs (remove 'json (remove 'toml treesit-auto-langs))))
+  (setq treesit-auto-langs
+        (seq-remove (lambda (x) (memq x '(json toml cobol swift))) treesit-auto-langs)))
 
 (provide 'init-langs)

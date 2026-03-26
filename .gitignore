@@ -39,3 +39,4 @@ projects
 /config/init-local.el
 /tree-sitter/
 /ai/
+/session.*
