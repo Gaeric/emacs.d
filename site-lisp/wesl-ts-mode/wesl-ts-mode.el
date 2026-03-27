@@ -109,88 +109,62 @@
     :feature comment
     (([(line_comment) (block_comment)]) @font-lock-comment-face)
 
-    :language wesl
-    :override t
-    :feature bitcast
-    ((bitcast_expression) @font-lock-builtin-face)
 
-    :language wesl
-    :override t
-    :feature operator
-    (([,@wesl-ts-mode--operators]) @font-lock-operator-face)
+    ;; import xx as xx
+   :language wesl
+   :override t
+   :feature definition
+   ((import_item "as" @font-lock-comment-face)
+    (import_statement "import" @font-lock-comment-face))
 
-    :language wesl
-    :override t
-    :feature constant
-    ((identifier) @font-lock-constant-face)
+   :language wesl
+   :override t
+   :feature string
+   ((import_item name: (identifier) @font-lock-variable-name-face)
+    (import_item rename: (identifier) @font-lock-variable-name-face))
 
-    :language wesl
-    :override t
-    :feature attribute
-    ((attribute) @font-lock-preprocessor-face)
+   :language wesl
+   :override t
+   :feature keyword
+   ((struct_decl "struct" @font-lock-keyword-face)
+    (attribute "@" @font-lock-preprocessor-face))
 
-    :language wesl
-    :override t
-    :feature type
-    ((type_declaration) @font-lock-type-face)
-    
-    :language wesl
-    :override t
-    :feature funcall
-    ((type_constructor_or_function_call_expression) @font-lock-function-call-face)
 
-    :language wesl
-    :override t
-    :feature definition
-    ((function_declaration name: (identifier) @font-lock-function-name-face)
-     (variable_identifier_declaration name: (identifier) @font-lock-property-name-face))
-    
-    :language wesl
-    :override t
-    :feature bracket
-    ((["(" ")" "[" "]" "{" "}"]) @font-lock-bracket-face)
+   :language wesl
+   :override t
+   :feature type
+   ((struct_decl name: (identifier) @font-lock-type-face)
+    (struct_member type: (type_specifier (identifier) @font-lock-type-face))
+    (type_specifier (template_list (identifier) @font-lock-type-face)))
 
-    :language wesl
-    :override t
-    :feature texel_format
-    ((texel_format) @font-lock-builtin-face)
+   :language wesl
+   :override t
+   :feature definition
+   ((struct_member name: (identifier) @font-lock-variable-name-face)
+    (attribute name: (identifier) @font-lock-function-call-face))
 
-    :language wesl
-    :override t
-    :feature builtin
-    ;; (([,@wesl-ts-mode--builtins]) @font-lock-builtin-face)
-    (((identifier) @font-lock-builtin-face
-      (:pred wesl-ts-mode--is-builtin? @font-lock-builtin-face)))
 
-    :language wesl
-    :override t
-    :feature declaration
-    ((struct_declaration) @font-lock-keyword-face)
+   :language wesl
+   :override t
+   :feature number
+   (([(int_literal) (float_literal)]) @font-lock-number-face)
 
-    :language wesl
-    :override t
-    :feature keyword
-    (([,@wesl-ts-mode--keywords]) @font-lock-keyword-face)
+   :language wesl
+   :override t
+   :feature keyword
+   ((variable_decl "var" @font-lock-keyword-face))
 
-    :language wesl
-    :override t
-    :feature address_space
-    (([(address_space) (access_mode)]) @font-lock-builtin-face)
+   :language wesl
+   :override t
+   :feature definition
+   ((variable_decl name: (identifier) @font-lock-variable-name-face))
 
-    :language wesl
-    :override t
-    :feature number
-    (([(float_literal) (int_literal)]) @font-lock-number-face)
+   :language wesl
+   :override t
+   :feature type
+   ((variable_decl type: (type_specifier (identifier)) @font-lock-type-face)
+    (variable_decl (template_list (identifier) @font-lock-type-face)))
 
-    :language wesl
-    :override t
-    :feature constant
-    ((bool_literal) @font-lock-constant-face)
-
-    :language wesl
-    :override t
-    :feature delimiter
-    ((["," "." ";" ":"]) @font-lock-delimiter-face)
 ))
 
 (defcustom wesl-ts-mode-indent-offset 2
@@ -322,6 +296,7 @@ Return nil if there is no name or if NODE is not a defun node."
   (setq-local treesit-defun-type-regexp
               (regexp-opt '("function_declaration"
                             "struct_declaration")))
+
   (setq-local treesit-defun-name-function #'wesl-ts-mode--defun-name)
   (treesit-major-mode-setup))
 

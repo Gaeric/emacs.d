@@ -12,6 +12,8 @@
 (with-eval-after-load 'wgsl-mode
   (setq c-basic-offset 4))
 
+(require 'wesl-ts-mode)
+
 (setq wesl-wgsl-tsauto-config
       (make-treesit-auto-recipe
        :lang 'wesl
