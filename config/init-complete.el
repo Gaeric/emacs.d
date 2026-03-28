@@ -55,9 +55,10 @@
     (with-eval-after-load 'corfu
       (corfu-popupinfo-mode)))
 
-  (unless (display-graphic-p)
-    (require-package 'corfu-terminal)
-    (corfu-terminal-mode +1)))
+  (when (version< emacs-version "31.0")
+    (unless (display-graphic-p)
+      (require-package 'corfu-terminal)
+      (corfu-terminal-mode +1))))
 
 
 (when (maybe-require-package 'cape)
