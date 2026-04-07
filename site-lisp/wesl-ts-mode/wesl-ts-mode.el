@@ -103,19 +103,41 @@
 (defun wesl-ts-mode--is-builtin? (x)
   (gethash (treesit-node-text x) wesl-ts-mode--builtins-hash-table))
 
+
+;; font-lock-comment-face
+;; font-lock-comment-delimiter-face
+;; font-lock-string-face
+;; font-lock-doc-face
+;; font-lock-doc-markup-face
+;; font-lock-keyword-face
+;; font-lock-builtin-face
+;; font-lock-function-name-face
+;; font-lock-variable-name-face
+;; font-lock-type-face
+;; font-lock-constant-face
+;; font-lock-warning-face
+;; font-lock-negation-char-face
+;; font-lock-preprocessor-face
+;; font-lock-syntactic-face-function
+
 (defvar wesl-ts-mode--font-lock-rules
   `(:language wesl
     :override t
     :feature comment
     (([(line_comment) (block_comment)]) @font-lock-comment-face)
 
+    :language wesl
+    :override t
+    :feature preprocessor
+    ((preproc_custom directive: (preproc_directive) @font-lock-preprocessor-face))
 
     ;; import xx as xx
    :language wesl
    :override t
    :feature definition
-   ((import_item "as" @font-lock-comment-face)
-    (import_statement "import" @font-lock-comment-face))
+   ((import_item "as" @font-lock-builtin-face)
+    (import_statement "import" @font-lock-builtin-face)
+    (preproc_bevy_import "#import" @font-lock-builtin-face))
 
    :language wesl
    :override t
@@ -129,20 +151,26 @@
    ((struct_decl "struct" @font-lock-keyword-face)
     (attribute "@" @font-lock-preprocessor-face))
 
-
    :language wesl
    :override t
    :feature type
    ((struct_decl name: (identifier) @font-lock-type-face)
-    (struct_member type: (type_specifier (identifier) @font-lock-type-face))
-    (type_specifier (template_list (identifier) @font-lock-type-face)))
+    ;; (struct_member type: (type_specifier (identifier) @font-lock-type-face))
+    (type_specifier (template_list (identifier) @font-lock-type-face))
+    (type_specifier (identifier) @font-lock-type-face)
+    (template_list (template_args_start) (identifier) @font-lock-type-face (template_args_end)))
+
+   :language wesl
+   :override t
+   :feature function
+   ((function_header "fn" name: (identifier) @font-lock-function-name-face)
+    (call_expression (identifier) @font-lock-function-name-face))
 
    :language wesl
    :override t
    :feature definition
    ((struct_member name: (identifier) @font-lock-variable-name-face)
     (attribute name: (identifier) @font-lock-function-call-face))
-
 
    :language wesl
    :override t
@@ -152,7 +180,10 @@
    :language wesl
    :override t
    :feature keyword
-   ((variable_decl "var" @font-lock-keyword-face))
+   ((variable_decl "var" @font-lock-keyword-face)
+    (function_header "fn" @font-lock-keyword-face)
+    (global_value_decl "const" @font-lock-keyword-face)
+    (return_statement "return" @font-lock-keyword-face))
 
    :language wesl
    :override t
@@ -281,7 +312,7 @@ Return nil if there is no name or if NODE is not a defun node."
 
   (setq-local treesit-font-lock-feature-list
               '((comment definition)
-                (keyword string)
+                (keyword string preprocessor)
                 (assignment attribute builtin constant escape-sequence number
                             type address_space texel_format bitcast funcall)
                 (bracket delimiter error function operator property variable)))
