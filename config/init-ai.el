@@ -106,4 +106,23 @@
 
 ;; (advice-add #'gptel-curl--get-args :override #'gaeric/gptel-curl--get-args)
 
+;; (when (require-package 'ai-code)
+;;   (with-eval-after-load 'ai-code
+;;     (ai-code-set-backend 'opencode))
+;;   (setq ai-code-auto-test-type 'ask-me)
+
+
+;;   (when (macrop 'gaeric-comma-leader-def)
+;;     (gaeric-comma-leader-def
+;;       ;; use consult-ripgrep grep at current-dir
+;;       "am" 'ai-code-menu))
+;;   )
+
+(when (require-package 'eca)
+  (if (file-exists-p "~/.emacs.d/eca/eca")
+      (setq eca-custom-command (list "~/.emacs.d/eca/eca" "server")))
+  (when (macrop 'gaeric-comma-leader-def)
+    (gaeric-comma-leader-def
+      "am" 'eca)))
+
 (provide 'init-ai)
