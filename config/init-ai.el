@@ -125,17 +125,24 @@
 ;; eca config eg.
 ;; {
 ;;     "providers": {
-;;         "local": {
-;;             "api": "openai-chat",
-;;             "url": "http://192.168.65.232:4000/v1",
-;;             "key": "xx",
-;;             "models": {}
-;;         },
 ;;         "deepseek": {
 ;;           "api": "openai-chat",
 ;;           "url": "https://api.deepseek.com",
 ;;           "models": {
 ;;             "deepseek-chat": {}
+;;           },
+;;           "key": "xx"
+;;         },
+;;         "dapu": {
+;;             "api": "openai-chat",
+;;             "url": "http://192.168.65.232:4000/v1",
+;;             "key": "xx",
+;;             "models": {}
+;;         },
+;;         "litellm": {
+;;           "api": "openai-responses",
+;;           "url": "https://aihubmix.com",
+;;           "models": {
 ;;           },
 ;;           "key": "xx"
 ;;         }
