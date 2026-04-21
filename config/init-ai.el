@@ -33,30 +33,33 @@
 (setq gptel-api-key (gaeric/ai-read-api gpt-api-key-file))
 (setq xai-api-key (gaeric/ai-read-api xai-api-key-file))
 
-;; (setq gptel-model 'grok-3-mini-latest
-;;       gptel-backend
-;;       (gptel-make-xai "xAI"
-;;         :key xai-api-key
-;;         :stream t))
-
-
 (defun gaeric/gptel-send ()
   (interactive)
   (move-end-of-line nil)
   (insert (if use-hard-newlines hard-newline "\n"))
   (gptel-send))
 
-(when (macrop 'gaeric-space-leader-def)
-  (gaeric-space-leader-def
-    "ag" 'gptel
-    )
-  )
-
 (when (macrop 'gaeric-comma-leader-def)
   (gaeric-comma-leader-def
-    "ac" 'gaeric/gptel-send
-    )
-  )
+    "ag" 'gptel
+    "ac" 'gaeric/gptel-send))
+
+(setq ds-api-key-file "~/.emacs.d/ai/ds-key")
+(setq ds-api-key (gaeric/ai-read-api ds-api-key-file))
+
+(gptel-make-openai "deepseek"
+  :host "api.deepseek.com"
+  :endpoint "/v1/chat/completions"
+  :stream t
+  :key ds-api-key
+  :models '((deepseek-chat
+             :description "deepseek v3"
+             :capabilities (tool-use)
+             :context-window 128)
+            (deepseek-reasoner
+             :description "deepseek r1"
+             :capabilities (tool-use reasoning)
+             :context-window 128)))
 
 ;; (defun gaeric/gptel-curl--get-args (info token)
 ;;   "Produce list of arguments for calling Curl.
@@ -120,7 +123,7 @@
 
 (when (require-package 'eca)
   (if (file-exists-p "~/.emacs.d/eca/eca")
-      (setq eca-custom-command (list "~/.emacs.d/eca/eca" "server")))
+      (setq eca-custom-command (list "~/.emacs.d/eca/eca" "server" "--log-level debug")))
   (when (macrop 'gaeric-comma-leader-def)
     (gaeric-comma-leader-def
       "am" 'eca)))
