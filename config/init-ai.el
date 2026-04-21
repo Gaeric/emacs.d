@@ -121,9 +121,37 @@
 ;;       "am" 'ai-code-menu))
 ;;   )
 
+
+;; eca config eg.
+;; {
+;;     "providers": {
+;;         "local": {
+;;             "api": "openai-chat",
+;;             "url": "http://192.168.65.232:4000/v1",
+;;             "key": "xx",
+;;             "models": {}
+;;         },
+;;         "deepseek": {
+;;           "api": "openai-chat",
+;;           "url": "https://api.deepseek.com",
+;;           "models": {
+;;             "deepseek-chat": {}
+;;           },
+;;           "key": "xx"
+;;         }
+;;     },
+;;     "$schema": "https://eca.dev/config.json"
+;; }
+
+;; ECA provider failures may stem from build env issues;
+;; self-compiled eca binary has no such problem.
+;; Deps: JDK 21+, Clojure CLI, Babashka >= 0.8.156
+;; Build: bb debug-cli | bb prod-cli | bb native-cli
 (when (require-package 'eca)
-  (if (file-exists-p "~/.emacs.d/eca/eca")
-      (setq eca-custom-command (list "~/.emacs.d/eca/eca" "server" "--log-level debug")))
+  ;; (if (file-exists-p "~/.emacs.d/eca/eca")
+  ;;     (setq eca-custom-command (list "~/.emacs.d/eca/eca" "server" "--log-level debug")))
+  (if (file-exists-p "~/data/packages/eca/eca")
+      (setq eca-custom-command (list "~/data/packages/eca/eca" "server" "--log-level debug")))
   (when (macrop 'gaeric-comma-leader-def)
     (gaeric-comma-leader-def
       "am" 'eca)))
