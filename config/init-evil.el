@@ -225,4 +225,16 @@
     "xg"  'revert-buffer-quick
     ))
 
+(evil-define-text-object my-evil-inner-line-text-object (count &optional beg end type)
+  "Select non-whitespace content of the current line."
+  (save-excursion
+    (let (line-beg line-end)
+      (back-to-indentation)
+      (setq line-beg (point))
+      (end-of-line)
+      (setq line-end (point))
+      (evil-range line-beg line-end 'exclusive :expanded t))))
+
+(define-key evil-inner-text-objects-map "c" 'my-evil-inner-line-text-object)
+
 (provide 'init-evil)
