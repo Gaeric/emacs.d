@@ -30,7 +30,8 @@
   (setq rime-translate-keybindings
         '("C-f" "C-b" "C-n" "C-p" "C-g" "<left>" "<right>" "<up>" "<down>"
           "<prior>" "<next>" "<delete>" "<tab>"))
-  (setq default-input-method "rime"))
+  (setq default-input-method "rime")
+  (add-hook 'kill-emacs-hook #'rime-lib-finalize))
 
 
 (defun rime-evil-escape-advice (orig-fun key)
