@@ -13,6 +13,15 @@
   (gaeric-comma-leader-def
     "wc" 'lim-count-words))
 
+(defun gaeric/run-once-on-rime-activate (&rest _)
+  (if (equal current-input-method "rime")
+      (progn
+        (message "add the rime-lib-finalize to kill-emacs-hook to WA librime crash")
+        (add-hook 'kill-emacs-hook #'rime-lib-finalize)
+        (advice-remove 'toggle-input-method #'gaeric/run-once-on-rime-activate))
+    )
+  )
+
 (when (maybe-require-package 'rime)
   ;; origin key-binding tab-to-tab-stop
 
@@ -31,7 +40,7 @@
         '("C-f" "C-b" "C-n" "C-p" "C-g" "<left>" "<right>" "<up>" "<down>"
           "<prior>" "<next>" "<delete>" "<tab>"))
   (setq default-input-method "rime")
-  (add-hook 'kill-emacs-hook #'rime-lib-finalize))
+  (advice-add 'toggle-input-method :after #'gaeric/run-once-on-rime-activate))
 
 
 (defun rime-evil-escape-advice (orig-fun key)
