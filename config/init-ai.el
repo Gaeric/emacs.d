@@ -159,6 +159,7 @@
   ;;     (setq eca-custom-command (list "~/.emacs.d/eca/eca" "server" "--log-level debug")))
   (if (file-exists-p "~/data/packages/eca/eca")
       (setq eca-custom-command (list "~/data/packages/eca/eca" "server" "--log-level debug")))
+  ;; (setq eca-chat-custom-model "deepseek/deepseek-chat")
   (when (macrop 'gaeric-comma-leader-def)
     (gaeric-comma-leader-def
       "am" 'eca)))
