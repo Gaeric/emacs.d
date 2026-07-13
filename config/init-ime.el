@@ -40,8 +40,9 @@
         '("C-f" "C-b" "C-n" "C-p" "C-g" "<left>" "<right>" "<up>" "<down>"
           "<prior>" "<next>" "<delete>" "<tab>"))
   (setq default-input-method "rime")
-  (advice-add 'toggle-input-method :after #'gaeric/run-once-on-rime-activate))
-
+  (advice-add 'toggle-input-method :after #'gaeric/run-once-on-rime-activate)
+  (with-eval-after-load 'rime
+    (set-face-attribute 'rime-preedit-face nil :underline t :inverse-video nil)))
 
 (defun rime-evil-escape-advice (orig-fun key)
   "advice for `rime-input-method' to make it work together with `evil-escape'.
