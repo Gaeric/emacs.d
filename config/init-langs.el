@@ -7,22 +7,12 @@
 ;;
 ;; License: GPLv3
 
-
-(defvar emacs-lsp-package 'native
-  "lsp-bridge/native/lsp-mode/lspec")
-
-(unless (display-graphic-p)
-  (if (eq emacs-lsp-package 'lsp-bridge)
-      (setq emacs-lsp-package 'native)))
-
-(setq lsp-manage-mode
+(setq eglot-manage-mode
       (list
-       'emacs-lisp-mode-hook
+       ;; 'emacs-lisp-mode-hook
        'c-ts-mode-hook
        'c++-ts-mode-hook
        'python-ts-mode-hook
-       'rust-ts-mode-hook
-       'rustic-mode-hook
        'js-ts-mode-hook
        'typescript-ts-mode-hook
        'tsx-ts-mode-hook
@@ -33,74 +23,48 @@
        'bash-ts-mode-hook
        'toml-ts-mode-hook
        'yaml-ts-mode-hook
+       'rust-ts-mode-hook
+       'rustic-mode-hook
        ))
 
-(when (eq emacs-lsp-package #'native)
-  ;; eglot
-  ;; https://github.com/joaotavora/eglot/issues/369
+(setq lsp-manage-mode
+      (list
+       'csharp-ts-mode-hook
+       'csharp-mode-hook))
 
-  ;; --- eglot config start
-  ;; disable some feature such as highlight symbol
-  ;; @see https://github.com/joaotavora/eglot/issues/334
-  (require-package 'eglot)
-  (require-package 'consult-eglot)
+;; lsp-mode
+(require-package 'lsp-mode)
 
-  (setq eglot-events-buffer-size 0)
-  (setq read-process-output-max (* 1024 1024))
-  (setq eglot-autoshutdown t)
-  (setq eglot-ignored-server-capabilities
-        '(:documentHighlightProvider :inlayHintProvider))
-  ;; --- eglot config finish
+(setq read-process-output-max (* 1024 1024)
+      lsp-headerline-breadcrumb-enable nil
+      lsp-completion-provider :capf
+      lsp-keep-workspace-alive nil
+      lsp-eldoc-render-all t
+      lsp-log-io nil
+      lsp-idle-delay 0.5
+      lsp-enable-symbol-highlighting nil
+      lsp-enable-on-type-formatting nil)
 
-  (dolist (hook lsp-manage-mode)
-    (unless (eq hook 'emacs-lisp-mode-hook)
-      (add-hook hook #'eglot-ensure))))
-  
+(dolist (hook lsp-manage-mode)
+  (add-hook hook #'yas-minor-mode)
+  (add-hook hook #'company-mode)
+  (add-hook hook (lambda () (lsp-deferred))))
 
-(when (eq emacs-lsp-package #'lspce)
-  (load-rs-module "~/.emacs.d/site-lisp/lspce/target/release/liblspce_module.so")
-  (require 'lspce)
-  (setq lspce-server-programs `(("rust"  "rust-analyzer" "")
-                                ("rustic"  "rust-analyzer" "")
-                                ("python" "pylsp" "" )
-                                ("python" "pyright-langserver" "--stdio")
-                                ("C" "clangd" "")
-                                ("java" ,lspce-java-path lspce-jdtls-cmd-args)
-                                ("sh" "bash-language-server" "start")
-                                ("go" "gopls" "")
-                                ("typescript" "typescript-language-server" "--stdio")
-                                ("js" "typescript-language-server" "--stdio")))
-  (dolist (hook lsp-manage-mode)
-    (unless (eq hook 'emacs-lisp-mode-hook)
-      (add-hook hook #'lspce-mode))))
+;; eglot
+;; https://github.com/joaotavora/eglot/issues/369
+;; --- eglot config start
+;; disable some feature such as highlight symbol
+;; @see https://github.com/joaotavora/eglot/issues/334
+(require-package 'eglot)
+(require-package 'consult-eglot)
 
-(when (eq emacs-lsp-package 'lsp-bridge)
-  ;; (add-to-list 'load-path "~/prog/lsp-bridge")
-  (require 'lsp-bridge)
-  (setq-default lsp-bridge-enable-inlay-hint nil)
-  (add-hook 'after-init-hook (lambda () (global-lsp-bridge-mode))))
+(setq eglot-events-buffer-size 0
+      read-process-output-max (* 1024 1024)
+      eglot-autoshutdown t
+      eglot-ignored-server-capabilities '(:documentHighlightProvider :inlayHintProvider))
+;; --- eglot config finish
 
-(if (eq emacs-lsp-package 'lsp-bridge)
-    (progn
-      (define-key acm-mode-map (kbd "M-j") 'acm-select-next)
-      (define-key acm-mode-map (kbd "M-k") 'acm-select-prev)
-      (define-key acm-mode-map (kbd "M-n") 'acm-doc-scroll-up)
-      (define-key acm-mode-map (kbd "M-p") 'acm-doc-scroll-down)
-
-      (when (macrop 'gaeric-comma-leader-def)
-        (gaeric-comma-leader-def
-          "en" 'lsp-bridge-diagnostic-jump-next
-          "ep" 'lsp-bridge-diagnostic-jump-prev
-          "ef" 'lsp-bridge-code-format
-          "gd" 'lsp-bridge-find-def
-          "gr" 'lsp-bridge-find-references
-          "go" 'lsp-bridge-find-def-other-window)))
-
-  (dolist (hook lsp-manage-mode)
-    (add-hook hook #'yas-minor-mode)
-    (add-hook hook #'corfu-mode)
-    ;; (add-hook hook #'company-mode)
-    )
+(dolist (hook eglot-manage-mode)
   (when (macrop 'gaeric-comma-leader-def)
     (gaeric-comma-leader-def
       "en" 'prog-next-error
@@ -109,13 +73,15 @@
       "er" 'eglot-code-actions
       "gd" 'xref-find-definitions
       "gr" 'xref-find-references
-      "go" 'xref-find-definitions-other-window)))
+      "go" 'xref-find-definitions-other-window))
 
+  (add-hook hook #'yas-minor-mode)
+  (add-hook hook #'company-mode)
+  (add-hook hook #'eglot-ensure))
+  
 ;; breadcrumb config --- 
 (require-package 'breadcrumb)
-(add-hook 'after-init-hook
-          (lambda ()
-            (breadcrumb-mode)))
+(add-hook 'after-init-hook (lambda () (breadcrumb-mode)))
 
 ;; xref config --- 
 (unless  (version< "28.0" emacs-version)
