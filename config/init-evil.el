@@ -68,7 +68,8 @@
   (define-key evil-normal-state-map "U" 'undo-fu-only-redo)
 
   (setq evil-move-cursor-back t)
-  (add-hook 'after-init-hook 'evil-mode))
+  (add-hook 'after-init-hook 'evil-mode)
+  (global-set-key (kbd "M-<backspace>") #'evil-delete-backward-word))
 
 (with-eval-after-load 'evil
   (evil-collection-init))
