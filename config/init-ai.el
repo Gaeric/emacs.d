@@ -39,10 +39,10 @@
   (insert (if use-hard-newlines hard-newline "\n"))
   (gptel-send))
 
-(when (macrop 'gaeric-comma-leader-def)
-  (gaeric-comma-leader-def
-    "ag" 'gptel
-    "ac" 'gaeric/gptel-send))
+;; (when (macrop 'gaeric-comma-leader-def)
+;;   (gaeric-comma-leader-def
+;;     "ag" 'gptel
+;;     "ac" 'gaeric/gptel-send))
 
 (setq ds-api-key-file "~/.emacs.d/ai/ds-key")
 (setq ds-api-key (gaeric/ai-read-api ds-api-key-file))
@@ -162,6 +162,15 @@
   ;; (setq eca-chat-custom-model "deepseek/deepseek-chat")
   (when (macrop 'gaeric-comma-leader-def)
     (gaeric-comma-leader-def
-      "am" 'eca)))
+      "em" 'eca))
+
+  (when (macrop 'gaeric-comma-leader-def)
+    (gaeric-comma-leader-def
+      :keymaps 'eca-chat-mode-map
+      "ec" 'eca-chat-tool-call-accept-all
+      "er" 'eca-chat-tool-call-reject-next
+      "em" 'eca-chat-select-model
+      "ek" 'eca-chat-clear-prompt
+      )))
 
 (provide 'init-ai)
