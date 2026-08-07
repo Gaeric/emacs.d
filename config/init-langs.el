@@ -58,8 +58,7 @@
 (require-package 'eglot)
 (require-package 'consult-eglot)
 
-(setq eglot-events-buffer-size 0
-      read-process-output-max (* 1024 1024)
+(setq read-process-output-max (* 1024 1024)
       eglot-autoshutdown t
       eglot-ignored-server-capabilities '(:documentHighlightProvider :inlayHintProvider))
 ;; --- eglot config finish
