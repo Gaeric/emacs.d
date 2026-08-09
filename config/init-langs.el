@@ -43,7 +43,9 @@
       lsp-log-io nil
       lsp-idle-delay 0.5
       lsp-enable-symbol-highlighting nil
-      lsp-enable-on-type-formatting nil)
+      lsp-enable-on-type-formatting nil
+      lsp-inlay-hint-enable nil
+      lsp-lens-enable nil)
 
 (dolist (hook lsp-manage-mode)
   (add-hook hook #'yas-minor-mode)
