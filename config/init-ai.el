@@ -173,4 +173,10 @@
       "ek" 'eca-chat-clear-prompt
       )))
 
+
+(when (require-package 'agent-shell)
+  (with-eval-after-load 'agent-shell-ui
+    (define-key agent-shell-ui-fragment-map (kbd "<return>") #'agent-shell-ui-toggle-fragment))
+  (setq agent-shell-opencode-default-model-id "deepseek/deepseek-flash"))
+
 (provide 'init-ai)
