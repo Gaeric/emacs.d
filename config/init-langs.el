@@ -19,7 +19,8 @@
        ;; 'lua-ts-mode-hook
        'gdscript-mode-hook
        'gdscript-ts-mode-hook
-       ;; 'wgsl-mode-hook
+       'wgsl-mode-hook
+       'wesl-ts-mode-hook
        'bash-ts-mode-hook
        'toml-ts-mode-hook
        'yaml-ts-mode-hook
@@ -29,8 +30,9 @@
 
 (setq lsp-manage-mode
       (list
-       'csharp-ts-mode-hook
-       'csharp-mode-hook))
+       ;; 'csharp-ts-mode-hook
+       ;; 'csharp-mode-hook
+       ))
 
 ;; lsp-mode
 (require-package 'lsp-mode)

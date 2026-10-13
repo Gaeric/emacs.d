@@ -29,6 +29,8 @@
 
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
-               '(wgsl-mode . ("wgsl-analyzer"))))
+               '(wgsl-mode . ("wgsl-analyzer")))
+  (add-to-list 'eglot-server-programs
+               '(wesl-ts-mode . ("wgsl-analyzer"))))
 
 (provide 'init-wgsl)
