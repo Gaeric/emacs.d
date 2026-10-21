@@ -175,6 +175,10 @@
 
 
 (when (require-package 'agent-shell)
+  ;; make some scene run in docker
+  (require 'init-agent-shell-docker)
+  (with-eval-after-load 'agent-shell
+    (define-key comint-mode-map (kbd "M-n") nil))
   (with-eval-after-load 'agent-shell-ui
     (define-key agent-shell-ui-fragment-map (kbd "<return>") #'agent-shell-ui-toggle-fragment))
   (setq agent-shell-opencode-default-model-id "deepseek/deepseek-flash"))
