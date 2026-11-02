@@ -9,7 +9,7 @@
 
 (defcustom my/agent-shell-docker-projects
   '(("/home/zero/data/packages/sgs" . "goose-sgs")
-    ("/home/zero/data/bevy_inbox/" . "goose-bevy-inbox"))
+    ("/home/zero/data/bevy_inbox/" . "goose-bevy_inbox"))
   "Projects whose agents should run inside a container.
 
 Each entry is (DIRECTORY . CONTAINER-NAME).  All subdirectories of

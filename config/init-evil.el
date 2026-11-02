@@ -40,7 +40,49 @@
   (setq evil-escape-excluded-major-modes '(dired-mode))
   (setq-default evil-escape-key-sequence ",.")
   ;; disable evil-escape when input method is on
-  (evil-escape-mode 1))
+  (evil-escape-mode 1)
+
+  ;;----------------------------------------------------------------------------
+  ;; Work around a hang on `,' in agent-shell buffers:
+  ;; read_char -> redisplay -> current_column -> scan_for_column ->
+  ;; skip_invisible, spinning with no QUIT in the loop (C-g does nothing).
+  ;;
+  ;; Trigger: `evil-escape-pre-command-hook' calls
+  ;; (read-event nil nil evil-escape-delay) from pre-command-hook.  In
+  ;; keyboard.c, read_char runs redisplay() only on the timeout path:
+  ;;
+  ;;   if (NILP (c))
+  ;;     { if (commandflag >= 0 && !input_pending && ...) redisplay (); ... }
+  ;;
+  ;; So typing `,' and then pausing for 0.3s (no second key) hits it: the
+  ;; read times out, redisplay runs, and in an agent-shell buffer that is
+  ;; narrowed around invisible text with a mid-line `field' boundary at
+  ;; point the column scan never makes progress.  Typing `,.' quickly
+  ;; never takes that path and does not hang.
+  ;;
+  ;; Fix: skip that redisplay.  `redisplay_internal' bails out early on
+  ;; `if (!NILP (Vinhibit_redisplay)) return;'.  evil-escape binds
+  ;; inhibit-redisplay to nil inside its own hook, so an outer `let' is
+  ;; shadowed; but it evaluates `evil-escape--insert' inside that `let*'
+  ;; (the `inserted' binding), so a `setq' from an advice on that function
+  ;; lands in evil-escape's own binding.
+  ;;
+  ;; No functionality is lost: the only state drawn during those 0.3s is
+  ;; the temporary `,' that evil-escape inserts and immediately deletes.
+  ;; The real `,' is inserted afterwards by self-insert-command.  `,.'
+  ;; still escapes to normal state, `,x' still inserts both characters,
+  ;; and the `,' leader in normal state is untouched.
+  (defun my/agent-shell-no-redisplay-in-escape-wait (orig &rest args)
+    "Suppress redisplay during evil-escape's 0.3s key wait.
+
+Only in agent-shell buffers, where a narrowed region plus invisible text
+can send `current-column' into an infinite loop."
+    (prog1 (apply orig args)
+      (when (derived-mode-p 'agent-shell-mode)
+        (setq inhibit-redisplay t))))
+
+  (advice-add 'evil-escape--insert :around
+              #'my/agent-shell-no-redisplay-in-escape-wait))
 
 (setq evil-collection-exclude-modes '(company tide python))
 (with-eval-after-load 'evil-collection

@@ -58,7 +58,13 @@
         (if (or (char-equal key fkey)
                 (and evil-escape-unordered-key-sequence
                      (char-equal key skey)))
-            (let ((evt (read-event nil nil evil-escape-delay)))
+            ;; Same trap as the evil-escape block in init-evil.el: after
+            ;; read-event times out, read_char calls redisplay(), which can
+            ;; spin in current_column/skip_invisible in a narrowed
+            ;; agent-shell buffer full of invisible text.  Nothing needs to
+            ;; be drawn during the wait, so suppressing redisplay is free.
+            (let ((evt (let ((inhibit-redisplay t))
+                         (read-event nil nil evil-escape-delay))))
               (cond
                ((and (characterp evt)
                      (or (and (char-equal key fkey) (char-equal evt skey))
