@@ -177,6 +177,9 @@
 (when (require-package 'agent-shell)
   ;; make some scene run in docker
   (require 'init-agent-shell-docker)
+
+  (maybe-require-package 'agent-shell-math-renderer)
+  (add-hook 'agent-shell-mode-hook #'agent-shell-math-renderer-mode)
   (with-eval-after-load 'agent-shell
     (define-key comint-mode-map (kbd "M-n") nil))
   (with-eval-after-load 'agent-shell-ui
