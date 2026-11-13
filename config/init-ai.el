@@ -176,6 +176,7 @@
 
 (when (require-package 'agent-shell)
   ;; make some scene run in docker
+  ;; use C-m as <RET>
   (require 'init-agent-shell-docker)
   (maybe-require-package 'agent-shell-math-renderer)
   (add-hook 'agent-shell-mode-hook #'agent-shell-math-renderer-mode)
